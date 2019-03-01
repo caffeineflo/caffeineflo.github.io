@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on [self writeBlog];</title>
+    <link>https://iflorian.com/categories/ios/</link>
+    <description>Recent content in Ios on [self writeBlog];</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2017</copyright>
+    <lastBuildDate>Fri, 17 Feb 2017 01:42:49 +0000</lastBuildDate>
+    
+	<atom:link href="https://iflorian.com/categories/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unicycling: One App For All EUCs</title>
+      <link>https://iflorian.com/unicycling-one-app-for-all-eucs/</link>
+      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
+      
+      <guid>https://iflorian.com/unicycling-one-app-for-all-eucs/</guid>
+      <description>A week ago I started a new project. I&amp;rsquo;m excited to talk about it as it&amp;rsquo;s coming along nicely.
+A unicycling app!
+I&amp;rsquo;ve been an electric unicycle rider for a bit over a year now and it seems as there&amp;rsquo;s a big problem with all the different brands of EUCs (electric unicycle) that are out there: Their Apps
+When riding a electric unicycle, you need an app from time to time to change the settings of your EUC or track your path, battery or any of those metrics.</description>
+    </item>
+    
+  </channel>
+</rss>

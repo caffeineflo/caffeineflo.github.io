@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.12.6//EN
+N:Draffen;Nick;;;
+FN:Nick Draffen
+ORG:Security Engineer;
+EMAIL;type=INTERNET;type=HOME;type=pref:nick.draffen@gmail.com
+item1.EMAIL;type=INTERNET:nick.draffen@gmail.com
+EMAIL;type=INTERNET;type=HOME:nickolas.draffen@gmail.com
+item2.TEL:+49 176 18972640
+URL;type=HOME;type=pref:http://draffe.net
+UID:9330e2fa-4f9e-4f8f-877f-4a04df1efb37
+X-ABUID:8CB2B2EB-411D-4F10-8D8C-0F62168558CB:ABPerson
+END:VCARD

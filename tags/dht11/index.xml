@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dht11 on [self writeBlog];</title>
+    <link>https://iflorian.com/tags/dht11/</link>
+    <description>Recent content in Dht11 on [self writeBlog];</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2017</copyright>
+    <lastBuildDate>Wed, 21 Jun 2017 11:20:26 -0400</lastBuildDate>
+    
+	<atom:link href="https://iflorian.com/tags/dht11/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ESP8266 Special: Apple&#39;s HomeKit is now for everyone!</title>
+      <link>https://iflorian.com/esp8266-weather-station-homekit-special/</link>
+      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
+      
+      <guid>https://iflorian.com/esp8266-weather-station-homekit-special/</guid>
+      <description>Two weeks ago Apple held it&amp;rsquo;s annual WWDC keynote announcing the latest updates to their platforms and technologies. The keynote lasted over 2 hours and you might would think that in that much time they have touched at least all technologies on the surface, but one thing especially seemed to have been missing almost entirely. HomeKit!
+While Apple seemed to have not shown too much love to that topic during their Keynote, it seems as if they still have given that technology quite some thought leading up to WWDC as Apple quietly made quite a few changes.</description>
+    </item>
+    
+    <item>
+      <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III</title>
+      <link>https://iflorian.com/esp8266-weather-station-part-3/</link>
+      <pubDate>Mon, 08 May 2017 20:20:22 -0400</pubDate>
+      
+      <guid>https://iflorian.com/esp8266-weather-station-part-3/</guid>
+      <description>Part III This is part III of a series of tutorials that build up on each other. If you missed the first parts, you can find it here: Part 1 Part 2
+In this part we&amp;rsquo;re going to use the esp8266 chip with the DHT11 sensor from part I to connect to our MQTT server from part II and publish the sensors data. Finally, we are going to build a iOS app to display our data.</description>
+    </item>
+    
+    <item>
+      <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II</title>
+      <link>https://iflorian.com/esp8266-weather-station-part-2/</link>
+      <pubDate>Thu, 09 Feb 2017 11:20:20 -0400</pubDate>
+      
+      <guid>https://iflorian.com/esp8266-weather-station-part-2/</guid>
+      <description>Part II This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I
+Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III. We&amp;rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we&amp;rsquo;re going to use in part III to communicate with our little weather station.</description>
+    </item>
+    
+    <item>
+      <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I</title>
+      <link>https://iflorian.com/esp8266-weather-station-part-1/</link>
+      <pubDate>Mon, 19 Dec 2016 08:20:26 -0400</pubDate>
+      
+      <guid>https://iflorian.com/esp8266-weather-station-part-1/</guid>
+      <description>Part I Today we&amp;rsquo;re going to build something exciting together and you guessed right - it has to do with the Internet of Things.
+As we do more and more IoT business for our clients, we as software developers also get more and more into the hardware part of the equation. Which is an important part when you truly want to understand and solve a problem.
+To achieve this and to share my knowledge with you in the best possible way, I made a project that will will help illuminate what&amp;rsquo;s behind IoT.</description>
+    </item>
+    
+  </channel>
+</rss>

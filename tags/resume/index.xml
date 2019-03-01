@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resume on [self writeBlog];</title>
+    <link>https://iflorian.com/tags/resume/</link>
+    <description>Recent content in Resume on [self writeBlog];</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2017</copyright>
+    <lastBuildDate>Thu, 23 Feb 2017 19:57:37 +0000</lastBuildDate>
+    
+	<atom:link href="https://iflorian.com/tags/resume/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>https://iflorian.com/about/</link>
+      <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
+      
+      <guid>https://iflorian.com/about/</guid>
+      <description>Hi Visitor,
+Welcome to my blog/website/notebook! I&amp;rsquo;m glad you are here and I hope you enjoy the content you find here. Here are a few words about me, so you&amp;rsquo;ll get to know who writes all this stuff.
+Florian Harr iOS Software Engineer in Atlanta I&amp;rsquo;m an iOS Developer in Atlanta! I moved to Atlanta in 2014 right after I finished my Bachelors Degree in Computer Science in Stuttgart, Germany.</description>
+    </item>
+    
+  </channel>
+</rss>

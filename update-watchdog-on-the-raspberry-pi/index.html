@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="[Update] Watchdog On The Raspberry Pi"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@caffeineflo"/>
+
+
+
+  	<meta property="og:title" content="[Update] Watchdog On The Raspberry Pi &middot; [self writeBlog];" />
+  	<meta property="og:site_name" content="[self writeBlog];" />
+  	<meta property="og:url" content="https://iflorian.com/update-watchdog-on-the-raspberry-pi/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover_small.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2017-02-14T00:56:10Z" />
+
+    
+    <meta property="article:tag" content="raspberry pi" />
+    
+    <meta property="article:tag" content="watchdog" />
+    
+    <meta property="article:tag" content="arch linux" />
+    
+    
+
+    <title>[Update] Watchdog On The Raspberry Pi &middot; [self writeBlog];</title>
+
+    
+    <meta name="description" content="I was posting about the watchdog device on the raspberry pi a few days ago and how to solve a specific error with the configuration on the pi.
+In the meantime I" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    <link rel="canonical" href="https://iflorian.com/update-watchdog-on-the-raspberry-pi/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": https://iflorian.com/images/logo_inverted.png
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": https://iflorian.com/images/logo_inverted.png,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": https://iflorian.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": [Update] Watchdog On The Raspberry Pi,
+    "name": [Update] Watchdog On The Raspberry Pi,
+    "wordCount": 234,
+    "timeRequired": "PT2M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": https://iflorian.com/update-watchdog-on-the-raspberry-pi/,
+    "datePublished": 2017-02-14T00:56Z,
+    "dateModified": 2017-02-14T00:56Z,
+    
+    "keywords": raspberry pi, watchdog, arch linux,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": https://iflorian.com/update-watchdog-on-the-raspberry-pi/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86325185-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">My Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/euc">EUC</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about">About me</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/contact">Contact</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+  <div class="vertical">
+      <div class="main-header-content inner">
+          
+    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
+        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
+    <span class="icon-github" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
+        <span class="icon-twitter" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+          <h1 class="page-title">[self writeBlog];</h1>
+          <h2 class="page-description"></h2>
+      </div>
+  </div>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">[Update] Watchdog On The Raspberry Pi</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-02-14T00:56:10Z">
+            Feb 14, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/raspberry-pi/">#raspberry pi</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/watchdog/">#watchdog</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/arch-linux/">#arch linux</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <p>I was posting about the watchdog device on the raspberry pi a few days ago and how to solve a specific error with the configuration on the pi.</p>
+
+<p>In the meantime I had the watchdog device running for a few days and it worked &hellip; kind of &hellip;</p>
+
+<p>One should know, that the watchdog devices halts the pi immediately, so it&rsquo;s not a clean shutoff but more like you would pull the power plug of the pi.</p>
+
+<p>Second, the defaults that are set in the watchdog config are really not great for the raspberry pi. I&rsquo;ve upped the 15 min max load <code>max-load-15</code> to 45 and the results weren&rsquo;t too pleasant.
+Every time the pi had to compile something or do some heavy lifting, the watchdog device would kill my pi. So far not a problem, until I was about to compile another long running job and the pi died in between.<br />
+Upon reboot I got greeted by an emergency boot telling me to run fsck manually. What happened was that the ext4 filesystem badly crashed, beyond the point of repair and my OS setup was gone &hellip;</p>
+
+<p>So before setting up the watchdog device on your pi, you should consider checking your max-load values and set them to an appropriate value. Oh and a backup of your data helps too. I had one, from a year ago &hellip; when duply stopped working &hellip;</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
+  
+  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
+    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%5bUpdate%5d%20Watchdog%20On%20The%20Raspberry%20Pi&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fupdate-watchdog-on-the-raspberry-pi%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fupdate-watchdog-on-the-raspberry-pi%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fupdate-watchdog-on-the-raspberry-pi%2f&amp;description=%5bUpdate%5d%20Watchdog%20On%20The%20Raspberry%20Pi"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fupdate-watchdog-on-the-raspberry-pi%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/iflorian.com\/update-watchdog-on-the-raspberry-pi\/";  
+this.page.identifier = "https:\/\/iflorian.com\/update-watchdog-on-the-raspberry-pi\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://iflorian.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/financefox-review/">
+          <section class="post">
+              <h2>FinanceFox Review</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/esp8266-weather-station-part-2/">
+          <section class="post">
+              <h2>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

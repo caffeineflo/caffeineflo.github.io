@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conference on [self writeBlog];</title>
+    <link>https://iflorian.com/tags/conference/</link>
+    <description>Recent content in Conference on [self writeBlog];</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2017</copyright>
+    <lastBuildDate>Mon, 31 Jul 2017 11:44:40 -0400</lastBuildDate>
+    
+	<atom:link href="https://iflorian.com/tags/conference/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Join me at 360iDev - The Leading Indie iOS/macOS Developer Conference</title>
+      <link>https://iflorian.com/360idev2017-denver/</link>
+      <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
+      
+      <guid>https://iflorian.com/360idev2017-denver/</guid>
+      <description>360iDev is coming fast and you should come! Why?
+Let me give you six reasons why you should come:
+ Sam Davies will give &amp;ldquo;A Fun iOS 11 Workshop&amp;rdquo; on Sunday, Aug 13th
+ On Monday, Aug 14th Joe Cieplinski will talk about &amp;ldquo;Getting Past No: The Science of Moving Others&amp;rdquo;
+ Jay Freeman (Too many references to link to) will be talking about himself?! Anyways, I&amp;rsquo;m sure his session is going to be great!</description>
+    </item>
+    
+  </channel>
+</rss>

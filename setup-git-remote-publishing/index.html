@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Setup Git Push To Securly Update Your Website"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@caffeineflo"/>
+
+
+
+  	<meta property="og:title" content="Setup Git Push To Securly Update Your Website &middot; [self writeBlog];" />
+  	<meta property="og:site_name" content="[self writeBlog];" />
+  	<meta property="og:url" content="https://iflorian.com/setup-git-remote-publishing/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover_small.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2017-06-13T20:05:33-04:00" />
+
+    
+    <meta property="article:tag" content="Git" />
+    
+    <meta property="article:tag" content="push" />
+    
+    <meta property="article:tag" content=".git" />
+    
+    
+
+    <title>Setup Git Push To Securly Update Your Website &middot; [self writeBlog];</title>
+
+    
+    <meta name="description" content="I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
+One task GitHub Pages solves perfectly" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    <link rel="canonical" href="https://iflorian.com/setup-git-remote-publishing/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": https://iflorian.com/images/logo_inverted.png
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": https://iflorian.com/images/logo_inverted.png,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": https://iflorian.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Setup Git Push To Securly Update Your Website,
+    "name": Setup Git Push To Securly Update Your Website,
+    "wordCount": 564,
+    "timeRequired": "PT3M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": https://iflorian.com/setup-git-remote-publishing/,
+    "datePublished": 2017-06-13T20:05Z,
+    "dateModified": 2017-06-13T20:05Z,
+    
+    "keywords": Git, push, .git,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": https://iflorian.com/setup-git-remote-publishing/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86325185-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">My Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/euc">EUC</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about">About me</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/contact">Contact</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+  <div class="vertical">
+      <div class="main-header-content inner">
+          
+    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
+        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
+    <span class="icon-github" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
+        <span class="icon-twitter" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+          <h1 class="page-title">[self writeBlog];</h1>
+          <h2 class="page-description"></h2>
+      </div>
+  </div>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Setup Git Push To Securly Update Your Website</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-06-13T20:05:33-04:00">
+            Jun 13, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/git/">#Git</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/push/">#push</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/.git/">#.git</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.</p>
+
+<p>One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.</p>
+
+<p>And so I changed my setup once again. I didn&rsquo;t fully drop GitHub Pages, but I redirect the GitHub Pages site to <a href="https://iflorian.com">https://iflorian.com</a> through their CNAME option under <code>GitHub Pages -&gt; Settings</code> and I serve the same content just from there.</p>
+
+<p>Now this brings back exactly the problem I just said GitHub Pages would solve, so I have to solve this problem myself.</p>
+
+<h2 id="the-easy-path">The Easy Path</h2>
+
+<p>The easiest path I could choose would be to directly push into the publishing folder of my webserver by adding the remote repo as a git remote and push to it. If there wouldn&rsquo;t be this one problem &hellip;</p>
+
+<p>I recently read this article <a href="https://en.internetwache.org/dont-publicly-expose-git-or-how-we-downloaded-your-websites-sourcecode-an-analysis-of-alexas-1m-28-07-2015/">&ldquo;Don&rsquo;t publicly expose .git or how we downloaded your website&rsquo;s sourcecode - An analysis of Alexa&rsquo;s 1M&rdquo;
+</a> on Internetwache.org that nicely shows an issue that is often overlooked when having your website under version control.</p>
+
+<p>While my website is publicly available on my GitHub account including the git history, you normally wouldn&rsquo;t want to expose that in case of a normal homepage setup - and after all, if we don&rsquo;t need to, why would we expose our git data on a website?</p>
+
+<p>This is when I found this great writing on this topic: <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-automatic-deployment-with-git-with-a-vps">How To Set Up Automatic Deployment with Git with a VPS
+</a></p>
+
+<p>It has two small minor errors, which is why I want to quickly show how to do the same thing and fix what I just mentioned.</p>
+
+<h2 id="pushing-website-updates-via-git">Pushing Website Updates via Git</h2>
+
+<p>First you want to clone your repo somewhere safe on your server:</p>
+
+<pre><code class="language-bash">git clone https://github.com/caffeineflo/repo.git
+</code></pre>
+
+<p>Next, you want to configure git hooks to checkout your HTML files to the directory your webserver is serving:</p>
+
+<pre><code class="language-bash">cd /path/repo/.git/hooks/
+</code></pre>
+
+<pre><code class="language-bash">vi post-receive
+</code></pre>
+
+<p>Now you&rsquo;ve opened the post-receive hook, the script you put in here will be executed post receiving a push:</p>
+
+<pre><code class="language-bash">#!/bin/sh
+git --work-tree=/path/www --git-dir=/path/repo/.git checkout -f
+</code></pre>
+
+<p>The path you put in under the &ndash;work-tree parameter is your webserver directory and the &ndash;git-dir parameter needs to point to the .git directory where you checked out your website.</p>
+
+<p><strong>Pro Tip:</strong> You could only do a flat/bare clone when initially cloning the repo as you don&rsquo;t need your repo in two places.</p>
+
+<p>Make the script executable:</p>
+
+<pre><code>chmod +x post-receive
+</code></pre>
+
+<p>You&rsquo;re free to exit your remote machine now.</p>
+
+<p>On the <strong>local side</strong> of things you only need to add your remote now. Depending on what type of connection you use with your remote end you need to adjust this. In your local repo directory, add the remote:</p>
+
+<pre><code class="language-bash">git remote add iflorian.com ssh://iflorian/path/repo
+</code></pre>
+
+<p>If you now push your code from your local end to the newly added remote end:</p>
+
+<pre><code class="language-bash">git push iflorian.com master
+</code></pre>
+
+<p>Your remote end will receive the push, run the post-receive hook and update your webserver.</p>
+
+<p>While I admit that this solution needs a bit of setup and is therefore more complex than the initial GitHub Pages approach, I think it&rsquo;s a great and safe way to remote update your webserver!</p>
+
+<p>Congrats! You&rsquo;ve made it!</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
+  
+  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
+    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Setup%20Git%20Push%20To%20Securly%20Update%20Your%20Website&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fsetup-git-remote-publishing%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fsetup-git-remote-publishing%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fsetup-git-remote-publishing%2f&amp;description=Setup%20Git%20Push%20To%20Securly%20Update%20Your%20Website"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fsetup-git-remote-publishing%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/iflorian.com\/setup-git-remote-publishing\/";  
+this.page.identifier = "https:\/\/iflorian.com\/setup-git-remote-publishing\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://iflorian.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/esp8266-weather-station-homekit-special/">
+          <section class="post">
+              <h2>ESP8266 Special: Apple&#39;s HomeKit is now for everyone!</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/">
+          <section class="post">
+              <h2>From Ghost to Hugo. Easier Blog Hosting with Github Pages</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

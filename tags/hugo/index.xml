@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on [self writeBlog];</title>
+    <link>https://iflorian.com/tags/hugo/</link>
+    <description>Recent content in Hugo on [self writeBlog];</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2017</copyright>
+    <lastBuildDate>Mon, 12 Jun 2017 09:54:46 -0400</lastBuildDate>
+    
+	<atom:link href="https://iflorian.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>From Ghost to Hugo. Easier Blog Hosting with Github Pages</title>
+      <link>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</link>
+      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
+      
+      <guid>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</guid>
+      <description>With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
+Let me explain why I did this and how you can do this as well.
+Starting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.</description>
+    </item>
+    
+  </channel>
+</rss>

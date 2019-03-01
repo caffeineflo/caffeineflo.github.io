@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Watchdog on [self writeBlog];</title>
+    <link>https://iflorian.com/tags/watchdog/</link>
+    <description>Recent content in Watchdog on [self writeBlog];</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2017</copyright>
+    <lastBuildDate>Tue, 14 Feb 2017 00:56:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://iflorian.com/tags/watchdog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Update] Watchdog On The Raspberry Pi</title>
+      <link>https://iflorian.com/update-watchdog-on-the-raspberry-pi/</link>
+      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
+      
+      <guid>https://iflorian.com/update-watchdog-on-the-raspberry-pi/</guid>
+      <description>I was posting about the watchdog device on the raspberry pi a few days ago and how to solve a specific error with the configuration on the pi.
+In the meantime I had the watchdog device running for a few days and it worked &amp;hellip; kind of &amp;hellip;
+One should know, that the watchdog devices halts the pi immediately, so it&amp;rsquo;s not a clean shutoff but more like you would pull the power plug of the pi.</description>
+    </item>
+    
+    <item>
+      <title>Watchdog - cannot set timeout 16 (errno = 22 = &#39;Invalid argument&#39;)</title>
+      <link>https://iflorian.com/watchdog-cannot-set-timeout-16-errno-22-invalid-argument/</link>
+      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
+      
+      <guid>https://iflorian.com/watchdog-cannot-set-timeout-16-errno-22-invalid-argument/</guid>
+      <description>Seen that error before?
+Possibly on a Raspberry Pi 2&amp;frasl;3?
+Google seems to have problems guiding you to the right solution, so here it is:
+Add watchdog-timeout = 15 to your watchdog.conf file.
+Why is that? The Broadcom BCM2835 Watchdog timer only supports 15 seconds timeout ;)</description>
+    </item>
+    
+  </channel>
+</rss>

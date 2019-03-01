@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Block Outside Dns on [self writeBlog];</title>
+    <link>https://iflorian.com/tags/block-outside-dns/</link>
+    <description>Recent content in Block Outside Dns on [self writeBlog];</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2017</copyright>
+    <lastBuildDate>Tue, 31 Jan 2017 06:06:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://iflorian.com/tags/block-outside-dns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OpenVPN block-outside-dns</title>
+      <link>https://iflorian.com/openvpn-block-outside-ds/</link>
+      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
+      
+      <guid>https://iflorian.com/openvpn-block-outside-ds/</guid>
+      <description>Recently I had issues with my VPN setup, specifically with my VPN over at premiumize.me.
+They seem to have added the block-outside-dns option to their OpenVPN setup. As that&amp;rsquo;s a Windows only question it doesn&amp;rsquo;t work on my OS X/Arch Linux machine and causes problems.
+The error message was:
+Unrecognized option or missing or extra parameter(s) in [PUSH-OPTIONS]:6: block-outside-dns (2.4.0)  You can fix that (given you run OpenVPN &amp;gt;= 2.</description>
+    </item>
+    
+  </channel>
+</rss>

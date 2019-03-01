@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image" content="/images/2016/12/Wiring.png"/>
+    
+
+
+
+<meta name="twitter:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@caffeineflo"/>
+
+
+
+  	<meta property="og:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I &middot; [self writeBlog];" />
+  	<meta property="og:site_name" content="[self writeBlog];" />
+  	<meta property="og:url" content="https://iflorian.com/esp8266-weather-station-part-1/" />
+
+    
+       <meta property="og:image" content="/images/2016/12/Wiring.png"/>
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2016-12-19T08:20:26-04:00" />
+
+    
+    <meta property="article:tag" content="esp8266" />
+    
+    <meta property="article:tag" content="dht11" />
+    
+    <meta property="article:tag" content="dht22" />
+    
+    
+
+    <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I &middot; [self writeBlog];</title>
+
+    
+    <meta name="description" content="Part I Today we&amp;rsquo;re going to build something exciting together and you guessed right - it has to do with the Internet of Things.
+As we do more and more IoT" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    <link rel="canonical" href="https://iflorian.com/esp8266-weather-station-part-1/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": https://iflorian.com/images/logo_inverted.png
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": https://iflorian.com/images/logo_inverted.png,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": https://iflorian.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I,
+    "name": Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I,
+    "wordCount": 1985,
+    "timeRequired": "PT10M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": https://iflorian.com/esp8266-weather-station-part-1/,
+    "datePublished": 2016-12-19T08:20Z,
+    "dateModified": 2016-12-19T08:20Z,
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": https://iflorian.com//images/2016/12/Wiring.png,
+        "width": 3000,
+        "height": 1445
+    },
+    
+    "keywords": esp8266, dht11, dht22,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": https://iflorian.com/esp8266-weather-station-part-1/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86325185-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">My Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/euc">EUC</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about">About me</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/contact">Contact</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+  
+  <header class="main-header post-head" style="background-image: url(/images/2016/12/Wiring.png)">
+  
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+  <div class="vertical">
+      <div class="main-header-content inner">
+          
+    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
+        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
+    <span class="icon-github" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
+        <span class="icon-twitter" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+          <h1 class="page-title">[self writeBlog];</h1>
+          <h2 class="page-description"></h2>
+      </div>
+  </div>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-12-19T08:20:26-04:00">
+            Dec 19, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/esp8266/">#esp8266</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/dht11/">#dht11</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/dht22/">#dht22</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<h1 id="part-i">Part I</h1>
+
+<p>Today we&rsquo;re going to build something exciting together and you guessed right - it has to do with the Internet of Things.</p>
+
+<p>As we do more and more IoT business for our clients, we as software developers also get more and more into the hardware part of the equation. Which is an important part when you truly want to understand and solve a problem.</p>
+
+<p>To achieve this and to share my knowledge with you in the best possible way, I made a project that will will help illuminate what&rsquo;s behind IoT. You don&rsquo;t need much hardware to follow along, here&rsquo;s what you need:</p>
+
+<ul>
+<li>An ESP8266 Board. I use and recommend a NodeMCU Dev Board. $2-5 from <a href="https://www.aliexpress.com/af/nodemcu%252Bv2.html?SearchText=nodemcu+v2">China</a>. $8 <a href="https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&amp;field-keywords=nodemcu">Amazon</a></li>
+<li>An DHT11/DHT22 Sensor (Humidity + Temperature Sensor). $1 or less from <a href="https://www.aliexpress.com/af/dht11.html?SearchText=dht11">China</a>. $3 <a href="https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;field-keywords=dht11">Amazon</a></li>
+</ul>
+
+<p>There will be more requirements throughout this series, I will mention them as they come up.</p>
+
+<p><strong>What are we going to build?</strong><br />
+To start off we&rsquo;re going to build an easy temperature + humidity sensor station, similar to what my colleague Bryan <a href="http://blog.stablekernel.com/mobile-development-for-arduino-part-4">built</a> with an Arduino. Once that is done, the plan is to extend our software by adding <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> as a communication protocol.<br />
+Finally, we want to integrate all of that with an Amazon Alexa Skill - both with a traditional JSON interface and the <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> interface so we can clearly see the implementation differences.</p>
+
+<p><strong>Let&rsquo;s start</strong><br />
+In this part of the series we&rsquo;re going to attach our temperature and humidity sensor to our ESP8266 module and make the data available over WiFi and HTTP. Before we can do that, let&rsquo;s understand what hardware we got here.</p>
+
+<p><img src="/images/2016/12/NodeMCU_DEVKIT_1.0.jpg" alt="ESP8266 NodeMCU v2 Board" />
+<em>Image Source: <a href="https://blog.squix.org">https://blog.squix.org</a></em></p>
+
+<p>The module in question here is a NodeMCU v2 Board. The version 2 of this board utilizes a ESP8266 12E wifi chip. The ESP8266 12E is, as all the ESP chips in this series, a low cost WiFi chip that comes with either a 80 or 160 MHz CPU and <sup>64</sup>&frasl;<sub>96</sub> KiB Memory for instructions and data. Per design, these chips have at least 16 GPIO pins and most of them feature an integrated antenna traced on the PCB. The 12E version, I will be using also features 20 GPIO pins and a 4MB Flash.</p>
+
+<p>Now that we&rsquo;ve talked about the ESP chip, what about the NodeMCU board? What are all these components around the ESP chip for?<br />
+Well, it&rsquo;s similar to an Arduino board - a microcontroller can&rsquo;t do much without components that allow other components to interface with it. Therefore the NodeMCU board adds a USB to Serial chip that allows direct programming of the ESP chip as well as a proper power supply for the chip and attached components. You could say that the NodeMCU board isn&rsquo;t really necessary, but it&rsquo;s certainly making our lifes easier as we won&rsquo;t have to stick all these components together on a breadboard.</p>
+
+<p><img src="/images/2016/12/dht11.jpg" alt="DHT11/22" /></p>
+
+<p>The DHT11 is probably the most widely used temperature and humidity sensor that there is. The sensor works with both 5V and 3.3V, has three pins (<a href="https://en.wikipedia.org/wiki/IC_power-supply_pin">VCC</a>, <a href="https://en.wikipedia.org/wiki/Ground_(electricity)">GND</a> and DATA) and can measure temperatures from 0-50°C (32-122°F) with an error of ± 2°C (3.6°F) and Humidity from 20-90% <a href="https://en.wikipedia.org/wiki/Relative_humidity">RH</a> with an error of ± 5% <a href="https://en.wikipedia.org/wiki/Relative_humidity">RH</a>. The data pin is a digital interface; we don&rsquo;t have to convert an analog voltage into degrees.</p>
+
+<p><img src="/images/2016/12/arduinoide.png" alt="Arduino IDE" /></p>
+
+<p>I won&rsquo;t cover the basics of the Arduino IDE (Arduino.app) since my colleague Bryan already has in a great post of his, but I will show you quickly how you can use the NodeMCU board or any of the ESP8266 chips with the Arduino IDE. The Arduino IDE opened up a while back to 3rd party libraries, allowing 3rd parties to integrate their modules with the Arduino IDE. Some might say it was already possible before that happened and yes, that&rsquo;s true, but it was a hack and used undocumented ways.<br />
+In order to use your ESP8266 module with the Arduino IDE, open the Library Manager under <code>Tools -&gt; Boards:... -&gt; Boards Manager ... -&gt; Filter: ESP8266</code>. From there, the IDE should filter your search results down to one entry &ldquo;esp8266 by ESP8266 Community&rdquo;. Click on that field and click on &ldquo;Install&rdquo;.<br />
+Now you are able to select your NodeMCU module from the Tools section in the Arduino IDE and set the port and baud you&rsquo;re using. CPU and Flash Size can be left as the IDE suggest it in most cases, Baud will most likely be <code>115200</code>.</p>
+
+<p><strong>Wiring</strong><br />
+<img src="/images/2016/12/Wiring.png" alt="Wiring" /><br />
+The wiring is pretty straight forward with a NodeMCU module.</p>
+
+<pre><code>NodeMCU/ESP8266             DHT11  
+3V3                         VCC  
+GND                         GND  
+D5(or any Dx)               DATA  
+</code></pre>
+
+<p>If you&rsquo;re using anything else than a NodeMCU module, you would have to adjust the DATA pin to your needs depending on what USB to Serial solution you are using. Feel free to ask (with sufficient information) in the comments if you&rsquo;re having trouble on the wiring.</p>
+
+<p>Now that everything is wired, we can go on to program the ESP8266 to read and provide the DHT11&rsquo;s data as JSON and text over HTTP.<br />
+We&rsquo;re going to use 4 different libraries for that: DHT Sensor Library, ArduinoJson, ESP8266Wifi and ESP8266WebServer (both should be built-in). You can install all of those with the Library Manager under <code>Sketch -&gt; Include Library -&gt; Library Manager ...</code>.</p>
+
+<p>Create a new Arduino Sketch and copy the following code into the sketch:</p>
+
+<pre><code class="language-c">    #include &lt;ArduinoJson.h&gt;
+    #include &lt;ESP8266WiFi.h&gt;
+    #include &lt;ESP8266WebServer.h&gt;
+    #include &lt;DHT.h&gt;
+
+    #define DHTTYPE   DHT11
+    #define DHTPIN    14
+
+    #define WLAN_SSID     &quot;&quot;
+    #define WLAN_PASSWORD &quot;&quot;
+
+    DHT dht(DHTPIN, DHTTYPE, 11);
+    ESP8266WebServer server(80);
+
+    float temperature, humidity;
+    unsigned long previousMillis = 0;
+    const long interval = 2000;
+
+    void setup() {
+        Serial.begin(115200);
+        delay(10);
+
+        dht.begin();
+        humidity = dht.readHumidity();
+        temperature = dht.readTemperature();
+
+        Serial.println(); Serial.println();
+        Serial.print(&quot;Connecting to &quot;);
+        Serial.println(WLAN_SSID);
+
+        WiFi.mode(WIFI_STA);
+        WiFi.begin(WLAN_SSID, WLAN_PASSWORD);
+        while (WiFi.status() != WL_CONNECTED) {
+            delay(500);
+            Serial.print(&quot;.&quot;);
+        }
+        Serial.println();
+
+        Serial.println(&quot;WiFi connected&quot;);
+        Serial.println(&quot;IP address: &quot;); Serial.println(WiFi.localIP());
+
+        server.on(&quot;/dht11&quot;, HTTP_GET, [](){
+            unsigned long currentMillis = millis();
+
+            if (currentMillis - previousMillis &gt;= interval) {
+                previousMillis = currentMillis;
+
+                humidity = dht.readHumidity();
+                temperature = dht.readTemperature();
+                if (isnan(humidity) || isnan(temperature)) {
+                    Serial.println(&quot;Failed to read from DHT sensor!&quot;);
+                    return;
+                }
+            }
+
+            String webString = &quot;Humiditiy &quot; + String((int)humidity) + &quot;%   Temperature: &quot; + String((int)temperature) + &quot; C&quot;;
+            Serial.println(webString);
+            server.send(200, &quot;text/plain&quot;, webString);
+        });
+        server.on(&quot;/dht11.json&quot;, [](){
+            unsigned long currentMillis = millis();
+
+            if (currentMillis - previousMillis &gt;= interval) {
+                previousMillis = currentMillis;
+
+                humidity = dht.readHumidity();
+                temperature = dht.readTemperature();
+
+                if (isnan(humidity) || isnan(temperature)) {
+                    Serial.println(&quot;Failed to read from DHT sensor!&quot;);
+                    return;
+                }
+
+                Serial.println(&quot;Reporting &quot; + String((int)temperature) + &quot;C and &quot; + String((int)humidity) + &quot; % humidity&quot;);
+            }
+
+            StaticJsonBuffer&lt;500&gt; jsonBuffer;
+            JsonObject&amp; root = jsonBuffer.createObject();
+            root[&quot;temperature&quot;] = temperature;
+            root[&quot;humidity&quot;] = humidity;
+
+            String jsonString;
+            root.printTo(jsonString);
+
+            Serial.println(jsonString);
+            server.send(200, &quot;application/json&quot;, jsonString);
+        });
+
+        server.begin();
+        Serial.println(&quot;HTTP server started! Waiting for clients!&quot;);
+    }
+
+    void loop() {
+        server.handleClient();
+    }
+</code></pre>
+
+<p>Before you can upload and test the code, there are a few things you have to adjust for your WiFi settings and a few things I would like to explain.<br />
+First, you want to change Line 7 with the pin you used to connect your DHT11 Data line to your ESP8266. If you have been using D5 as I suggested in the wiring section, 14 is the correct number here. For everything else, see <a href="pinout.png">NodeMCU Pinout</a>. Also, if you are using a DHT22, which also works, change the line just above that to DHT22. Second, you want to add your wifi settings in line 9 + 10 where it says <code>WLAN_SSID</code> and <code>WLAN_PASSWORD</code>. Put your WiFi SSID in between the quotation marks.<br />
+This should get you going. Go ahead and upload the sketch to your NodeMCU. We&rsquo;re going to give it a test run before I continue explaining what you&rsquo;ve just uploaded to your NodeMCU and ran on your WiFi&hellip;</p>
+
+<p>Now that you&rsquo;ve uploaded the sketch to your module, it should automatically connect to your wifi and you can access it with any web browser. To get your module&rsquo;s IP address, either use the Serial Monitor under Tools in the Arduino IDE and watch for the &ldquo;IP Address: &hellip;&rdquo; output, or scan your network (e.g. with fing). Once you have the IP address, go ahead and put it in your browser&rsquo;s address bar add /dht11 behind the address, hit enter, and you should be getting DHT11 sensor data on your screen.</p>
+
+<p><img src="/images/2016/12/sensorplain.png" alt="DHT11 Plaintext Sensor Data" /></p>
+
+<p>That was easy, wasn&rsquo;t it?</p>
+
+<p>There&rsquo;s one more endpoint you can query, that&rsquo;s /dht11.json. The data you just saw is also available formatted in the JSON format, so that we could pick it up with possible clients.</p>
+
+<p>How would we do it?<br />
+Let&rsquo;s have a look over the interesting parts of the sketch. Again, I won&rsquo;t go over the things that have been covered   <a href="http://blog.stablekernel.com/mobile-development-for-arduino-part-4">before</a>, therefore I will spare you details on how we&rsquo;ve read from the DHT11 sensor and we go straight ahead to checkout the ESP/Wifi stuff.</p>
+
+<pre><code>ESP8266WebServer server(80);
+</code></pre>
+
+<p>First we have to initialize our server by creating a server handle with the port number as argument. As we&rsquo;re going to use HTTP, we&rsquo;re going to use port 80.<br />
+Next, we want to tell the ESP which mode to run. That&rsquo;s going to be station infrastructure mode for us (WIFI_STA) and then we can begin to connect to our Wifi network.</p>
+
+<pre><code class="language-C">    WiFi.mode(WIFI_STA);
+    WiFi.begin(WLAN_SSID, WLAN_PASSWORD);
+</code></pre>
+
+<p>After that we wait until we have a valid connection by checking on the status of our wifi module <code>WiFi.status() != WL_CONNECTED</code>.</p>
+
+<p>Once we have all of this initial setup done, we can register endpoints with instructions for what to do when we hit each endpoint. The method is pretty straight forward <code>server.on(const char *uri, HTTPMethod method, THandlerFunction fn)</code>, so all we need to provide is a URI for the endpoint this should refer to, tell it which HTTP method to respond to and a handler function.<br />
+In our case, we call this method like this for the <code>&quot;/dht11&quot;</code> endpoint:</p>
+
+<pre><code class="language-C">    server.on(&quot;/dht11&quot;, HTTP_GET, [](){
+        unsigned long currentMillis = millis();
+
+        if (currentMillis - previousMillis &gt;= interval) {
+            previousMillis = currentMillis;
+
+            humidity = dht.readHumidity();
+            temperature = dht.readTemperature();
+            if (isnan(humidity) || isnan(temperature)) {
+                Serial.println(&quot;Failed to read from DHT sensor!&quot;);
+                return;
+            }
+        }
+
+        String webString = &quot;Humiditiy &quot; + String((int)humidity) + &quot;%   Temperature: &quot; + String((int)temperature) + &quot; C&quot;;
+        Serial.println(webString);
+        server.send(200, &quot;text/plain&quot;, webString);
+    });
+</code></pre>
+
+<p>Using <code>&quot;/dht11&quot;</code> as the path, we want this method to respond to <code>HTTP_GET</code> requests and we simply read temperature and humidity from the dht11 sensor, put the results in a string and we send it back as <code>&quot;text/plain&quot;</code> with a status code of 200 to the requesting client.</p>
+
+<p>The JSON endpoint is not very different, here&rsquo;s the code:</p>
+
+<pre><code class="language-C">        server.on(&quot;/dht11.json&quot;, [](){
+            // ... DHT11 Sensor read has been removed to focus on the JSON part
+
+            StaticJsonBuffer&lt;500&gt; jsonBuffer;
+            JsonObject&amp; root = jsonBuffer.createObject();
+            root[&quot;temperature&quot;] = temperature;
+            root[&quot;humidity&quot;] = humidity;
+
+            String jsonString;
+            root.printTo(jsonString);
+
+            Serial.println(jsonString);
+            server.send(200, &quot;application/json&quot;, jsonString);
+        });
+</code></pre>
+
+<p>All we have to do to create our JSON output is to create a buffer and allocate it to the right size. I chose 500 B, which is more than we need. On top of that buffer we create a JsonObject and add both the temperature and humidity as keys with their respective values. Before we can send it back to the client, we have to convert our Json object into a compatible format for our <code>send</code> command and then we send it off with the proper Content-Type header.</p>
+
+<p>We end the setup() function with a <code>server.begin()</code> command and we go over to configure the <code>loop()</code> function.<br />
+This one is pretty easy, we just have to issue a <code>server.handleClient()</code> call as all we want to do once the module loops is to make sure that we handle incoming client requests.</p>
+
+<p>And that&rsquo;s it! That&rsquo;s basically all the code needed to have a mobile temperature and humidity station that is providing all the data over HTTP.</p>
+
+<p>In the next episode in this series we&rsquo;re going to implement <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> and we&rsquo;re going to look at multiple solutions on how we can visualize our <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> data and use it.</p>
+
+<p>If you had any problems in this post along the way, feel free to post your questions in the comments. Otherwise see you for episode 2.</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
+  
+  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
+    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Building%20a%20ESP8266%20Weather%20Station%20with%20MQTT%2c%20HomeKit%20and%20WebInterface%20Part%20I&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-1%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-1%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-1%2f&amp;description=Building%20a%20ESP8266%20Weather%20Station%20with%20MQTT%2c%20HomeKit%20and%20WebInterface%20Part%20I"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-1%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/iflorian.com\/esp8266-weather-station-part-1\/";  
+this.page.identifier = "https:\/\/iflorian.com\/esp8266-weather-station-part-1\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://iflorian.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="background-image: url(/images/2017/01/Flightmap-1.png)" href="/2016-my-year-in-review/">
+          <section class="post">
+              <h2>2016 - My year in review</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="background-image: url(/images/2016/11/IMG_1864-1.png)" href="/how-to-delete-and-prevent-spam-icloud-calendar-invites/">
+          <section class="post">
+              <h2>How to Delete and Prevent Spam iCloud Calendar Invites</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

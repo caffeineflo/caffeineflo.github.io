@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.12.6//EN
+N:Harr;Florian;;;
+FN:Florian Harr
+ORG:iOS Software Developer;
+EMAIL;type=INTERNET;type=HOME;type=pref:harr.florian@gmx.de
+item1.EMAIL;type=INTERNET:florian@iflorian.com
+EMAIL;type=INTERNET;type=HOME:iflorian@icloud.com
+item2.TEL:+1 (513) 501-3050
+URL;type=HOME;type=pref:http://iflorian.com
+UID:9330c2fa-4d9e-4f8f-877f-4b04df1efb37
+X-ABUID:8CB2B2EB-411D-4F10-8D8C-0F62168558CB:ABPerson
+END:VCARD

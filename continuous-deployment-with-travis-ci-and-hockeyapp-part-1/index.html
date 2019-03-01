@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 1"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@caffeineflo"/>
+
+
+
+  	<meta property="og:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 1 &middot; [self writeBlog];" />
+  	<meta property="og:site_name" content="[self writeBlog];" />
+  	<meta property="og:url" content="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover_small.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2016-10-21T17:28:00Z" />
+
+    
+    
+
+    <title>Continuous Deployment with Travis CI and HockeyApp, Part 1 &middot; [self writeBlog];</title>
+
+    
+    <meta name="description" content="Full disclosure: I wrote this about 1-1.5yrs ago for another company but haven&amp;rsquo;t updated it yet. There&amp;rsquo;s a good chance some stuff is broken, I apolo" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    <link rel="canonical" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": https://iflorian.com/images/logo_inverted.png
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": https://iflorian.com/images/logo_inverted.png,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": https://iflorian.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Continuous Deployment with Travis CI and HockeyApp, Part 1,
+    "name": Continuous Deployment with Travis CI and HockeyApp, Part 1,
+    "wordCount": 2048,
+    "timeRequired": "PT10M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/,
+    "datePublished": 2016-10-21T17:28Z,
+    "dateModified": 2016-10-21T17:28Z,
+    
+    
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86325185-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">My Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/euc">EUC</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about">About me</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/contact">Contact</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+  <div class="vertical">
+      <div class="main-header-content inner">
+          
+    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
+        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
+    <span class="icon-github" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
+        <span class="icon-twitter" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+          <h1 class="page-title">[self writeBlog];</h1>
+          <h2 class="page-description"></h2>
+      </div>
+  </div>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Continuous Deployment with Travis CI and HockeyApp, Part 1</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-10-21T17:28:00Z">
+            Oct 21, 2016
+          </time>
+        
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p><strong>Full disclosure:</strong> I wrote this about 1-1.5yrs ago for another company but haven&rsquo;t updated it yet. There&rsquo;s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)</p>
+
+<p>Continuous integration has become an important topic and a significant part of a developer’s workflow. Finding bugs and ensuring a stable codebase are among the most important benefits of using continuous integration. While these benefits are huge on their own, we can extend our continuous integration setup to actually deploy new builds of our application to our testers. We call this extended setup continuous deployment.</p>
+
+<p>For most app developers, setting up an Xcode server and all of the necessary requirements to run a CI server are more of a hassle and a distraction than anything else. There are a couple of alternatives available to this approach, one of them being <a href="http://travis-ci.org/">Travis-CI</a>, a cloud-based continuous integration solution that conveniently takes away the hassle to setup a server.</p>
+
+<p>In this series of tutorials, I would like to show you how to set up an existing Xcode project with Travis CI for automated builds. Later on, I’ll show you how to automatically distribute your builds using HockeyApp.
+Let’s dive right in, starting with Travis CI. The only thing you need in order to follow along is an Xcode project hosted on GitHub.</p>
+
+<h3 id="introducing-travis-ci">Introducing Travis CI</h3>
+
+<p>Travis CI is basically a virtual machine provider, which gives us a Mac OS X machine with a software stack on top that includes the latest Xcode, Ruby and homebrew. The complete list of available gems, software and commands can be found in the Travis CI <a href="http://docs.travis-ci.com/user/osx-ci-environment/">docs</a>.</p>
+
+<p>To begin setting up Travis CI, you first need an account. Fortunately, Travis can use your GitHub account and you’re done with that part in one click. Go to <a href="http://travis-ci.org/">travis-ci.org</a>, click on <code>Sign in with GitHub</code> in the upper right corner and log in with your GitHub Account.</p>
+
+<p>Once you’re logged in with your GitHub account, Travis shows you your latest CI build in the form of a dashboard. The navigation is divided into three parts. The left sidebar displays your active CI projects with some quick info, the header above gives you some navigation possibilities with your personal settings on the right, and the main area in the center shows your currently selected CI project with the latest build log under the  <code>Current</code> tab.</p>
+
+<p>Settings for your selected CI project are available through the gear icon on the upper right side, next to the  <code>build passing/failed/unknown’ button. All the information here is synchronized with GitHub, so new pushes lead to a new build under</code>Build History,’ and any errors or simple logging output can be found in the Terminal-style dark box when you select a build.</p>
+
+<p>There’s also an option to build your private repositories, though that’s a feature included only in paid plans, as the free plan is meant to support open source projects. Private repositories are configured through <a href="http://travis-ci.com/">travis-ci.com</a>.</p>
+
+<p><img src="/images/2016/10/ListOfRepos-II_TravisCI.png" alt="List of repos" /></p>
+
+<h3 id="get-your-repo-up-to-speed">Get Your Repo Up to Speed</h3>
+
+<p>Once your repositories are fetched, you can enable your project for use with Travis by using the “ON/OFF” slider. Once you do that, Travis will start building the project even though Travis might not know how to properly do so just yet. I prefer to hold off Travis when no configuration file is available, by selecting “Build only if <code>.travis.yml</code> is present” in the project settings.</p>
+
+<p>To do so, click on the <code>+</code> sign in the left sidebar, make sure your desired identity is selected and then activate your repository on the right by using the ON/OFF slider. Next, click on the wrench symbol next to the switch and you’ll get redirected to your project’s settings page. Activate the &ldquo;Build only if <code>.travis.yml</code> is present&rdquo; option.</p>
+
+<p><img src="/images/2016/10/Project_Settings_TravisCI.png" alt="Project Settings" /></p>
+
+<p>This brings us to the core configuration of Travis, the <code>.travis.yml</code> file. All settings, instructions and customized routines are set through Travis’s <code>.travis.yml</code> file, which has to be placed in your repository’s root. Therefore, we go forward and create an empty file with the name <code>.travis.yml</code> in our repository’s root, so Travis continues to build our project.</p>
+
+<p>Note that you might not see this file through your file explorer, as most operating systems hide files with a dot prefix. Go ahead and commit that file to your repo, and Travis will continue to build it. Either use your favorite text editor or use  <code>cd {yourRepositoriy/Path/} | touch .travis.yml</code>
+ to create an empty <code>.travis.yml</code> file in your repo. Commit and push to GitHub.
+You can and should check the existence of your <code>.travis.yml</code> on your GitHub’s overview page, as shown in the screenshot below.</p>
+
+<p><img src="/images/2016/10/TravisYMLExists.png" alt=".travis.yml exists" /></p>
+
+<p><strong>Note</strong>: Travis’s configuration file follows a customized YAML syntax, which can easily break. When writing the configuration file, be sure to use soft tabs (spaces) instead of real tabs and try to remind yourself that this will be parsed through bash when using whitespaces in commands.</p>
+
+<h3 id="shared-xcode-schemes">Shared Xcode Schemes</h3>
+
+<p>Before we move along to the actual build process, we have to configure our project in Xcode to make our build targets available on the server. So far, the build targets have been created automatically, but that doesn’t happen on the server. To make our targets available on the server, we have to declare them as <code>Shared</code> targets.
+To do this, open your project in Xcode, click on the project’s name next to the Build &amp; Run Button, where you normally select your deployment target, and select <code>Manage Schemes</code>. You should have at least two targets, one for your actual app and one for your Unit Test target as shown in the screenshot above. If not, go ahead and create them either through the  <code>+</code> Button or the  <code>Autocreate Schemes Now</code> Button.</p>
+
+<p><img src="/images/2016/10/Shared_Targets-TravisCI.png" alt="Shared Xcode Scheme" /></p>
+
+<p>Commit and push to GitHub. Make sure that your commit contains your shared scheme. It’s a common mistake for people to exclude the shared scheme through their .gitignore.</p>
+
+<h3 id="under-the-hood">Under the Hood</h3>
+
+<p>At this point, you might ask yourself what Travis performs to build your project. As mentioned before, Travis is basically a VM provider and lets you modify its routine through bash scripts in order to build your projects. It’s no wonder that Travis uses Xcode’s command line tools to perform all actions on your project. The main command is  <code>xcodebuild</code>, which is invoked with some basic parameters. The basic pattern goes like this:</p>
+
+<pre><code>xcodebuild -project {XCodeproject.xcodeproj} -scheme {SchemeNem} -sdk {SDKname}
+</code></pre>
+
+<p>In our specific case, that command would look like this:</p>
+
+<pre><code>xcodebuild -project ContinuousDistributionExample.xcodeproj -scheme ContinuousDistributionExample -sdk iphonesimulator
+The required parameters are -project {Path to your .xcodeproj}, -scheme {Your projects scheme name} and -sdk {SDK name}
+</code></pre>
+
+<p>If you have a Xcode workspace instead of a project, exchange the <code>-project</code> parameter for a <code>-workspace</code> parameter.
+As with most, if not all, of the commands shown here, you can test these commands locally before testing them on Travis CI. For this specific command, just open your terminal and navigate with  <code>cd</code> into your repository and execute the same <code>xcodebuild</code> command. That way, you can see if your command works, and if there are any typos or other problems.</p>
+
+<p>A lot could be said here about how to use <code>xcodebuild</code>, but as there are more advanced tools that work as a wrapper to <code>xcodebuild</code>, we’re going to move along and use <code>xctool</code> to replace it. In any case, you should make sure that your Xcode command line tools are working and up to date. You can check that by performing  <code>xcode-select –version</code> in your terminal.</p>
+
+<p>###The Basic Setup
+Now that you know how the xcodebuild command works, let’s start using it with Travis CI.
+Modify the contents of your <code>.travis.yml</code> to match this code snippet, while making the appropriate customizations for your parameters:</p>
+
+<pre><code> # file: .travis.yml
+language: objective-c
+script:
+  - xcodebuild -project ContinuousDistributionExample.xcodeproj -scheme ContinuousDistributionExample -sdk iphonesimulator
+</code></pre>
+
+<p>Travis CI defines a minimal configuration for an Objective-C project to have the keys language, <code>xcode_project</code> and <code>xcode_scheme</code> defined. If you try to use these, Travis will use your project’s default settings, which have a high chance to fail on Travis CI without prior changes.
+Commit the file, and push your changes to your GitHub repo. If you put in the correct names and paths and you committed your configuration back to GitHub, Travis CI should start building your project. Make sure that the build passes at this point, so we can customize our routine from here. You can tell that your build is passing from either the log by clicking on the  <code>Build History</code> tab, or after refreshing the website from the  <code>build: status</code> button at the upper right section.</p>
+
+<p><img src="/images/2016/10/Build_passed_TravisCI.png" alt="Build Passed" /></p>
+
+<h3 id="xctool">XCTool</h3>
+
+<p>xctool is a wrapper for Apple’s <code>xcodebuild</code>, which we were using before. The main purpose for switching from xcodebuild to xctool is to make it easier to build and invoke unit tests, as well as to have a wrapper around xcodebuild to make general usage easier. Therefore we make the transition to <code>xctool</code>.
+xctool is available through homebrew. I recommend installing it on your local machine. If you have homebrew installed, open Terminal and execute <code>brew update &amp;&amp; brew install xctool</code> to install it on your local machine.
+xctool can be used with the following parameters:</p>
+
+<pre><code>xctool -workspace {Path.xcworkspace} -scheme {SchemeName} -sdk {SDK}
+</code></pre>
+
+<p>XCtool also automatically compiles your CocoaPods if they are part of your workspace.
+For our example project, the build command looks like this:</p>
+
+<pre><code>xctool -workspace ContinuousDistributionExample.xcworkspace -scheme ContinuousDistributionExample -sdk iphonesimulator
+</code></pre>
+
+<p>Similar to the parameters xcodebuild uses, again, if you have a project instead of a workspace, replace  <code>-workspace</code> with  <code>-project</code>.
+To run our unit tests we use this command:</p>
+
+<pre><code>xctool test -workspace ContinuousDistributionExample.xcworkspace -scheme ContinuousDistributionExampleTests -sdk iphonesimulator
+</code></pre>
+
+<p>Now we need to put these commands in the right place within our .travis.yml file. Travis has a special build lifecycle that requires us to use the script section for this purpose.
+Change your .travis.yml file to look like this:</p>
+
+<pre><code># file: .travis.yml
+language: objective-c
+script:
+  - xctool -workspace ContinuousDistributionExample.xcworkspace -scheme ContinuousDistributionExample -sdk iphonesimulator
+  - xctool test -workspace ContinuousDistributionExample.xcworkspace -scheme ContinuousDistributionExampleTests -sdk iphonesimulator
+</code></pre>
+
+<p>Note that if your Xcode project lives in a subfolder in your repo, be sure to give the full path from your repository’s root, such as  <code>ContinuousDistributionExample/ContinuousDistributionExample.xcworkspace</code>. The  <code>.</code> notation for the current folder to use relative paths doesn’t work here and will result in errors. Make sure to apply this to all paths in a subfolder through the course of this series. If you need to use absolute paths, you can use the  <code>$PWD</code> env variable to get your current working directory, then expand the path further from there.</p>
+
+<h3 id="updating-software-dependencies">Updating Software &amp;&amp; Dependencies</h3>
+
+<p>As mentioned before, Travis CI provides the CocoaPods gem within their OS X environment. If you put your Podfile in the same directory as your .travis.yml file in your project’s repo, Travis will automatically install all your pods without any further configuration.
+We want to make sure we have the latest version of CocoaPods and other software we’re using, so let’s use this spot in the build lifecycle to update <code>Cocoapods</code> and <code>xctool</code>. Travis CI recommends using their  <code>before_install:</code> hook to execute these commands. Add this code snippet to the end of your <code>.travis.yml</code> file:</p>
+
+<pre><code> # file: .travis.yml
+before_install:
+  - sudo gem install cocoapods
+  - brew update
+  - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+</code></pre>
+
+<p>Commit and push your changes. Travis should make a new build. Make sure everything works and your builds are passing by consulting Build History-&gt;Build.
+Note: We want to upgrade xctool only if it’s outdated, because the chances that we’ll run into some brew link errors are quite high. While writing this post, I ran into a few problems with outdated software and iOS 8 due to recent releases of iOS and Xcode. If you get an error on Travis CI and not on your local machine, check the version numbers and consider updating to the same version.
+If you want to check your results at this point or just get a preconfigured version, you can check out the minimal version.</p>
+
+<p><strong>Congratulations</strong>—you just integrated your first project using Travis CI! It should automatically build now and let you know once a commit breaks the building process.</p>
+
+<p>In the next part of this series, we’re going to set up code signing on Travis CI so that we can deploy our releases later on</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
+  
+  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
+    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Continuous%20Deployment%20with%20Travis%20CI%20and%20HockeyApp%2c%20Part%201&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-1%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-1%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-1%2f&amp;description=Continuous%20Deployment%20with%20Travis%20CI%20and%20HockeyApp%2c%20Part%201"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-1%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/iflorian.com\/continuous-deployment-with-travis-ci-and-hockeyapp-part-1\/";  
+this.page.identifier = "https:\/\/iflorian.com\/continuous-deployment-with-travis-ci-and-hockeyapp-part-1\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://iflorian.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/">
+          <section class="post">
+              <h2>Continuous Deployment with Travis CI and HockeyApp, Part 2</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/business-your-language-matters/">
+          <section class="post">
+              <h2>ReleaseNotes 2016</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@caffeineflo"/>
+
+
+
+  	<meta property="og:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III &middot; [self writeBlog];" />
+  	<meta property="og:site_name" content="[self writeBlog];" />
+  	<meta property="og:url" content="https://iflorian.com/esp8266-weather-station-part-3/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover_small.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2017-05-08T20:20:22-04:00" />
+
+    
+    <meta property="article:tag" content="esp8266" />
+    
+    <meta property="article:tag" content="dht11" />
+    
+    <meta property="article:tag" content="dht22" />
+    
+    
+
+    <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III &middot; [self writeBlog];</title>
+
+    
+    <meta name="description" content="Part III This is part III of a series of tutorials that build up on each other. If you missed the first parts, you can find it here: Part 1 Part 2
+In this part " />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    <link rel="canonical" href="https://iflorian.com/esp8266-weather-station-part-3/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": https://iflorian.com/images/logo_inverted.png
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": https://iflorian.com/images/logo_inverted.png,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": https://iflorian.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III,
+    "name": Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III,
+    "wordCount": 1193,
+    "timeRequired": "PT6M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": https://iflorian.com/esp8266-weather-station-part-3/,
+    "datePublished": 2017-05-08T20:20Z,
+    "dateModified": 2017-05-08T20:20Z,
+    
+    "keywords": esp8266, dht11, dht22,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": https://iflorian.com/esp8266-weather-station-part-3/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86325185-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">My Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/euc">EUC</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about">About me</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/contact">Contact</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+  <div class="vertical">
+      <div class="main-header-content inner">
+          
+    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
+        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
+    <span class="icon-github" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
+        <span class="icon-twitter" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+          <h1 class="page-title">[self writeBlog];</h1>
+          <h2 class="page-description"></h2>
+      </div>
+  </div>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-05-08T20:20:22-04:00">
+            May 8, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/esp8266/">#esp8266</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/dht11/">#dht11</a></span>
+         
+          <span class="post-tag small"><a href="https://iflorian.com//tags/dht22/">#dht22</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<h1 id="part-iii">Part III</h1>
+
+<p>This is part III of a series of tutorials that build up on each other. If you missed the first parts, you can find it here: <a href="https://iflorian.com/esp8266-weather-station-part-1">Part 1</a> <a href="https://iflorian.com/esp8266-weather-station-part-2">Part 2</a></p>
+
+<p>In this part we&rsquo;re going to use the esp8266 chip with the DHT11 sensor from part I to connect to our MQTT server from part II and publish the sensors data. Finally, we are going to build a iOS app to display our data.</p>
+
+<p>The first challenge we are going to solve is to connect our existing esp8266 + DHT11 weather station to our MQTT server. Given that we know the IP address of our server (that&rsquo;s your local network address, in my case that&rsquo;s 10.1.10.18) we can use a compatible C library, execute the connect method to connect to our server, subscribe to a topic and publish our data. The MQTT library that I&rsquo;m going to use is going to be the &ldquo;MQTT&rdquo; library from the user 256dpi in the list. You can install it from within your Arduino IDE under <code>Manage Libraries</code> by searching for and installing MQTT by Joël Gähwiler/256dpi. Once you&rsquo;ve done that, you can follow the code sample underneath:</p>
+
+<pre><code class="language-c">#include &lt;MQTTClient.h&gt;
+#include &lt;ArduinoJson.h&gt;
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;DHT.h&gt;
+
+#define DHTTYPE   DHT11
+#define DHTPIN    14
+
+#define WLAN_SSID     &quot;YourWifiSSID&quot;
+#define WLAN_PASSWORD &quot;YourWifiPassword&quot;
+#define MQTT_SERVER_IP &quot;YourIPAddress&quot;
+#define TEMPERATURE_TOPIC &quot;weather/temperature&quot;
+#define HUMIDITY_TOPIC &quot;weather/humidity&quot;
+
+DHT dht(DHTPIN, DHTTYPE, 11);
+WiFiClient wifiClient;
+MQTTClient mqttClient;
+
+float temperature, humidity;
+unsigned long previousMillis = 0;
+const long interval = 30000;
+
+void connectMQTT() {
+  mqttClient.begin(MQTT_SERVER_IP, 1883, wifiClient);
+
+  if (mqttClient.connect(&quot;weatherStation&quot;)) {
+    Serial.println(&quot;Connected to MQTT broker&quot;);
+    Serial.println(&quot;Subscribing to topic now&quot;);
+    mqttClient.subscribe(&quot;weather/temperature&quot;);
+  }
+}
+
+void setup() {
+        Serial.begin(115200);
+        delay(10);
+
+        dht.begin();
+
+        Serial.println(); Serial.println();
+        Serial.print(&quot;Connecting to &quot;);
+        Serial.println(WLAN_SSID);
+
+        WiFi.mode(WIFI_STA);
+        WiFi.begin(WLAN_SSID, WLAN_PASSWORD);
+        while (WiFi.status() != WL_CONNECTED) {
+                delay(500);
+                Serial.print(&quot;.&quot;);
+        }
+        Serial.println();
+
+        Serial.println(&quot;WiFi connected&quot;);
+        Serial.println(&quot;IP address: &quot;); Serial.println(WiFi.localIP());
+
+        connectMQTT();
+}
+
+void loop() {
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis &gt;= interval) {
+    previousMillis = currentMillis;
+
+    humidity = dht.readHumidity();
+    temperature = dht.readTemperature();
+    if (isnan(humidity) || isnan(temperature)) {
+      Serial.println(&quot;Failed to read from DHT sensor!&quot;);
+      return;
+    }
+
+    mqttClient.publish(TEMPERATURE_TOPIC, String((int)temperature));
+  }
+
+  if (!mqttClient.connected()) {
+    connectMQTT();
+  }
+}
+
+void messageReceived(String topic, String payload, char * bytes, unsigned int length) {
+  Serial.println(topic);
+  Serial.println(payload);
+}
+</code></pre>
+
+<p>So what did we code? Let&rsquo;s focus on the methods.
+Compared to what we did in part I of this series, we&rsquo;ve included the MQTTClient header file so we can use the MQTT library. This gives us the MQTTClient object that we can instantiate and then setup with it&rsquo;s own <code>begin()</code> method. The <code>begin</code> method takes your MQTT&rsquo;s server ip address and your esp8266 <code>WiFiClient</code> as arguments. After this initial setup, we can tell the MQTTClient to connect to the server and subscribe to a topic of our choosing on success of the connection. That is all that is needed for the setup, let&rsquo;s look at the loop() method to see what we have to execute regularly to send data to our MQTT server.<br />
+In the loop function we have to read the sensor data from our DHT11 sensor. We do this only if our pre-set interval is over, to make sure we don&rsquo;t do this too often eventually running into problems. Once we gathered the data, it is being send off to the server via the <code>publish()</code> method. That is all there is for the <code>loop()</code> function. Outside of that, we will have to add a interface function from our MQTTClient library. That&rsquo;s the <code>messageReceived()</code> function that would be triggered if we would receive MQTT messages.</p>
+
+<p>Pretty straight forward, isn&rsquo;t it?</p>
+
+<p>If you upload your updated sketch to your esp8266 now and your server is running, you should see data incoming now. To check the data you&rsquo;re receiving, run <code>mosquitto_sub -v -t 'weather/temperature'</code> in a new terminal window on the same machine that is running your MQTT server.</p>
+
+<p>Next, we&rsquo;re going to display our data in a small iOS app.</p>
+
+<p>Create a new iOS project in Xcode, make it a <code>Single View Application</code>, preferably Objective-C as that&rsquo;s what I&rsquo;m going to  use and save the project. Again, we&rsquo;re going to use a MQTT library to make the connection. I&rsquo;ve used <a href="https://github.com/ckrey/MQTT-Client-Framework">this</a> library in the past and it worked well. You can either add it via Carthage or CocoaPods, instructions on how to add the library to your project can be found on the libraries <a href="https://github.com/ckrey/MQTT-Client-Framework">GitHub</a> page. For simplicity reasons I use CocoaPods.</p>
+
+<p>Once the library is installed and available within your project, drag two/four labels onto your view and connect the labels with your ViewController.</p>
+
+<p><img src="/images/2017/05/interface.png" alt="Interface" /></p>
+
+<p>And then add your code as follows in the implementation of your ViewController:</p>
+
+<pre><code class="language-c">#import &quot;ViewController.h&quot;
+#import &lt;MQTTClient/MQTTClient.h&gt;
+
+@interface ViewController () &lt;MQTTSessionDelegate&gt;
+
+@property (weak, nonatomic) IBOutlet UILabel *tempValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityValueLabel;
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    MQTTCFSocketTransport *transport = [[MQTTCFSocketTransport alloc] init];
+    transport.host = @&quot;192.168.178.20&quot;;
+    transport.port = 1883;
+    
+    MQTTSession *session = [[MQTTSession alloc] init];
+    session.transport = transport;
+    
+    session.delegate = self;
+    
+    [session connectAndWaitTimeout:30];
+    
+    [session subscribeToTopic:@&quot;weather/temperature&quot; atLevel:2 subscribeHandler:^(NSError *error, NSArray&lt;NSNumber *&gt; *gQoss){
+        if (error) {
+            NSLog(@&quot;Subscription failed %@&quot;, error.localizedDescription);
+        } else {
+            NSLog(@&quot;Subscription sucessfull! Granted Qos: %@&quot;, gQoss);
+        }
+    }];
+}
+
+- (void)newMessage:(MQTTSession *)session
+              data:(NSData *)data
+           onTopic:(NSString *)topic
+               qos:(MQTTQosLevel)qos
+          retained:(BOOL)retained
+               mid:(unsigned int)mid {
+    
+    NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@&quot;%@&quot;, topic);
+    NSLog(@&quot;%@&quot;, dataString);
+    self.tempValueLabel.text = dataString;
+}
+
+@end
+</code></pre>
+
+<p>Going through the important parts in the code from top to bottom:</p>
+
+<ul>
+<li>We&rsquo;ve added the MQTT library in our ViewController</li>
+<li>We initialize a transport socket and setup the variables we need to supply so we can connect to the correct server</li>
+<li>We set the delegate so we can receive MQTT messages from subscribed topics</li>
+<li>We subscribe to our topic (if you&rsquo;re wondering about atLevel, you can set which <a href="https://en.wikipedia.org/wiki/Quality_of_service">QoS</a> level you want to request)</li>
+<li>And at last we implement the delegate method that is called once we receive a new MQTT message on our MQTT topic that we subscribed to.</li>
+</ul>
+
+<p>Build and Run the project, wait until your esp8266 published new data and you should be able to see that your label gets updated.</p>
+
+<p>Now the last thing to do would be to integrate the temperature data. All we have to do here is add a few simple lines.</p>
+
+<p>On the esp8266 project we only have to add this:</p>
+
+<pre><code class="language-c">    mqttClient.publish(HUMIDITY_TOPIC, String((int)humidity));
+</code></pre>
+
+<p>For iOS we have to extend to our new topic:</p>
+
+<pre><code>    [session subscribeToTopic:@&quot;weather/humidity&quot; atLevel:2 subscribeHandler:^(NSError *error, NSArray&lt;NSNumber *&gt; *gQoss){}];
+</code></pre>
+
+<p>And update the label once we receive a message on that topic:</p>
+
+<pre><code class="language-c">    if (topic == @&quot;weather/humidity&quot;) {
+        self.humidityValueLabel.text = dataString;
+    }
+    if (topic == @&quot;weather/temperature&quot;) {
+        self.tempValueLabel.text = dataString;
+    }
+</code></pre>
+
+<p>As you can see, MQTT is a simplistic protocol by design that is easy to use and implement. There are plenty of libraries for all common systems and technologies that will help you use your data across a variety of devices, but we are not fully done with the series yet. One thing that I really like about it in particular is the publisher/subscriber pattern where you don&rsquo;t have to pull for data but you constantly receive updates!</p>
+
+<p>In the last part we&rsquo;re going to look at common use cases of MQTT in a connected home and how you can leverage it in your next project to make your home smarter. Stay tuned for the next episode!</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
+  
+  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
+    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Building%20a%20ESP8266%20Weather%20Station%20with%20MQTT%2c%20HomeKit%20and%20WebInterface%20Part%20III&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-3%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-3%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-3%2f&amp;description=Building%20a%20ESP8266%20Weather%20Station%20with%20MQTT%2c%20HomeKit%20and%20WebInterface%20Part%20III"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-3%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/iflorian.com\/esp8266-weather-station-part-3\/";  
+this.page.identifier = "https:\/\/iflorian.com\/esp8266-weather-station-part-3\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://iflorian.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/">
+          <section class="post">
+              <h2>From Ghost to Hugo. Easier Blog Hosting with Github Pages</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/unicycling-one-app-for-all-eucs/">
+          <section class="post">
+              <h2>Unicycling: One App For All EUCs</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+
