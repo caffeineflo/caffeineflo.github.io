@@ -1,319 +1,239 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II | [self writeBlog];</title>
+<meta name="keywords" content="esp8266, dht11, dht22">
+<meta name="description" content="Part II
+This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I
+Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III.
+We&rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we&rsquo;re going to use in part III to communicate with our little weather station.">
+<meta name="author" content="Florian Harr">
+<link rel="canonical" href="https://iflorian.com/esp8266-weather-station-part-2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://iflorian.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://iflorian.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://iflorian.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://iflorian.com/esp8266-weather-station-part-2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    
-    
-        <meta name="twitter:card" content="summary"/>
-    
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  mermaid.contentLoaded();
+</script>
+<meta property="og:url" content="https://iflorian.com/esp8266-weather-station-part-2/">
+  <meta property="og:site_name" content="[self writeBlog];">
+  <meta property="og:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II">
+  <meta property="og:description" content="Part II This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I
+Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III. We’re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we’re going to use in part III to communicate with our little weather station.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-02-09T11:20:20-04:00">
+    <meta property="article:modified_time" content="2017-02-09T11:20:20-04:00">
+    <meta property="article:tag" content="Esp8266">
+    <meta property="article:tag" content="Dht11">
+    <meta property="article:tag" content="Dht22">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II">
+<meta name="twitter:description" content="Part II
+This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I
+Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III.
+We&rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we&rsquo;re going to use in part III to communicate with our little weather station.">
 
 
-
-<meta name="twitter:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II"/>
-<meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@caffeineflo"/>
-
-
-
-  	<meta property="og:title" content="Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II &middot; [self writeBlog];" />
-  	<meta property="og:site_name" content="[self writeBlog];" />
-  	<meta property="og:url" content="https://iflorian.com/esp8266-weather-station-part-2/" />
-
-    
-        
-            <meta property="og:image" content="/images/cover_small.jpg"/>
-        
-    
-
-    
-    <meta property="og:description" content="" />
-  	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2017-02-09T11:20:20-04:00" />
-
-    
-    <meta property="article:tag" content="esp8266" />
-    
-    <meta property="article:tag" content="dht11" />
-    
-    <meta property="article:tag" content="dht22" />
-    
-    
-
-    <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II &middot; [self writeBlog];</title>
-
-    
-    <meta name="description" content="Part II This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I
-Part II is going to be " />
-    
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
-    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
-
-    
-
-    
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-        
-        <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-      
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
-      
-      
-    
-    <meta name="generator" content="Hugo 0.54.0" />
-
-    <link rel="canonical" href="https://iflorian.com/esp8266-weather-station-part-2/" />
-
-    
-      
-    
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": ,
-        "logo": https://iflorian.com/images/logo_inverted.png
-    },
-    "author": {
-        "@type": "Person",
-        "name": ,
-        
-        "image": {
-            "@type": "ImageObject",
-            "url": https://iflorian.com/images/logo_inverted.png,
-            "width": 250,
-            "height": 250
-        }, 
-        
-        "url": https://iflorian.com/,
-        "sameAs": [
-            
-            
-             
-             
-             
-             
-             
-            
-        ]
-    },
-    "headline": Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II,
-    "name": Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II,
-    "wordCount": 722,
-    "timeRequired": "PT4M",
-    "inLanguage": {
-      "@type": "Language",
-      "alternateName": en
-    },
-    "url": https://iflorian.com/esp8266-weather-station-part-2/,
-    "datePublished": 2017-02-09T11:20Z,
-    "dateModified": 2017-02-09T11:20Z,
-    
-    "keywords": esp8266, dht11, dht22,
-    "description": ,
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": https://iflorian.com/esp8266-weather-station-part-2/
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://iflorian.com/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II",
+      "item": "https://iflorian.com/esp8266-weather-station-part-2/"
     }
+  ]
 }
-    </script>
-    
-
-
-    
-
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-86325185-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    
-
-    
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II",
+  "name": "Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II",
+  "description": "Part II This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I\nPart II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III. We\u0026rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we\u0026rsquo;re going to use in part III to communicate with our little weather station.\n",
+  "keywords": [
+    "esp8266", "dht11", "dht22"
+  ],
+  "articleBody": "Part II This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I\nPart II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III. We’re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we’re going to use in part III to communicate with our little weather station.\nMQTT stands for MQ Telemetry Transport and is a lightweight messaging protocol that was build as an easy way to exchange information without much overhead. MQ stands for Message Queueing even though there’s actually no message queueing happening. It’s been standardized since 2013 as the protocol for IOT devices. The standardization society OASIS (Organization for the Advancement of Structured Information Standards) describes MQTT best as:\n“Providing a lightweight publish/subscribe reliable messaging transport protocol suitable for communication in M2M/IoT contexts where a small code footprint is required and/or network bandwidth is at a premium.” The protocol functions in a publish-subscribed way where clients, such as sensors and actors, subscribe to a MQTT broker that opens a channel and processes further actions based on the incoming data. Processing on the broker can be really anything, from further publishing the data to other actors to simply displaying data or triggering another server.\nThis function pattern is best displayed in a graph:\nSource: Hivemq\nWith the recent popularity of IOT and MQTT being defacto the main protocol for most IOT applications there’s a huge variety of software available. A few examples for MQTT brokers that are free for you to use: Mosquitto, Eclipse Paho, Emitter or emqttd. Most of them are open source with a fairly substantial community backing the software. I decided to go with Mosquitto, as it’s one of the more lightweight brokers that’s also available for basically any platform out there.\nI’m going to install Mosquitto on my MacBook Pro. As a big fan of homebrew, the missing macOS package manager, I’m going to use the package they provide for mosquitto.\nTo install Mosquitto with homebrew we only have to run brew install mosquitto and homebrew will do the rest. After the successful installation of mosquitto, homebrew showed us how we can run mosquitto by either executing mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf if we want to run it just now, or brew services start mosquitto if we want to have mosquitto startup now and at restart. I decided to go with the first option, as I don’t need mosquitto every day and want to keep control when to launch it. Once we launched it with mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf we want to know if our server works. So we’re going to open a channel by subscribing to a new topic and then sending a new message. Here’s another screen capture showing you how to do that:\nHere’s step by step what we did:\nWe started mosquitto by executing mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf Once mosquitto started and told us that the server is up and running on port 1883, we opened a new tab on the terminal. This is important! Don’t close the old one as we want the server to keep running. In our new tab, we issued the following command: mosquitto_sub -v -t 'test/topic'. The -v option gave us some more output (verbose), the -t option did let us choose a topic name. Next, we open another tab and issue mosquitto_pub -t 'test/topic' -m 'helloWorld'. We use -t again to specify the topic and -m for the message. If we go back to our second tab now, we see the messages we’ve sent to our topic and if we go back to our first tab, we can see when we connected to our server and when we disconnected. Congratulations! You’ve just setup a MQTT server, published a channel/topic and sent MQTT messages to that channel.\nIn the next part of this series we’re going to use our weather server to publish sensor data to our MQTT server. Once the data reached the MQTT server, we’re going to display the current data and historical data. Stay tuned for the next part of this series!\n",
+  "wordCount" : "722",
+  "inLanguage": "en",
+  "datePublished": "2017-02-09T11:20:20-04:00",
+  "dateModified": "2017-02-09T11:20:20-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Florian Harr"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://iflorian.com/esp8266-weather-station-part-2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "[self writeBlog];",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iflorian.com/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="nav-closed">
 
-  <div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        
-        
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/">My Blog</a>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://iflorian.com/" accesskey="h" title="[self writeBlog]; (Alt + H)">[self writeBlog];</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://iflorian.com/contact" title="Contact">
+                    <span>Contact</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/euc">EUC</a>
+            <li>
+                <a href="https://iflorian.com/about" title="About me">
+                    <span>About me</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/about">About me</a>
+            <li>
+                <a href="https://iflorian.com/euc" title="EUC">
+                    <span>EUC</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/contact">Contact</a>
+            <li>
+                <a href="https://iflorian.com/" title="My Blog">
+                    <span>My Blog</span>
+                </a>
             </li>
-        
-        
-    </ul>
-
-    
-    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
-    
-</div>
-<span class="nav-cover"></span>
-
-
- <div class="site-wrapper">
-
-
-
-<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
-  <nav class="main-nav overlay clearfix">
-
-
-  
-      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
-  
-  
-      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-  
-  </nav>
-  <div class="vertical">
-      <div class="main-header-content inner">
-          
-    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
-        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
-    <span class="icon-github" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
-        <span class="icon-twitter" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-
-
-
-
-
-
-
-          <h1 class="page-title">[self writeBlog];</h1>
-          <h2 class="page-description"></h2>
-      </div>
-  </div>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II
+    </h1>
+    <div class="post-meta"><span title='2017-02-09 11:20:20 -0400 -0400'>February 9, 2017</span>&nbsp;·&nbsp;<span>Florian Harr</span>
 
-
-<main class="content" role="main">
-
-
-
-
-  <article class="post post">
-
-    <header class="post-header">
-        <h1 class="post-title">Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II</h1>
-        <small></small>
-
-        <section class="post-meta">
-        
-          <time class="post-date" datetime="2017-02-09T11:20:20-04:00">
-            Feb 9, 2017
-          </time>
-        
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/esp8266/">#esp8266</a></span>
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/dht11/">#dht11</a></span>
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/dht22/">#dht22</a></span>
-         
-        </section>
-    </header>
-
-    <section class="post-content">
-      
-
-<h1 id="part-ii">Part II</h1>
-
+</div>
+  </header> 
+  <div class="post-content"><h1 id="part-ii">Part II<a hidden class="anchor" aria-hidden="true" href="#part-ii">#</a></h1>
 <p>This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: <a href="https://iflorian.com/esp8266-weather-station-part-1/">Part I</a></p>
-
 <p>Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III.
 We&rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we&rsquo;re going to use in part III to communicate with our little weather station.</p>
-
 <p>MQTT stands for MQ Telemetry Transport and is a lightweight messaging protocol that was build as an easy way to exchange information without much overhead. MQ stands for Message Queueing even though there&rsquo;s actually no message queueing happening. It&rsquo;s been standardized since 2013 as the protocol for IOT devices. The standardization society OASIS (Organization for the Advancement of Structured Information Standards) describes MQTT best as:</p>
-
 <blockquote>
 <p>&ldquo;Providing a lightweight publish/subscribe reliable messaging transport protocol suitable for communication in M2M/IoT contexts where a small code footprint is required and/or network bandwidth is at a premium.&rdquo;
 The protocol functions in a publish-subscribed way where clients, such as sensors and actors, subscribe to a MQTT broker that opens a channel and processes further actions based on the incoming data. Processing on the broker can be really anything, from further publishing the data to other actors to simply displaying data or triggering another server.</p>
 </blockquote>
-
 <p>This function pattern is best displayed in a graph:</p>
-
-<p><img src="http://www.hivemq.com/wp-content/uploads/Screen-Shot-2014-10-22-at-12.21.07.png" alt="MQTT Functioning Pattern" />
+<p><img alt="MQTT Functioning Pattern" loading="lazy" src="http://www.hivemq.com/wp-content/uploads/Screen-Shot-2014-10-22-at-12.21.07.png">
 <em>Source: Hivemq</em></p>
-
 <p>With the recent popularity of IOT and MQTT being defacto the main protocol for most IOT applications there&rsquo;s a huge variety of software available. A few examples for MQTT brokers that are free for you to use: Mosquitto, Eclipse Paho, Emitter or emqttd. Most of them are open source with a fairly substantial community backing the software. I decided to go with Mosquitto, as it&rsquo;s one of the more lightweight brokers that&rsquo;s also available for basically any platform out there.</p>
-
-<p><img src="http://projects.eclipse.org/sites/default/files/mosquitto-200px.png" alt="Mosquitto" /></p>
-
+<p><img alt="Mosquitto" loading="lazy" src="http://projects.eclipse.org/sites/default/files/mosquitto-200px.png"></p>
 <p>I&rsquo;m going to install Mosquitto on my MacBook Pro. As a big fan of homebrew, the missing macOS package manager, I&rsquo;m going to use the package they provide for mosquitto.</p>
-
 <p>To install Mosquitto with homebrew we only have to run <code>brew install mosquitto</code> and homebrew will do the rest. After the successful installation of mosquitto, homebrew showed us how we can run mosquitto by either executing <code>mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf</code> if we want to run it just now, or <code>brew services start mosquitto</code> if we want to have mosquitto startup now and at restart.
 I decided to go with the first option, as I don&rsquo;t need mosquitto every day and want to keep control when to launch it.
 Once we launched it with <code>mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf</code> we want to know if our server works. So we&rsquo;re going to open a channel by subscribing to a new topic and then sending a new message. Here&rsquo;s another screen capture showing you how to do that:</p>
-
-<script type="text/javascript" src="https://asciinema.org/a/6ahby8wn4zgtfakida4xjjihl.js" id="asciicast-6ahby8wn4zgtfakida4xjjihl" async></script>
-
+<!-- raw HTML omitted -->
 <p>Here&rsquo;s step by step what we did:</p>
-
 <ol>
 <li>We started mosquitto by executing <code>mosquitto -c /usr/local/etc/mosquitto/mosquitto.conf</code></li>
 <li>Once mosquitto started and told us that the server is up and running on port 1883, we opened a new tab on the terminal. This is important! Don&rsquo;t close the old one as we want the server to keep running.</li>
@@ -321,134 +241,91 @@ Once we launched it with <code>mosquitto -c /usr/local/etc/mosquitto/mosquitto.c
 <li>Next, we open another tab and issue <code>mosquitto_pub -t 'test/topic' -m 'helloWorld'</code>. We use -t again to specify the topic and -m for the message.</li>
 <li>If we go back to our second tab now, we see the messages we&rsquo;ve sent to our topic and if we go back to our first tab, we can see when we connected to our server and when we disconnected.</li>
 </ol>
-
 <p>Congratulations! You&rsquo;ve just setup a MQTT server, published a channel/topic and sent MQTT messages to that channel.</p>
-
 <p>In the next part of this series we&rsquo;re going to use our weather server to publish sensor data to our MQTT server. Once the data reached the MQTT server, we&rsquo;re going to display the current data and historical data. Stay tuned for the next part of this series!</p>
 
-    </section>
 
+  </div>
 
   <footer class="post-footer">
-
-
-    
-
-
-
-
-
-
-
-
-<figure class="author-image">
-    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
-</figure>
-
-
-<section class="author">
-  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
-  
-  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
-  
-  <div class="author-meta">
-    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
-    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
-  </div>
-</section>
-
-
-
-
-    
-<section class="share">
-  <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Building%20a%20ESP8266%20Weather%20Station%20with%20MQTT%2c%20HomeKit%20and%20WebInterface%20Part%20II&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-2%2f"
-      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-      <span class="hidden">Twitter</span>
-  </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-2%2f"
-      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-      <span class="hidden">Facebook</span>
-  </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-2%2f&amp;description=Building%20a%20ESP8266%20Weather%20Station%20with%20MQTT%2c%20HomeKit%20and%20WebInterface%20Part%20II"
-      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-      <span class="hidden">Pinterest</span>
-  </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fesp8266-weather-station-part-2%2f"
-     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-      <span class="hidden">Google+</span>
-  </a>
-</section>
-
-
-
-    
-
-<div id="disqus_thread"></div>
-<script>
-
-
-
-
-var disqus_config = function () {
-this.page.url = "https:\/\/iflorian.com\/esp8266-weather-station-part-2\/";  
-this.page.identifier = "https:\/\/iflorian.com\/esp8266-weather-station-part-2\/"; 
-};
-
-(function() { 
-var d = document, s = d.createElement('script');
-s.src = 'https://iflorian.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-
-
-
+    <ul class="post-tags">
+      <li><a href="https://iflorian.com/tags/esp8266/">Esp8266</a></li>
+      <li><a href="https://iflorian.com/tags/dht11/">Dht11</a></li>
+      <li><a href="https://iflorian.com/tags/dht22/">Dht22</a></li>
+    </ul>
   </footer>
 </article>
-
-</main>
-
-
-  <aside class="read-next">
-  
-      <a class="read-next-story" style="no-cover" href="/update-watchdog-on-the-raspberry-pi/">
-          <section class="post">
-              <h2>[Update] Watchdog On The Raspberry Pi</h2>
-              
-          </section>
-      </a>
-  
-  
-      <a class="read-next-story prev" style="no-cover" href="/openvpn-block-outside-ds/">
-          <section class="post">
-              <h2>OpenVPN block-outside-dns</h2>
-          </section>
-      </a>
-  
-</aside>
-
-
-
-    <footer class="site-footer clearfix">
-        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
-        
-        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
-        
-    </footer>
-    </div>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
+    </main>
     
-</body>
-</html>
+<footer class="footer">
+        <span>All rights reserved - 2024</span> · 
 
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

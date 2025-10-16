@@ -1,260 +1,238 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Post on [self writeBlog];</title>
+    <title>Posts on [self writeBlog];</title>
     <link>https://iflorian.com/post/</link>
-    <description>Recent content in Post on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Posts on [self writeBlog];</description>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
+    <copyright>All rights reserved - 2024</copyright>
     <lastBuildDate>Sun, 06 Aug 2017 19:33:42 -0400</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://iflorian.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Mirari Botnet And The Internet Outage On October 21st 2016</title>
       <link>https://iflorian.com/mirai-botnet-october21-botnet-size/</link>
       <pubDate>Sun, 06 Aug 2017 19:33:42 -0400</pubDate>
-      
       <guid>https://iflorian.com/mirai-botnet-october21-botnet-size/</guid>
-      <description>In preparation for my upcoming conference talk &amp;ldquo;The Internet of Things and iOS: Don’t let your toaster bring down the internet!&amp;rdquo; I have been doing a lot of research on the Mirai botnet.
-The Mirai (Japanese for &amp;ldquo;The Future&amp;rdquo;) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.
-In this attack, some IoT devices were used to block their servers, bringing down popular sites such as</description>
+      <description>&lt;p&gt;In preparation for my upcoming conference talk &lt;a href=&#34;https://360idev.com/sessions/internet-things-ios-dont-let-toaster-bring-internet/&#34;&gt;&amp;ldquo;The Internet of Things and iOS: Don’t let your toaster bring down the internet!&amp;rdquo;&lt;/a&gt; I have been doing a lot of research on the Mirai botnet.&lt;br&gt;
+The Mirai (Japanese for &amp;ldquo;The Future&amp;rdquo;) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.&lt;br&gt;
+In this attack, some IoT devices were used to block their servers, bringing down popular sites such as&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Join me at 360iDev - The Leading Indie iOS/macOS Developer Conference</title>
       <link>https://iflorian.com/360idev2017-denver/</link>
       <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
-      
       <guid>https://iflorian.com/360idev2017-denver/</guid>
-      <description>360iDev is coming fast and you should come! Why?
-Let me give you six reasons why you should come:
- Sam Davies will give &amp;ldquo;A Fun iOS 11 Workshop&amp;rdquo; on Sunday, Aug 13th
- On Monday, Aug 14th Joe Cieplinski will talk about &amp;ldquo;Getting Past No: The Science of Moving Others&amp;rdquo;
- Jay Freeman (Too many references to link to) will be talking about himself?! Anyways, I&amp;rsquo;m sure his session is going to be great!</description>
+      <description>&lt;p&gt;360iDev is coming fast and you should come! Why?&lt;br&gt;
+Let me give you six reasons why you should come:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.raywenderlich.com/u/samdavies&#34;&gt;Sam Davies&lt;/a&gt; will give &amp;ldquo;A Fun iOS 11 Workshop&amp;rdquo; on Sunday, Aug 13th&lt;/li&gt;
+&lt;li&gt;On Monday, Aug 14th &lt;a href=&#34;https://releasenotes.tv/aboutthepodcast/&#34;&gt;Joe Cieplinski&lt;/a&gt; will talk about &amp;ldquo;Getting Past No: The Science of Moving Others&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Jay Freeman (Too many references to link to) will be talking about himself?! Anyways, I&amp;rsquo;m sure his session is going to be great!&lt;/li&gt;
+&lt;li&gt;The same day (Aug 15th) Ben DiFrancesco will be talking about &amp;ldquo;Threads, Queues, and Things to Come: The Present and Future of Concurrency in Swift&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;And on the last day (after my talk, which you should visit), hear Andrew Morrow talk about &amp;ldquo;Using C Libraries in Swift 3&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;And with all these great sessions in mind, don&amp;rsquo;t miss me talking about &amp;ldquo;The Internet of Things and iOS: Don’t let your toaster bring down the internet!&amp;rdquo; on Sunday Aug 16th&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And if that wasn&amp;rsquo;t already enough, I have something special planned for my talk, that includes:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ESP8266 Special: Apple&#39;s HomeKit is now for everyone!</title>
       <link>https://iflorian.com/esp8266-weather-station-homekit-special/</link>
       <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
-      
       <guid>https://iflorian.com/esp8266-weather-station-homekit-special/</guid>
-      <description>Two weeks ago Apple held it&amp;rsquo;s annual WWDC keynote announcing the latest updates to their platforms and technologies. The keynote lasted over 2 hours and you might would think that in that much time they have touched at least all technologies on the surface, but one thing especially seemed to have been missing almost entirely. HomeKit!
-While Apple seemed to have not shown too much love to that topic during their Keynote, it seems as if they still have given that technology quite some thought leading up to WWDC as Apple quietly made quite a few changes.</description>
+      <description>&lt;p&gt;Two weeks ago Apple held it&amp;rsquo;s annual WWDC keynote announcing the latest updates to their platforms and technologies. The keynote lasted over 2 hours and you might would think that in that much time they have touched at least all technologies on the surface, but one thing especially seemed to have been missing almost entirely. HomeKit!&lt;/p&gt;
+&lt;p&gt;While Apple seemed to have not shown too much love to that topic during their Keynote, it seems as if they still have given that technology quite some thought leading up to WWDC as Apple quietly made quite a few changes.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Setup Git Push To Securly Update Your Website</title>
       <link>https://iflorian.com/setup-git-remote-publishing/</link>
       <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
-      
       <guid>https://iflorian.com/setup-git-remote-publishing/</guid>
-      <description>I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
-One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.</description>
+      <description>&lt;p&gt;I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.&lt;/p&gt;
+&lt;p&gt;One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>From Ghost to Hugo. Easier Blog Hosting with Github Pages</title>
       <link>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</link>
       <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
       <guid>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</guid>
-      <description>With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
-Let me explain why I did this and how you can do this as well.
-Starting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.</description>
+      <description>&lt;p&gt;With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.&lt;br&gt;
+Let me explain why I did this and how you can do this as well.&lt;/p&gt;
+&lt;h2 id=&#34;starting-position&#34;&gt;Starting Position&lt;/h2&gt;
+&lt;p&gt;I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.&lt;br&gt;
+Hugo seemed to be the perfect solution for that, as the standard Ghost theme &lt;code&gt;casper&lt;/code&gt; was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&amp;rsquo;t need to be able to run node js on the server.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III</title>
       <link>https://iflorian.com/esp8266-weather-station-part-3/</link>
       <pubDate>Mon, 08 May 2017 20:20:22 -0400</pubDate>
-      
       <guid>https://iflorian.com/esp8266-weather-station-part-3/</guid>
-      <description>Part III This is part III of a series of tutorials that build up on each other. If you missed the first parts, you can find it here: Part 1 Part 2
-In this part we&amp;rsquo;re going to use the esp8266 chip with the DHT11 sensor from part I to connect to our MQTT server from part II and publish the sensors data. Finally, we are going to build a iOS app to display our data.</description>
+      <description>&lt;h1 id=&#34;part-iii&#34;&gt;Part III&lt;/h1&gt;
+&lt;p&gt;This is part III of a series of tutorials that build up on each other. If you missed the first parts, you can find it here: &lt;a href=&#34;https://iflorian.com/esp8266-weather-station-part-1&#34;&gt;Part 1&lt;/a&gt; &lt;a href=&#34;https://iflorian.com/esp8266-weather-station-part-2&#34;&gt;Part 2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In this part we&amp;rsquo;re going to use the esp8266 chip with the DHT11 sensor from part I to connect to our MQTT server from part II and publish the sensors data. Finally, we are going to build a iOS app to display our data.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Unicycling: One App For All EUCs</title>
       <link>https://iflorian.com/unicycling-one-app-for-all-eucs/</link>
       <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
       <guid>https://iflorian.com/unicycling-one-app-for-all-eucs/</guid>
-      <description>A week ago I started a new project. I&amp;rsquo;m excited to talk about it as it&amp;rsquo;s coming along nicely.
-A unicycling app!
-I&amp;rsquo;ve been an electric unicycle rider for a bit over a year now and it seems as there&amp;rsquo;s a big problem with all the different brands of EUCs (electric unicycle) that are out there: Their Apps
-When riding a electric unicycle, you need an app from time to time to change the settings of your EUC or track your path, battery or any of those metrics.</description>
+      <description>&lt;p&gt;A week ago I started a new project. I&amp;rsquo;m excited to talk about it as it&amp;rsquo;s coming along nicely.&lt;/p&gt;
+&lt;p&gt;A unicycling app!&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been an electric unicycle rider for a bit over a year now and it seems as there&amp;rsquo;s a big problem with all the different brands of EUCs (electric unicycle) that are out there: Their Apps&lt;/p&gt;
+&lt;p&gt;When riding a electric unicycle, you need an app from time to time to change the settings of your EUC or track your path, battery or any of those metrics.
+While all EUC brands I&amp;rsquo;ve seen so far provide an app, they come in different levels of usability and each with a different feature set.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>FinanceFox Review</title>
       <link>https://iflorian.com/financefox-review/</link>
       <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
-      
       <guid>https://iflorian.com/financefox-review/</guid>
-      <description>If You&#39;re Not Paying, You&#39;re The Product
-- The Internet
-Some of you might already know Finance Fox - &amp;ldquo;My Insurance Hero&amp;rdquo;. This is going to be a short review with my experience I had using them for about a year now.
-Finance Fox is a platform/app that allows you to manage your insurances and other financial contracts that you might own. They also claim that they can optimize those for you.</description>
+      <description>&lt;p&gt;&lt;code&gt;If You&#39;re Not Paying, You&#39;re The Product&lt;/code&gt;&lt;br&gt;
+&lt;em&gt;- The Internet&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Some of you might already know Finance Fox - &amp;ldquo;My Insurance Hero&amp;rdquo;. This is going to be a short review with my experience I had using them for about a year now.&lt;/p&gt;
+&lt;p&gt;Finance Fox is a platform/app that allows you to manage your insurances and other financial contracts that you might own. They also claim that they can optimize those for you.&lt;br&gt;
+Their promise/service is that they claim to be your personal, always available broker that handles all your claims, cases and problems you might have with your contracts for you.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>[Update] Watchdog On The Raspberry Pi</title>
       <link>https://iflorian.com/update-watchdog-on-the-raspberry-pi/</link>
       <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
-      
       <guid>https://iflorian.com/update-watchdog-on-the-raspberry-pi/</guid>
-      <description>I was posting about the watchdog device on the raspberry pi a few days ago and how to solve a specific error with the configuration on the pi.
-In the meantime I had the watchdog device running for a few days and it worked &amp;hellip; kind of &amp;hellip;
-One should know, that the watchdog devices halts the pi immediately, so it&amp;rsquo;s not a clean shutoff but more like you would pull the power plug of the pi.</description>
+      <description>&lt;p&gt;I was posting about the watchdog device on the raspberry pi a few days ago and how to solve a specific error with the configuration on the pi.&lt;/p&gt;
+&lt;p&gt;In the meantime I had the watchdog device running for a few days and it worked &amp;hellip; kind of &amp;hellip;&lt;/p&gt;
+&lt;p&gt;One should know, that the watchdog devices halts the pi immediately, so it&amp;rsquo;s not a clean shutoff but more like you would pull the power plug of the pi.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II</title>
       <link>https://iflorian.com/esp8266-weather-station-part-2/</link>
       <pubDate>Thu, 09 Feb 2017 11:20:20 -0400</pubDate>
-      
       <guid>https://iflorian.com/esp8266-weather-station-part-2/</guid>
-      <description>Part II This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I
-Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III. We&amp;rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we&amp;rsquo;re going to use in part III to communicate with our little weather station.</description>
+      <description>&lt;h1 id=&#34;part-ii&#34;&gt;Part II&lt;/h1&gt;
+&lt;p&gt;This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: &lt;a href=&#34;https://iflorian.com/esp8266-weather-station-part-1/&#34;&gt;Part I&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III.
+We&amp;rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we&amp;rsquo;re going to use in part III to communicate with our little weather station.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>OpenVPN block-outside-dns</title>
       <link>https://iflorian.com/openvpn-block-outside-ds/</link>
       <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
-      
       <guid>https://iflorian.com/openvpn-block-outside-ds/</guid>
-      <description>Recently I had issues with my VPN setup, specifically with my VPN over at premiumize.me.
-They seem to have added the block-outside-dns option to their OpenVPN setup. As that&amp;rsquo;s a Windows only question it doesn&amp;rsquo;t work on my OS X/Arch Linux machine and causes problems.
-The error message was:
-Unrecognized option or missing or extra parameter(s) in [PUSH-OPTIONS]:6: block-outside-dns (2.4.0)  You can fix that (given you run OpenVPN &amp;gt;= 2.</description>
+      <description>&lt;p&gt;Recently I had issues with my VPN setup, specifically with my VPN over at premiumize.me.&lt;/p&gt;
+&lt;p&gt;They seem to have added the &lt;code&gt;block-outside-dns&lt;/code&gt; option to their OpenVPN setup. As that&amp;rsquo;s a Windows only question it doesn&amp;rsquo;t work on my OS X/Arch Linux machine and causes problems.&lt;/p&gt;
+&lt;p&gt;The error message was:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Unrecognized option or missing or extra parameter(s) in [PUSH-OPTIONS]:6: block-outside-dns (2.4.0)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can fix that (given you run OpenVPN &amp;gt;= 2.4.0) by adding the following line to your client config:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Watchdog - cannot set timeout 16 (errno = 22 = &#39;Invalid argument&#39;)</title>
       <link>https://iflorian.com/watchdog-cannot-set-timeout-16-errno-22-invalid-argument/</link>
       <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
-      
       <guid>https://iflorian.com/watchdog-cannot-set-timeout-16-errno-22-invalid-argument/</guid>
-      <description>Seen that error before?
-Possibly on a Raspberry Pi 2&amp;frasl;3?
-Google seems to have problems guiding you to the right solution, so here it is:
-Add watchdog-timeout = 15 to your watchdog.conf file.
-Why is that? The Broadcom BCM2835 Watchdog timer only supports 15 seconds timeout ;)</description>
+      <description>&lt;p&gt;Seen that error before?&lt;br&gt;
+Possibly on a Raspberry Pi 2/3?&lt;/p&gt;
+&lt;p&gt;Google seems to have problems guiding you to the right solution, so here it is:&lt;/p&gt;
+&lt;p&gt;Add  &lt;code&gt;watchdog-timeout = 15&lt;/code&gt;  to your watchdog.conf file.&lt;/p&gt;
+&lt;p&gt;Why is that? The Broadcom BCM2835 Watchdog timer only supports 15 seconds timeout ;)&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>2016 - My year in review</title>
       <link>https://iflorian.com/2016-my-year-in-review/</link>
       <pubDate>Mon, 23 Jan 2017 21:21:02 +0000</pubDate>
-      
       <guid>https://iflorian.com/2016-my-year-in-review/</guid>
-      <description>I know, I know &amp;hellip; it&amp;rsquo;s a bit late for a review, but here it is!
-Flights:
-2016 was a year that forced me to travel a lot. I gained my H1B which forced me to go places and have me go back and forth.
-I flew 4 times to Atlanta, went to Egypt, Brussels, Rio, Florianopolis, Sao Paulo, Indianapolis, Denver, Milan, Istanbul and Santo Domingo.
-That&amp;rsquo;s my Flightmap (mostly, I forgot SDQ)</description>
+      <description>&lt;p&gt;I know, I know &amp;hellip; it&amp;rsquo;s a bit late for a review, but here it is!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Flights:&lt;/strong&gt;&lt;br&gt;
+2016 was a year that forced me to travel a lot. I gained my H1B which forced me to go places and have me go back and forth.&lt;br&gt;
+I flew 4 times to Atlanta, went to Egypt, Brussels, Rio, Florianopolis, Sao Paulo, Indianapolis, Denver, Milan, Istanbul and Santo Domingo.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Flightmap 2016&#34; loading=&#34;lazy&#34; src=&#34;https://iflorian.com/images/2017/01/Flightmap.png&#34;&gt;
+That&amp;rsquo;s my Flightmap (mostly, I forgot SDQ)&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I</title>
       <link>https://iflorian.com/esp8266-weather-station-part-1/</link>
       <pubDate>Mon, 19 Dec 2016 08:20:26 -0400</pubDate>
-      
       <guid>https://iflorian.com/esp8266-weather-station-part-1/</guid>
-      <description>Part I Today we&amp;rsquo;re going to build something exciting together and you guessed right - it has to do with the Internet of Things.
-As we do more and more IoT business for our clients, we as software developers also get more and more into the hardware part of the equation. Which is an important part when you truly want to understand and solve a problem.
-To achieve this and to share my knowledge with you in the best possible way, I made a project that will will help illuminate what&amp;rsquo;s behind IoT.</description>
+      <description>&lt;h1 id=&#34;part-i&#34;&gt;Part I&lt;/h1&gt;
+&lt;p&gt;Today we&amp;rsquo;re going to build something exciting together and you guessed right - it has to do with the Internet of Things.&lt;/p&gt;
+&lt;p&gt;As we do more and more IoT business for our clients, we as software developers also get more and more into the hardware part of the equation. Which is an important part when you truly want to understand and solve a problem.&lt;/p&gt;
+&lt;p&gt;To achieve this and to share my knowledge with you in the best possible way, I made a project that will will help illuminate what&amp;rsquo;s behind IoT. You don&amp;rsquo;t need much hardware to follow along, here&amp;rsquo;s what you need:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to Delete and Prevent Spam iCloud Calendar Invites</title>
       <link>https://iflorian.com/how-to-delete-and-prevent-spam-icloud-calendar-invites/</link>
       <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
       <guid>https://iflorian.com/how-to-delete-and-prevent-spam-icloud-calendar-invites/</guid>
-      <description>With BlackFriday and CyberMonday just behind us, a lot of us have received strange iCloud calendar invites like I did.
-We didn&amp;rsquo;t ask for that and certainly it&amp;rsquo;s annoying as they have no value to anyone.
-Why did we receive those invites? Spammers are sending emails out to email addresses they scraped off of google search results or to email addresses they know from breaches or data they bought. With iClouds ability to auto convert special encoded emails into calendar invites you&amp;rsquo;ll never see the actual email they sent you, but only the annoying calendar invite.</description>
+      <description>Avoid spammy iCloud invites</description>
     </item>
-    
     <item>
       <title>Xcode 8: PROVISIONING_PROFILE_SPECIFIER</title>
       <link>https://iflorian.com/xcode-8-provisioning_profile_specifier/</link>
       <pubDate>Wed, 26 Oct 2016 18:46:15 +0000</pubDate>
-      
       <guid>https://iflorian.com/xcode-8-provisioning_profile_specifier/</guid>
-      <description>I recently had a few problems with signing my apps due to some Xcode 8 changes, mainly the difference between using PROVISIONING_PROFILE_SPECIFIER and PROVISIONING_PROFILE to specify your provisioning profile.
-There are wonderful blog posts out there that describe the process in detail, here&amp;rsquo;s what I found important:
- PROVISIONING_PROFILE_SPECIFIER setting is used to indicate the type of signing method that should be used for a given target. Targets that want to employ the manual method of code signing will not use this setting, and will instead use the deprecated PROVISIONING_PROFILE build setting.</description>
+      <description>&lt;p&gt;I recently had a few problems with signing my apps due to some Xcode 8 changes, mainly the difference between using &lt;code&gt;PROVISIONING_PROFILE_SPECIFIER&lt;/code&gt; and &lt;code&gt;PROVISIONING_PROFILE&lt;/code&gt; to specify your provisioning profile.&lt;/p&gt;
+&lt;p&gt;There are wonderful blog posts out there that describe the process in detail, here&amp;rsquo;s what I found important:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;PROVISIONING_PROFILE_SPECIFIER&lt;/code&gt; setting is used to indicate the type of signing method that should be used for a given target. Targets that want to employ the manual method of code signing will not use this setting, and will instead use the deprecated &lt;code&gt;PROVISIONING_PROFILE&lt;/code&gt; build setting. If the setting is set then, the new automatic code signing method will take over.&lt;br&gt;
+Source: &lt;a href=&#34;https://pewpewthespells.com/blog/migrating_code_signing.html&#34;&gt;pewpewthespells&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Continuous Deployment with Travis CI and HockeyApp, Part 3</title>
       <link>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/</link>
       <pubDate>Fri, 21 Oct 2016 18:31:03 +0000</pubDate>
-      
       <guid>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/</guid>
-      <description>Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &amp;ldquo;simple&amp;rdquo; and upload our App to HockeyApp via curl.</description>
+      <description>&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &amp;ldquo;simple&amp;rdquo; and upload our App to HockeyApp via curl.&lt;/p&gt;
+&lt;h2 id=&#34;hockeyapp&#34;&gt;HockeyApp&lt;/h2&gt;
+&lt;p&gt;HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Continuous Deployment with Travis CI and HockeyApp, Part 2</title>
       <link>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/</link>
       <pubDate>Fri, 21 Oct 2016 18:28:26 +0000</pubDate>
-      
       <guid>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/</guid>
-      <description>We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
-App Signing In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.</description>
+      <description>&lt;p&gt;We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.&lt;/p&gt;
+&lt;h2 id=&#34;app-signing&#34;&gt;App Signing&lt;/h2&gt;
+&lt;p&gt;In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Continuous Deployment with Travis CI and HockeyApp, Part 1</title>
       <link>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/</link>
       <pubDate>Fri, 21 Oct 2016 17:28:00 +0000</pubDate>
-      
       <guid>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/</guid>
-      <description>Full disclosure: I wrote this about 1-1.5yrs ago for another company but haven&amp;rsquo;t updated it yet. There&amp;rsquo;s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)
-Continuous integration has become an important topic and a significant part of a developer’s workflow. Finding bugs and ensuring a stable codebase are among the most important benefits of using continuous integration.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Full disclosure:&lt;/strong&gt; I wrote this about 1-1.5yrs ago for another company but haven&amp;rsquo;t updated it yet. There&amp;rsquo;s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)&lt;/p&gt;
+&lt;p&gt;Continuous integration has become an important topic and a significant part of a developer’s workflow. Finding bugs and ensuring a stable codebase are among the most important benefits of using continuous integration. While these benefits are huge on their own, we can extend our continuous integration setup to actually deploy new builds of our application to our testers. We call this extended setup continuous deployment.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ReleaseNotes 2016</title>
       <link>https://iflorian.com/business-your-language-matters/</link>
       <pubDate>Wed, 05 Oct 2016 17:55:04 +0000</pubDate>
-      
       <guid>https://iflorian.com/business-your-language-matters/</guid>
-      <description>I&amp;rsquo;ve been to ReleaseNotes last week. ReleaseNotes is a indie conference mainly centered around the topic on &amp;ldquo;How to build a business&amp;rdquo;.
-The conference was superb! But more to that later.
-One talk that I&amp;rsquo;ve heard there last week already came back to me, which I like to write about now:
-@sh&amp;rsquo;s talk &amp;ldquo;How to improve at support as a developer&amp;rdquo;
-The talk centered around the language you use when facing customers and what impact it has between talking like a human being or some neutral robot.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been to &lt;a href=&#34;https://releasenotes.tv/conference/&#34;&gt;ReleaseNotes&lt;/a&gt; last week. ReleaseNotes is a indie conference mainly centered around the topic on &amp;ldquo;How to build a business&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The conference was superb! But more to that later.&lt;/p&gt;
+&lt;p&gt;One talk that I&amp;rsquo;ve heard there last week already came back to me, which I like to write about now:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://twitter.com/sh&#34;&gt;@sh&lt;/a&gt;&amp;rsquo;s talk &amp;ldquo;How to improve at support as a developer&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The talk centered around the language you use when facing customers and what impact it has between talking like a human being or some neutral robot.
+Now I won&amp;rsquo;t be able to capture in writing how awesome the talk was or what a great speaker Sarah Hatter is, but I want you to profit from the talk, so let me refer you to &lt;a href=&#34;https://twitter.com/bsndesign&#34;&gt;@bsndesign&amp;rsquo;s&lt;/a&gt; notes to said talk:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>360iDev2016 - Denver&#39;s Premier iOS Conference</title>
       <link>https://iflorian.com/360idev2016-a-mile-high-conference/</link>
       <pubDate>Wed, 14 Sep 2016 16:29:21 +0000</pubDate>
-      
       <guid>https://iflorian.com/360idev2016-a-mile-high-conference/</guid>
-      <description>Two weeks ago I&amp;rsquo;ve attended the 360iDev conference in Denver. This year was my second year that I attended 360iDev.
-For those of you who don&amp;rsquo;t know what I&amp;rsquo;m talking about, it&amp;rsquo;s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time.</description>
+      <description>&lt;p&gt;&lt;img alt=&#34;360iDev Logo&#34; loading=&#34;lazy&#34; src=&#34;http://360idev.com/wp-content/uploads/2014/06/Sticker-nodate.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Two weeks ago I&amp;rsquo;ve attended the &lt;a href=&#34;http://360idev.com&#34;&gt;360iDev&lt;/a&gt; conference in Denver. This year was my second year that I attended 360iDev.&lt;/p&gt;
+&lt;p&gt;For those of you who don&amp;rsquo;t know what I&amp;rsquo;m talking about, it&amp;rsquo;s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time.  The topics can be grouped into either iOS, technical or business topics. That might sound a bit like every other conference, but I haven&amp;rsquo;t told you the best part yet: 360iDev&amp;rsquo;s community!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Welcome!</title>
       <link>https://iflorian.com/welcome/</link>
       <pubDate>Tue, 30 Aug 2016 01:43:17 +0000</pubDate>
-      
       <guid>https://iflorian.com/welcome/</guid>
-      <description>You&amp;rsquo;ve made it! Welcome to my blog!
-For years I wanted to write my own blog and share my opinion with the rest of the world. Now I finally took some time and created this little blog. I hope everyone can enjoy it!
-Before you start reading through my blog, let me introduce myself: My name is Florian. I&amp;rsquo;m a German expat living in the US. Software Engineering is what I studied and what I currently do in my full time job.</description>
+      <description>&lt;p&gt;You&amp;rsquo;ve made it! Welcome to my blog!&lt;/p&gt;
+&lt;p&gt;For years I wanted to write my own blog and share my opinion with the rest of the world. Now I finally took some time and created this little blog. I hope everyone can enjoy it!&lt;/p&gt;
+&lt;p&gt;Before you start reading through my blog, let me introduce myself:
+My name is Florian. I&amp;rsquo;m a German expat living in the US. Software Engineering is what I studied and what I currently do in my full time job.
+I&amp;rsquo;ll be writing about technical things like the coding I&amp;rsquo;m doing (iOS and Backend stuff), some of my hobbies (electric unicycling, 3D printing) or whatever comes into my mind.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

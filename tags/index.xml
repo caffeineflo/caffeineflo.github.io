@@ -1,376 +1,293 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on [self writeBlog];</title>
     <link>https://iflorian.com/tags/</link>
     <description>Recent content in Tags on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
-    <lastBuildDate>Tue, 13 Jun 2017 20:05:33 -0400</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>.Git</title>
-      <link>https://iflorian.com/tags/.git/</link>
-      <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/.git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>https://iflorian.com/tags/about-me/</link>
-      <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/about-me/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Arch Linux</title>
-      <link>https://iflorian.com/tags/arch-linux/</link>
-      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/arch-linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Block Outside Dns</title>
-      <link>https://iflorian.com/tags/block-outside-dns/</link>
-      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/block-outside-dns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://iflorian.com/tags/blog/</link>
-      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/blog/</guid>
-      <description></description>
-    </item>
-    
+    <copyright>All rights reserved - 2024</copyright>
+    <lastBuildDate>Sun, 06 Aug 2017 19:33:42 -0400</lastBuildDate>
+    <atom:link href="https://iflorian.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Botnet</title>
       <link>https://iflorian.com/tags/botnet/</link>
       <pubDate>Sun, 06 Aug 2017 19:33:42 -0400</pubDate>
-      
       <guid>https://iflorian.com/tags/botnet/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Botnet Size</title>
+      <title>Botnet-Size</title>
       <link>https://iflorian.com/tags/botnet-size/</link>
       <pubDate>Sun, 06 Aug 2017 19:33:42 -0400</pubDate>
-      
       <guid>https://iflorian.com/tags/botnet-size/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Conference</title>
-      <link>https://iflorian.com/tags/conference/</link>
-      <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/conference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cyber Monday</title>
-      <link>https://iflorian.com/tags/cyber-monday/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/cyber-monday/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dht11</title>
-      <link>https://iflorian.com/tags/dht11/</link>
-      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/dht11/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dht22</title>
-      <link>https://iflorian.com/tags/dht22/</link>
-      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/dht22/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Esp8266</title>
-      <link>https://iflorian.com/tags/esp8266/</link>
-      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/esp8266/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Finance Fox</title>
-      <link>https://iflorian.com/tags/finance-fox/</link>
-      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/finance-fox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ghost</title>
-      <link>https://iflorian.com/tags/ghost/</link>
-      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/ghost/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://iflorian.com/tags/git/</link>
-      <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>https://iflorian.com/tags/github/</link>
-      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Homekit</title>
-      <link>https://iflorian.com/tags/homekit/</link>
-      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/homekit/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Homekit2mqtt</title>
-      <link>https://iflorian.com/tags/homekit2mqtt/</link>
-      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/homekit2mqtt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hosting</title>
-      <link>https://iflorian.com/tags/hosting/</link>
-      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/hosting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://iflorian.com/tags/hugo/</link>
-      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Icloud</title>
-      <link>https://iflorian.com/tags/icloud/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/icloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Inmotion</title>
-      <link>https://iflorian.com/tags/inmotion/</link>
-      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/inmotion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Insurance</title>
-      <link>https://iflorian.com/tags/insurance/</link>
-      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/insurance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Invite</title>
-      <link>https://iflorian.com/tags/invite/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/invite/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ios</title>
-      <link>https://iflorian.com/tags/ios/</link>
-      <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/ios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://iflorian.com/tags/linux/</link>
-      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Mirai</title>
       <link>https://iflorian.com/tags/mirai/</link>
       <pubDate>Sun, 06 Aug 2017 19:33:42 -0400</pubDate>
-      
       <guid>https://iflorian.com/tags/mirai/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Mqtt</title>
-      <link>https://iflorian.com/tags/mqtt/</link>
-      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/mqtt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ninebot</title>
-      <link>https://iflorian.com/tags/ninebot/</link>
-      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/ninebot/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Numbers</title>
       <link>https://iflorian.com/tags/numbers/</link>
       <pubDate>Sun, 06 Aug 2017 19:33:42 -0400</pubDate>
-      
       <guid>https://iflorian.com/tags/numbers/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Openvpn</title>
-      <link>https://iflorian.com/tags/openvpn/</link>
-      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/openvpn/</guid>
+      <title>Conference</title>
+      <link>https://iflorian.com/tags/conference/</link>
+      <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
+      <guid>https://iflorian.com/tags/conference/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Pages</title>
-      <link>https://iflorian.com/tags/pages/</link>
-      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/pages/</guid>
+      <title>Ios</title>
+      <link>https://iflorian.com/tags/ios/</link>
+      <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
+      <guid>https://iflorian.com/tags/ios/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Push</title>
-      <link>https://iflorian.com/tags/push/</link>
-      <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
-      
-      <guid>https://iflorian.com/tags/push/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Raspberry Pi</title>
-      <link>https://iflorian.com/tags/raspberry-pi/</link>
-      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/raspberry-pi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Resume</title>
-      <link>https://iflorian.com/tags/resume/</link>
-      <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/resume/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spam</title>
-      <link>https://iflorian.com/tags/spam/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/spam/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Speaking</title>
       <link>https://iflorian.com/tags/speaking/</link>
       <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
-      
       <guid>https://iflorian.com/tags/speaking/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Timeout</title>
-      <link>https://iflorian.com/tags/timeout/</link>
-      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
-      
-      <guid>https://iflorian.com/tags/timeout/</guid>
+      <title>Dht11</title>
+      <link>https://iflorian.com/tags/dht11/</link>
+      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
+      <guid>https://iflorian.com/tags/dht11/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Dht22</title>
+      <link>https://iflorian.com/tags/dht22/</link>
+      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
+      <guid>https://iflorian.com/tags/dht22/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Esp8266</title>
+      <link>https://iflorian.com/tags/esp8266/</link>
+      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
+      <guid>https://iflorian.com/tags/esp8266/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homekit</title>
+      <link>https://iflorian.com/tags/homekit/</link>
+      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
+      <guid>https://iflorian.com/tags/homekit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homekit2mqtt</title>
+      <link>https://iflorian.com/tags/homekit2mqtt/</link>
+      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
+      <guid>https://iflorian.com/tags/homekit2mqtt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mqtt</title>
+      <link>https://iflorian.com/tags/mqtt/</link>
+      <pubDate>Wed, 21 Jun 2017 11:20:26 -0400</pubDate>
+      <guid>https://iflorian.com/tags/mqtt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>.Git</title>
+      <link>https://iflorian.com/tags/.git/</link>
+      <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
+      <guid>https://iflorian.com/tags/.git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>https://iflorian.com/tags/git/</link>
+      <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
+      <guid>https://iflorian.com/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Push</title>
+      <link>https://iflorian.com/tags/push/</link>
+      <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
+      <guid>https://iflorian.com/tags/push/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>https://iflorian.com/tags/blog/</link>
+      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
+      <guid>https://iflorian.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ghost</title>
+      <link>https://iflorian.com/tags/ghost/</link>
+      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
+      <guid>https://iflorian.com/tags/ghost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>https://iflorian.com/tags/github/</link>
+      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
+      <guid>https://iflorian.com/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hosting</title>
+      <link>https://iflorian.com/tags/hosting/</link>
+      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
+      <guid>https://iflorian.com/tags/hosting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://iflorian.com/tags/hugo/</link>
+      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
+      <guid>https://iflorian.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pages</title>
+      <link>https://iflorian.com/tags/pages/</link>
+      <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
+      <guid>https://iflorian.com/tags/pages/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://iflorian.com/tags/about-me/</link>
+      <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
+      <guid>https://iflorian.com/tags/about-me/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>https://iflorian.com/tags/resume/</link>
+      <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
+      <guid>https://iflorian.com/tags/resume/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Inmotion</title>
+      <link>https://iflorian.com/tags/inmotion/</link>
+      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
+      <guid>https://iflorian.com/tags/inmotion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ninebot</title>
+      <link>https://iflorian.com/tags/ninebot/</link>
+      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
+      <guid>https://iflorian.com/tags/ninebot/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Unicycle</title>
       <link>https://iflorian.com/tags/unicycle/</link>
       <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
       <guid>https://iflorian.com/tags/unicycle/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Finance Fox</title>
+      <link>https://iflorian.com/tags/finance-fox/</link>
+      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
+      <guid>https://iflorian.com/tags/finance-fox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Insurance</title>
+      <link>https://iflorian.com/tags/insurance/</link>
+      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
+      <guid>https://iflorian.com/tags/insurance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arch Linux</title>
+      <link>https://iflorian.com/tags/arch-linux/</link>
+      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
+      <guid>https://iflorian.com/tags/arch-linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry Pi</title>
+      <link>https://iflorian.com/tags/raspberry-pi/</link>
+      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
+      <guid>https://iflorian.com/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Watchdog</title>
       <link>https://iflorian.com/tags/watchdog/</link>
       <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
-      
       <guid>https://iflorian.com/tags/watchdog/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Block-Outside-Dns</title>
+      <link>https://iflorian.com/tags/block-outside-dns/</link>
+      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
+      <guid>https://iflorian.com/tags/block-outside-dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openvpn</title>
+      <link>https://iflorian.com/tags/openvpn/</link>
+      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
+      <guid>https://iflorian.com/tags/openvpn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://iflorian.com/tags/linux/</link>
+      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
+      <guid>https://iflorian.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Timeout</title>
+      <link>https://iflorian.com/tags/timeout/</link>
+      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
+      <guid>https://iflorian.com/tags/timeout/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cyber Monday</title>
+      <link>https://iflorian.com/tags/cyber-monday/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/tags/cyber-monday/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Icloud</title>
+      <link>https://iflorian.com/tags/icloud/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/tags/icloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Invite</title>
+      <link>https://iflorian.com/tags/invite/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/tags/invite/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spam</title>
+      <link>https://iflorian.com/tags/spam/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/tags/spam/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

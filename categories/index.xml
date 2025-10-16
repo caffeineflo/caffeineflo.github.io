@@ -1,205 +1,160 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on [self writeBlog];</title>
     <link>https://iflorian.com/categories/</link>
     <description>Recent content in Categories on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
-    <lastBuildDate>Thu, 23 Feb 2017 19:57:37 +0000</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>About Me</title>
-      <link>https://iflorian.com/categories/about-me/</link>
-      <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/about-me/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Arch Linux</title>
-      <link>https://iflorian.com/categories/arch-linux/</link>
-      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/arch-linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Block Outside Dns</title>
-      <link>https://iflorian.com/categories/block-outside-dns/</link>
-      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/block-outside-dns/</guid>
-      <description></description>
-    </item>
-    
+    <copyright>All rights reserved - 2024</copyright>
+    <lastBuildDate>Thu, 23 Feb 2017 19:58:28 +0000</lastBuildDate>
+    <atom:link href="https://iflorian.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Contact</title>
       <link>https://iflorian.com/categories/contact/</link>
       <pubDate>Thu, 23 Feb 2017 19:58:28 +0000</pubDate>
-      
       <guid>https://iflorian.com/categories/contact/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Cyber Monday</title>
-      <link>https://iflorian.com/categories/cyber-monday/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/cyber-monday/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Email</title>
       <link>https://iflorian.com/categories/email/</link>
       <pubDate>Thu, 23 Feb 2017 19:58:28 +0000</pubDate>
-      
       <guid>https://iflorian.com/categories/email/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Finance Fox</title>
-      <link>https://iflorian.com/categories/finance-fox/</link>
-      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/finance-fox/</guid>
+      <title>About Me</title>
+      <link>https://iflorian.com/categories/about-me/</link>
+      <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
+      <guid>https://iflorian.com/categories/about-me/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Icloud</title>
-      <link>https://iflorian.com/categories/icloud/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/icloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Inmotion</title>
-      <link>https://iflorian.com/categories/inmotion/</link>
-      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/inmotion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Insurance</title>
-      <link>https://iflorian.com/categories/insurance/</link>
-      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/insurance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Invite</title>
-      <link>https://iflorian.com/categories/invite/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/invite/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ios</title>
-      <link>https://iflorian.com/categories/ios/</link>
-      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/ios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://iflorian.com/categories/linux/</link>
-      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ninebot</title>
-      <link>https://iflorian.com/categories/ninebot/</link>
-      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/ninebot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Openvpn</title>
-      <link>https://iflorian.com/categories/openvpn/</link>
-      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/openvpn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Raspberry Pi</title>
-      <link>https://iflorian.com/categories/raspberry-pi/</link>
-      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/raspberry-pi/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Resume</title>
       <link>https://iflorian.com/categories/resume/</link>
       <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
-      
       <guid>https://iflorian.com/categories/resume/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Spam</title>
-      <link>https://iflorian.com/categories/spam/</link>
-      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/spam/</guid>
+      <title>Inmotion</title>
+      <link>https://iflorian.com/categories/inmotion/</link>
+      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
+      <guid>https://iflorian.com/categories/inmotion/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Timeout</title>
-      <link>https://iflorian.com/categories/timeout/</link>
-      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
-      
-      <guid>https://iflorian.com/categories/timeout/</guid>
+      <title>Ios</title>
+      <link>https://iflorian.com/categories/ios/</link>
+      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
+      <guid>https://iflorian.com/categories/ios/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Ninebot</title>
+      <link>https://iflorian.com/categories/ninebot/</link>
+      <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
+      <guid>https://iflorian.com/categories/ninebot/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Unicycle</title>
       <link>https://iflorian.com/categories/unicycle/</link>
       <pubDate>Fri, 17 Feb 2017 01:42:49 +0000</pubDate>
-      
       <guid>https://iflorian.com/categories/unicycle/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Finance Fox</title>
+      <link>https://iflorian.com/categories/finance-fox/</link>
+      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
+      <guid>https://iflorian.com/categories/finance-fox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Insurance</title>
+      <link>https://iflorian.com/categories/insurance/</link>
+      <pubDate>Tue, 14 Feb 2017 03:21:30 +0000</pubDate>
+      <guid>https://iflorian.com/categories/insurance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arch Linux</title>
+      <link>https://iflorian.com/categories/arch-linux/</link>
+      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
+      <guid>https://iflorian.com/categories/arch-linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry Pi</title>
+      <link>https://iflorian.com/categories/raspberry-pi/</link>
+      <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
+      <guid>https://iflorian.com/categories/raspberry-pi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Watchdog</title>
       <link>https://iflorian.com/categories/watchdog/</link>
       <pubDate>Tue, 14 Feb 2017 00:56:10 +0000</pubDate>
-      
       <guid>https://iflorian.com/categories/watchdog/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>Block-Outside-Dns</title>
+      <link>https://iflorian.com/categories/block-outside-dns/</link>
+      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
+      <guid>https://iflorian.com/categories/block-outside-dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openvpn</title>
+      <link>https://iflorian.com/categories/openvpn/</link>
+      <pubDate>Tue, 31 Jan 2017 06:06:51 +0000</pubDate>
+      <guid>https://iflorian.com/categories/openvpn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://iflorian.com/categories/linux/</link>
+      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
+      <guid>https://iflorian.com/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Timeout</title>
+      <link>https://iflorian.com/categories/timeout/</link>
+      <pubDate>Tue, 31 Jan 2017 05:56:07 +0000</pubDate>
+      <guid>https://iflorian.com/categories/timeout/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cyber Monday</title>
+      <link>https://iflorian.com/categories/cyber-monday/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/categories/cyber-monday/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Icloud</title>
+      <link>https://iflorian.com/categories/icloud/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/categories/icloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Invite</title>
+      <link>https://iflorian.com/categories/invite/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/categories/invite/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spam</title>
+      <link>https://iflorian.com/categories/spam/</link>
+      <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
+      <guid>https://iflorian.com/categories/spam/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

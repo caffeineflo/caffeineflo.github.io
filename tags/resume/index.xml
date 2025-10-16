@@ -1,27 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Resume on [self writeBlog];</title>
     <link>https://iflorian.com/tags/resume/</link>
     <description>Recent content in Resume on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
+    <copyright>All rights reserved - 2024</copyright>
     <lastBuildDate>Thu, 23 Feb 2017 19:57:37 +0000</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/tags/resume/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://iflorian.com/tags/resume/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Me</title>
       <link>https://iflorian.com/about/</link>
       <pubDate>Thu, 23 Feb 2017 19:57:37 +0000</pubDate>
-      
       <guid>https://iflorian.com/about/</guid>
-      <description>Hi Visitor,
-Welcome to my blog/website/notebook! I&amp;rsquo;m glad you are here and I hope you enjoy the content you find here. Here are a few words about me, so you&amp;rsquo;ll get to know who writes all this stuff.
-Florian Harr iOS Software Engineer in Atlanta I&amp;rsquo;m an iOS Developer in Atlanta! I moved to Atlanta in 2014 right after I finished my Bachelors Degree in Computer Science in Stuttgart, Germany.</description>
+      <description>&lt;p&gt;Hi Visitor,&lt;/p&gt;
+&lt;p&gt;Welcome to my blog/website/notebook! I&amp;rsquo;m glad you are here and I hope you enjoy the content you find here.
+Here are a few words about me, so you&amp;rsquo;ll get to know who writes all this stuff.&lt;/p&gt;
+&lt;h3 id=&#34;florian-harr&#34;&gt;Florian Harr&lt;/h3&gt;
+&lt;h4 id=&#34;ios-software-engineer-in-atlanta&#34;&gt;iOS Software Engineer in Atlanta&lt;/h4&gt;
+&lt;p&gt;I&amp;rsquo;m an iOS Developer in Atlanta! I moved to Atlanta in 2014 right after I finished my Bachelors Degree in Computer Science in Stuttgart, Germany.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

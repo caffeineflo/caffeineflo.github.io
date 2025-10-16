@@ -1,29 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Speaking on [self writeBlog];</title>
     <link>https://iflorian.com/tags/speaking/</link>
     <description>Recent content in Speaking on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
+    <copyright>All rights reserved - 2024</copyright>
     <lastBuildDate>Mon, 31 Jul 2017 11:44:40 -0400</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/tags/speaking/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://iflorian.com/tags/speaking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Join me at 360iDev - The Leading Indie iOS/macOS Developer Conference</title>
       <link>https://iflorian.com/360idev2017-denver/</link>
       <pubDate>Mon, 31 Jul 2017 11:44:40 -0400</pubDate>
-      
       <guid>https://iflorian.com/360idev2017-denver/</guid>
-      <description>360iDev is coming fast and you should come! Why?
-Let me give you six reasons why you should come:
- Sam Davies will give &amp;ldquo;A Fun iOS 11 Workshop&amp;rdquo; on Sunday, Aug 13th
- On Monday, Aug 14th Joe Cieplinski will talk about &amp;ldquo;Getting Past No: The Science of Moving Others&amp;rdquo;
- Jay Freeman (Too many references to link to) will be talking about himself?! Anyways, I&amp;rsquo;m sure his session is going to be great!</description>
+      <description>&lt;p&gt;360iDev is coming fast and you should come! Why?&lt;br&gt;
+Let me give you six reasons why you should come:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.raywenderlich.com/u/samdavies&#34;&gt;Sam Davies&lt;/a&gt; will give &amp;ldquo;A Fun iOS 11 Workshop&amp;rdquo; on Sunday, Aug 13th&lt;/li&gt;
+&lt;li&gt;On Monday, Aug 14th &lt;a href=&#34;https://releasenotes.tv/aboutthepodcast/&#34;&gt;Joe Cieplinski&lt;/a&gt; will talk about &amp;ldquo;Getting Past No: The Science of Moving Others&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Jay Freeman (Too many references to link to) will be talking about himself?! Anyways, I&amp;rsquo;m sure his session is going to be great!&lt;/li&gt;
+&lt;li&gt;The same day (Aug 15th) Ben DiFrancesco will be talking about &amp;ldquo;Threads, Queues, and Things to Come: The Present and Future of Concurrency in Swift&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;And on the last day (after my talk, which you should visit), hear Andrew Morrow talk about &amp;ldquo;Using C Libraries in Swift 3&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;And with all these great sessions in mind, don&amp;rsquo;t miss me talking about &amp;ldquo;The Internet of Things and iOS: Don’t let your toaster bring down the internet!&amp;rdquo; on Sunday Aug 16th&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And if that wasn&amp;rsquo;t already enough, I have something special planned for my talk, that includes:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

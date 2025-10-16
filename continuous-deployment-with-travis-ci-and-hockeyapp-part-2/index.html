@@ -1,451 +1,329 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Continuous Deployment with Travis CI and HockeyApp, Part 2 | [self writeBlog];</title>
+<meta name="keywords" content="">
+<meta name="description" content="We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
+App Signing
+In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.">
+<meta name="author" content="Florian Harr">
+<link rel="canonical" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://iflorian.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://iflorian.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://iflorian.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    
-    
-        <meta name="twitter:card" content="summary"/>
-    
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  mermaid.contentLoaded();
+</script>
+<meta property="og:url" content="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/">
+  <meta property="og:site_name" content="[self writeBlog];">
+  <meta property="og:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 2">
+  <meta property="og:description" content="We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
+App Signing In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2016-10-21T18:28:26+00:00">
+    <meta property="article:modified_time" content="2016-10-21T18:28:26+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 2">
+<meta name="twitter:description" content="We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
+App Signing
+In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.">
 
 
-
-<meta name="twitter:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 2"/>
-<meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@caffeineflo"/>
-
-
-
-  	<meta property="og:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 2 &middot; [self writeBlog];" />
-  	<meta property="og:site_name" content="[self writeBlog];" />
-  	<meta property="og:url" content="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/" />
-
-    
-        
-            <meta property="og:image" content="/images/cover_small.jpg"/>
-        
-    
-
-    
-    <meta property="og:description" content="" />
-  	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2016-10-21T18:28:26Z" />
-
-    
-    
-
-    <title>Continuous Deployment with Travis CI and HockeyApp, Part 2 &middot; [self writeBlog];</title>
-
-    
-    <meta name="description" content="We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
-App Signing In the p" />
-    
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
-    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
-
-    
-
-    
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-        
-        <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-      
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
-      
-      
-    
-    <meta name="generator" content="Hugo 0.54.0" />
-
-    <link rel="canonical" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/" />
-
-    
-      
-    
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": ,
-        "logo": https://iflorian.com/images/logo_inverted.png
-    },
-    "author": {
-        "@type": "Person",
-        "name": ,
-        
-        "image": {
-            "@type": "ImageObject",
-            "url": https://iflorian.com/images/logo_inverted.png,
-            "width": 250,
-            "height": 250
-        }, 
-        
-        "url": https://iflorian.com/,
-        "sameAs": [
-            
-            
-             
-             
-             
-             
-             
-            
-        ]
-    },
-    "headline": Continuous Deployment with Travis CI and HockeyApp, Part 2,
-    "name": Continuous Deployment with Travis CI and HockeyApp, Part 2,
-    "wordCount": 3366,
-    "timeRequired": "PT16M",
-    "inLanguage": {
-      "@type": "Language",
-      "alternateName": en
-    },
-    "url": https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/,
-    "datePublished": 2016-10-21T18:28Z,
-    "dateModified": 2016-10-21T18:28Z,
-    
-    
-    "description": ,
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://iflorian.com/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Continuous Deployment with Travis CI and HockeyApp, Part 2",
+      "item": "https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/"
     }
+  ]
 }
-    </script>
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Continuous Deployment with Travis CI and HockeyApp, Part 2",
+  "name": "Continuous Deployment with Travis CI and HockeyApp, Part 2",
+  "description": "We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.\nApp Signing In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.\n",
+  "keywords": [
     
-
-
-    
-
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-86325185-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    
-
-    
+  ],
+  "articleBody": "We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.\nApp Signing In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.\nIn this first section I will cover the process of obtaining the right certificates, and using them to sign our ipa. We will create some scripts for the signing process so that our release builds can be used. There will also be a part which covers how to encrypt your certificates in case you’re on a public repository or want an additional level of security. In addition, I’m introducing the solution I came up with for a corporate setting — a certificate git repo which gets pulled from Travis so that you don’t need to store your certificates in your project’s repo.\nSigning Certificates To sign and package our app we need two certificates and a provisioning profile: The Apple WorldWide Certificate, a iPhone Distribution Certifcate as well as the corresponding private key and the iOS Provisioning Profile.\n1. The Apple WorldWide Certificate\nYou can either download it here or export it from your Keychain. Save it somewhere in your repo, and remember the location as we need the path for our signing scripts.\n2. iPhone Distribution Certificate (App Store or Ad Hoc)\nNow we need a distribution certificate. To get a new one, go to the Apple Developer Program Website and create one. You’ll find everything you need under ‘Certificates \u003e Production \u003e Add \u003e App Store or Ad Hoc’. This gives you the option to download your iPhone Distribution Certificate.\nIf you’ve downloaded and installed the certificate before or if you want to use an existing one from your machine, open your Keychain Access application (Applications \u003e Utilities \u003e Keychain Access) and export the certificate. The naming in your keychain will most likely be like: “iOS Distribution: Company Name or Developer Name”.\nNote: Make sure that you only select the iPhone Distribution Certificate and NOT the combined certificate with the private key. A combined certificate would have a little “drop-down” arrow on the left where unfolding would show you the corresponding private key underneath. If that’s the case, unfold it and only select the certificate.\nRight-Click on the certificate and choose ‘Export’. The target file format for this certificate will be ‘.cer’. You should save it at the same place where you saved the Apple WorldWide Certificate.\n3. iPhone Distribution Certificate Signing Identity - Private Key\nNext you need your private key. The private key normally has the name of the developer which signed for the iPhone Distribution Certificate. In our case the certificates name is ‘Aaron Hillegass’ marked as private key in the ‘kind’ column.\nGo through the Export steps explained above for the iPhone Distribution Certificate. The target file format for this certificate will be ‘.p12’. Feel free to use any password you like, though keep in mind that this is all parsed through bash later, so spaces can give you a hard time later.\n4. iOS Provisioning Profile\nThe last file we need is the iOS Provisioning Profile. You can create a Provisioning Profile at Apples Developer Program Member site. Go to ‘Provisioning Profile \u003e Distribution \u003e Add \u003e Ad Hoc’ or ‘In House’ and create your profile. When creating the profile you can either set a specific Bundle Identifier so your Provisioning Profile will only work with that Identifier, or you’re going to specify an Identifier with an asterisk ‘*’ to match more than one Identifier. Save it next to your other files in your repository. It’s helpful to install this locally, but not necessary for our CI setup.\nEncryption The next step before we can finally modify our script again and sign our app, is to decide if you want to encrypt your certificates or if you want a custom solution for them. As mentioned before there are three ways to go from here.\nFirst, you can simply store your certificates unencrypted in your repo. If so, you can skip this paragraph. Note: This is only recommended if your repo is private and you don’t fear any security breach.\nSecond, you can store your certificates in a special repo and pull the certificates once Travis needs them. That’s a nice setting if you have a whole bunch of apps or if you want to skip the step of acquiring the certificates every time. This works well with a provisioning profile that’s not attached to a specific bundle identifier. Plus, you can store your certificates there either encrypted or unencrypted depending on security concerns of your repository. If so, read along and apply this paragraph to a detached repo instead of this repo.\nThird, you can store your certificates encrypted in your projects repo.\nTo start with the encryption process, I want to introduce the Travis gem, a command line tool which helps you encrypt variables and files. The Travis gem can be installed through ‘gem install Travis’ on your local machine, given ruby is present. Given we need to add the personal key to Travis’s environment when signing the app, we need to store the password you just set in step 3 when acquiring the signing identity. Travis uses the repos private ssh key to encrypt your secrets. Therefore, we want to create a variable which holds the encrypted representation of the password we used to export the signing identity.\nType in the following into your terminal. Make sure your working directory is your repositories root (‘cd myRepsitories/Repository’ with your paths first):\nflorian$: travis encrypt \"PRIVATE_KEY_PASSWORD=YOURPASSWORD\" Please add the following to your .travis.yml file: secure: \"S0HplSFd3pYqfxtAk8s2OAcMW8K6Cdp0UesjIZJ2PupDWEOheYqReaGVBmaMOwHICEis+yV5VYjrX3d/n3jS/A3yqO1YlfynOp3zMtHAlnH5vw7ESUc152lpU/ShqbU9ENZey0DM1dTi8CzC6OyvLXcj5E94zUD4iQ/zClQYg=\" Note: Make sure to replace YOURPASSWORD with the actually password you’ve used in step three above.\nThis command will give you an encrypted version of your env variable, which you should add to your .travis.yml. This environment variable will be decrypted once travis runs your scripts. If you want the travis gem to add this line automatically to your configuration file, add the ‘–add’ option to the travis encrypt command. NOTE: I advice you to add it manually as the travis gem –add option will run your configuration file through a LINT verification which sometimes breaks your configuration file. This is why we didn’t use that option.\nYou can add this variable in your configuration file under the ’env:’ key specifying ‘global:’ visibility.\nNote: Any additional variables are added the same way.\n# file: .travis.yml language: objective-c env: global: - secure: TifeGWADNrRjp6yjiMHPaiUEXppOlRKh04bLrkpzNzC8hIkNCQgNFBGOC5ewSvHDdK1VJLPNsjaP74lTifeGWADNrRjp6yjiMHPaiUEXppOlRKh04bLrkpzNzC8hIkNCQgNFBGOC5ewSvHDdK1VJLPNsjaP74l The next thing we have to do is to encrypt the actual certificates. The Travis gem provides an encrypt-file option, that unfortunately doesn’t work for certain filetypes, which you will recognize once your build fails. Therefore we’re going to encrypt our files manually using openssl and a set password. We’re going to use ‘AppSigningMadness’ as our password.\nOpenssl is invoked on the command line like this:\nopenssl [cipher_type] -k [password] -in -out -a florian$: openssl aes-256-cbc -k \"AppSigningMadness\" -in repo/certfolder/ContinuousDistributionExample.mobileprovision -out repo/certfolder/ContinuousDistributionExample.mobileprovision.enc -a florian$: openssl aes-256-cbc -k \"AppSigningMadness\" -in repo/certfolder/iOS_Distribution_Certificate.cer -out repo/certfolder/iOS_Distribution_Certificate.cer.enc -a florian$: openssl aes-256-cbc -k \"AppSigningMadness\" -in repo/certfolder/private_key.p12 -out repo/certfolder/private_key.p12.enc -a Note: Make sure to change AppSigningMadness to a password of your choice and replace the example paths here with actual paths to your certificates on your machine.\nSome of you might bring up at this point that we don’t necessarily need to encrypt our Provisioning Profile and our Distribution Certificate as only the private key is what needs to be treated top secret. While this is basically true, there are cases where you don’t want to expose the UUIDs in your Provisioning Profile and you might want to hide the information in your Distribution Certificate. In addition to this, we’ve decided for the sake of this beginner tutorial to encrypt all our certificates and provisioning profiles for the sake of getting the practice and to be better safe than sorry.\nWe don’t have to encrypt the Apple WorldWide Certificate as it’s publicly available anyway. After openssl has finished its work, you’ll get a {Certificate}.cer.enc version, which is the encrypted version of these files. Be careful which version you’re going to check in with git as you only want to check in the encrypted version. If this info comes too late for you, you might want to check out BFG Repo-Cleaner to remove that sensitive information again.\nAgain we’re going to use a bash variable to store the password we used with openssl to encrypt our files. Since we don’t want to store our password in clear text, we’re encrypting it again with our travis gem.\nMBP: florian$: travis encrypt \"OPENSSL_PASSWORD=YOURPASSWORD\" Please add the following to your .travis.yml file: secure: \"S0HplSFd3pYqfxtAk8s2OAcMW8K6Cdp0UesjIZJ2PupDWEOheYqReaGVBmaMOwHICEis+yV5VYjrX3d/n3jS/A3yqO1YlfynOp3zMtHAlnH5vw7ESUc152lpU/ShqbU9ENZey0DM1dTi8CzC6OyvLXcj5E94zUD4iQ/zClQYg=\" Add the secure variable to your configuration file and you’re almost done with the encryption part. The last remaining part of the encryption process is actually the decryption so travis can use our certificates. Add the decryption commands to your .travis.yml in the before_install phase:\n# file: .travis.yml before_install: - sudo gem install cocoapods - brew update - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi - openssl aes-256-cbc -k \"$OPENSSL_PASSWORD\" -in repo/certfolder/ContinuousDistributionExample.mobileprovision.enc -d -a -out repo/certfolder/ContinuousDistributionExample.mobileprovision - openssl aes-256-cbc -k \"$OPENSSL_PASSWORD\" -in repo/certfolder/iOS_Distribution_Certificate.cer.enc -d -a -out repo/certfolder/iOS_Distribution_Certificate.cer - openssl aes-256-cbc -k \"$OPENSSL_PASSWORD\" -in repo/certfolder/private_key.p12.enc -d -a -out repo/certfolder/private_key.p12 You’re all set in terms of encryption now! The section underneath is not necessary if you store your certificates in your project’s repository (which is most likely what you want to do if this is your first Travis setup).\nUsing a Certificate Repo Attention: This is an optional step that is only mentioned as an additional option of setup if you have many apps that share the same certificates.\nIn case you are working at a large company or you just have a bunch of apps that are usually signed with the same certificates, it might be advisible to setup a reusuable solution for your certificates. I use a designated repo for our certificate that holds all our certificates, distribution profiles and all things necessary for the signing process. Providing these things in a private repository to our developers makes their life easier when setting up a new project. Using this certificate repository in the Travis CI lifecycle then, is a no-brainer as you only have to issue a git clone when Travis needs your certificates.\nAll you need to do is:\nAdd the git clone command before you decrypt your certificates (if you store them encrypted) in the ‘before_install’ phase, and remember that by default you’re working directory is the root of your git repository. So when issuing the git clone command, make sure to choose a relative path and adjust the path to your certificates in your openssl commands then.\ngit clone git@github.com:User/repo.git ./ios-distribution To access your repo in case it’s a private repo, you can either give travis a private ssh key through one of the following bash scripts, or you can add a designated ssh key in Travis’s webinterface under Settings \u003e SSH Key (This feature is only available with a Pro plan).\nBash Scripts To finally put all pieces of the puzzle together, we need to add a few scripts which do the hard work for us. We’re going to add four scripts in total: add-keys.sh, update-bundle.sh, ipa-signing.sh and delete-keys.sh and invoke them in our .travis.yml.\nBefore we start with add-keys.sh, I want to introduce a few variables to your .travis.yml so some of the logic in the following scripts makes sense. This is also a good chance if you want to do a quickstart or catch up with what we did before, as the code snippet underneath can be used to start from scratch.\nPut the following into your .travis.yml file:\n# file: .travis.yml env: global: # Set this to your Apps Name - APP_NAME=\"ContinuousDistributionExample\" # That's your XCode Scheme's name, most likely that's the same as your App Name. *Xcode -\u003e Product -\u003e Scheme* - XCODE_SCHEME=\"$APP_NAME\" # That's your XCode Unit Test Scheme's name, most likely the only difference is a Test suffix to your main scheme - UNIT_TEST_SCHEME=\"ContinuousDistributionExampleTests\" # Fill in your iPhone Distribution Certificate name in here (not the filename, the name shown in your Keychain access). Check with QuickLook (tap space in finder on the file). - 'DEVELOPER_NAME=\"iPhone Distribution: Florian Harr\"' # This has to change if your project is in a subfolder. Trailing slash is required for this to work - PROJECT_DIRECTORY=\"$PWD/\" # The folder relative to your project root where your scripts are. No trailing slash here - SCRIPT_FOLDER=\"travis-scripts\" # The folder relative to your project root where your ios-certs are. No trailing slash here. Leave this empty and specify your repo in the add script, if you did the extra step and you're using the git certificates solution. - CERT_FOLDER=\"ios-certs\" # That's the standard location for your Info.plist where your Version Number and such things are located. - INFO_PLIST=\"$PROJECT_DIRECTORY/$APP_NAME/$APP_NAME/$APP_NAME-Info.plist\" Note: Please see the comments for what you have to fill in.\nNow let’s start with the first bash script ‘add-keys.sh’. Add this script either to a specific travis-script folder that you might want to create in the repo, or to the folder you specified in the variable ‘$SCRIPT_FOLDER’.\n# file: $SCRIPT_FOLDER/add-keys.sh #!/bin/sh # Print Software Version echo \"***************************\" echo \"* Software *\" echo \"***************************\" echo \"Cocoapods version is\" pods --version echo \"XCTool version is\" xctool -v # Create custom Keychains echo \"***************************\" echo \"* Adding Keys *\" echo \"***************************\" if [ \"$CERT_FOLDER\" == \"\" ]; then # Get the right certificate from GitHub git clone git@github.com:User/repo.git ./ios-distribution CERT_FOLDER = \"ios-distribution\" fi # Create a custom keychain security create-keychain -p travis ios-build.keychain # Make the custom keychain default, so xcodebuild will use it for signing security default-keychain -s ios-build.keychain # Unlock the keychain security unlock-keychain -p travis ios-build.keychain # Set keychain timeout to 1 hour for long builds # see http://www.egeek.me/2013/02/23/jenkins-and-xcode-user-interaction-is-not-allowed/ security set-keychain-settings -t 3600 -l ~/Library/Keychains/ios-build.keychain # Add certificates to keychain and allow codesign to access them security import ./$CERT_FOLDER/AppleWorldwide.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign security import ./$CERT_FOLDER/iOS_Distribution_Certificate.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign security import ./$CERT_FOLDER/private_key.p12 -k ~/Library/Keychains/ios-build.keychain -P \"$PRIVATE_KEY_PASSWORD\" -T /usr/bin/codesign # Put the provisioning profile in place mkdir -p ~/Library/MobileDevice/Provisioning\\ Profiles cp ./$CERT_FOLDER/Provisioning_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\\ Profiles/ In the script above, we’re creating a custom keychain with a lifetime of one hour, which should be enough for Travis to use the certificates. Then, we import all our certificates including the private key, using our encrypted PRIVATE_KEY_PASSWORD env variable again. Add the add-keys.sh script to your ‘before_script:’ phase in your .travis.yml by issuing ‘- ./$SCRIPT_FOLDER/add-key.sh’.\nSet the execution rights for this script by executing chmod a+x travis-scripts/add-keys.sh. *This applies to all further .sh files as well.\nThe next step is to sign the app, but before we do that, we have to invoke xctool to create a build for us which we can sign later on. We create a build with the ‘Release’ configuration for the iphoneos SDK and we specify a OBJROOT and SYMROOT path so we know where the binary is located at. You can add this command to your ‘script’ phase in your .travis.yml, which looks like this:\nxctool -workspace $PROJECT_DIRECTORY$APP_NAME.xcworkspace -scheme $XCODE_SCHEME -sdk iphoneos -configuration Release OBJROOT=${PROJECT_DIRECTORY%/}/build SYMROOT=${PROJECT_DIRECTORY%/}/build ONLY_ACTIVE_ARCH=NO # ONLY_ACTIVE_ARCH=NO is a build settin we set here to make sure we build the actual app for all architectures and devices we could possibly have. You can add additional build settings at the end of this command. Next is the ipa-signing.sh script which we’ll use to code sign our app and embed the Provisioning Profile.\n# file: $SCRIPT_FOLDER/ipa-signing.sh #!/bin/sh if [[ \"$TRAVIS_PULL_REQUEST\" != \"false\" ]]; then echo \"This is a pull request. No deployment will be done.\" exit 0 fi if [[ \"$TRAVIS_BRANCH\" != \"master\" ]]; then echo \"Testing on a branch other than master. No deployment will be done.\" exit 0 fi PROVISIONING_PROFILE=\"$HOME/Library/MobileDevice/Provisioning Profiles/Provisioning_Profile.mobileprovision\" OUTPUTDIR=\"$PROJECT_DIRECTORY/build/Release-iphoneos\" echo \"***************************\" echo \"* Signing *\" echo \"***************************\" xcrun -log -sdk iphoneos PackageApplication \"$OUTPUTDIR/$APP_NAME.app\" -o \"$OUTPUTDIR/$APP_NAME.ipa\" -sign \"$DEVELOPER_NAME\" -embed \"$PROVISIONING_PROFILE\" This script is a bit heavy for now, but worth explaining. The first two if conditions are checking if you’re either on a pull request or on a branch other than master, as it is pointless to sign a build with changes which haven’t made it into master yet. After that the signing process is happening through ‘xcrun’. Make sure to change the $PROVISIONING_PROFILE (only the name of the profile, not the path) in case you named your Provisioning Profile file different from Provisioning_Profile.mobileprovision.\nChmod the ipa-signing.sh script again and add it to your .travis.yml in the ‘after_success:’ phase.\nThe next script is the delete-keys.sh script, which will remove our custom keychain once we’re done with our certificates.\n# file: $SCRIPT_FOLDER/delete-keys.sh #!/bin/sh security delete-keychain ios-build.keychain rm -f ~/Library/MobileDevice/Provisioning\\ Profiles/Provisioning_Profile.mobileprovision Add this script to the ‘after_script:’ phase, which will be executed whether if your build succeeded or not.\nThe last script we’re going to add is the update-bundle.sh script we skipped earlier.\n# file: $SCRIPT_FOLDER/update-bundle.sh #!/bin/sh # Updating Plist Information for deployment echo \"***************************\" echo \"* Updating Bundle *\" echo \"***************************\" /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $TRAVIS_BUILD_NUMBER\" \"$INFO_PLIST\" echo \"Set CFBundleVersion to $TRAVIS_BUILD_NUMBER\" This script will change our CFBundleVersion to match the current Travis Build Number. This is nice as it gives you a trackable history when we later ship the app through HockeyApp. Add this script to the ‘before_script:’ phase. Don’t forget to chmod a+x for this script as well.\nWith all these scripts in place, your ‘.travis.yml’ should be similar to this:\n# file: .travis.yml before_install: - sudo gem install cocoapods - brew update - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi before_script: - ./travis-scripts/add-key.sh - ./travis-scripts/update-bundle.sh script: - xctool -workspace ContinuousDistributionExample.xcworkspace -scheme ContinuousDistributionExample -sdk iphonesiumlator - xctool -workspace ContinuousDistributionExample.xcworkspace -scheme ContinuousDistributionExample -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO - xctool test -workspace ContinuousDistributionExample.xcworkspace -scheme ContinuousDistributionExampleTests -sdk iphonesiumlator after_success: - ./travis-scripts/ipa-signing.sh after_script: - ./travis-scripts/del-key.sh To summarize and make sure you have everything, your scripts folder should contain the following:\n- add-key.sh - update-bundle.sh - ipa-signing.sh - del-key.sh Adjusting your XCode Project Settings Now it might seems that you’re done at this point, but unfortunately there are two small options and a ‘glitch’ in the tooling that keeps us from completing the code signing process.\nThe first part is to set the right credentials for the ‘Release’ configuration set on your XCode Project. Go to your Project Settings -\u003e Build Settings -\u003e Code Signing and set the profile you are providing Travis to sign your app for the ‘Release’ configuration. In a bug free world, we wouldn’t have to do this, but unfortunately there’s a little glitch we have to work around.\nAs of writing this, Xcode 6.3.2 is currently the latest version of XCode, and the signing process is undergoing some changes. Therefore a few options on the signing process are in a transistion, which is why we also need to change another option here to make sure the codesigning process succeeds.\nThat said, we need to change the value for the ‘Code Signing Resource Rules Path’ option to be ‘$(SDKROOT)/ResourceRules.plist’. That’s something you normally shouldn’t have to do, we just do it here to avoid getting problems with xcrun.\nYou can now push your changes to GitHub and check if everything works.\nAs before in Part 1, you can find a version of what we introduced here in our repo. The ’local-signing’ version is a bit more advanced than what we covered here, but similar in nature.\nComing Up In the next and last part of this series we’re going to cover how to make use of your signed application bundles and upload them to HockeyApp. Stay tuned for the third part!\n",
+  "wordCount" : "3366",
+  "inLanguage": "en",
+  "datePublished": "2016-10-21T18:28:26Z",
+  "dateModified": "2016-10-21T18:28:26Z",
+  "author":{
+    "@type": "Person",
+    "name": "Florian Harr"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "[self writeBlog];",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iflorian.com/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="nav-closed">
 
-  <div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        
-        
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/">My Blog</a>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://iflorian.com/" accesskey="h" title="[self writeBlog]; (Alt + H)">[self writeBlog];</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://iflorian.com/contact" title="Contact">
+                    <span>Contact</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/euc">EUC</a>
+            <li>
+                <a href="https://iflorian.com/about" title="About me">
+                    <span>About me</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/about">About me</a>
+            <li>
+                <a href="https://iflorian.com/euc" title="EUC">
+                    <span>EUC</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/contact">Contact</a>
+            <li>
+                <a href="https://iflorian.com/" title="My Blog">
+                    <span>My Blog</span>
+                </a>
             </li>
-        
-        
-    </ul>
-
-    
-    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
-    
-</div>
-<span class="nav-cover"></span>
-
-
- <div class="site-wrapper">
-
-
-
-<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
-  <nav class="main-nav overlay clearfix">
-
-
-  
-      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
-  
-  
-      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-  
-  </nav>
-  <div class="vertical">
-      <div class="main-header-content inner">
-          
-    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
-        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
-    <span class="icon-github" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
-        <span class="icon-twitter" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-
-
-
-
-
-
-
-          <h1 class="page-title">[self writeBlog];</h1>
-          <h2 class="page-description"></h2>
-      </div>
-  </div>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Continuous Deployment with Travis CI and HockeyApp, Part 2
+    </h1>
+    <div class="post-meta"><span title='2016-10-21 18:28:26 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span>
 
-
-<main class="content" role="main">
-
-
-
-
-  <article class="post post">
-
-    <header class="post-header">
-        <h1 class="post-title">Continuous Deployment with Travis CI and HockeyApp, Part 2</h1>
-        <small></small>
-
-        <section class="post-meta">
-        
-          <time class="post-date" datetime="2016-10-21T18:28:26Z">
-            Oct 21, 2016
-          </time>
-        
-         
-        </section>
-    </header>
-
-    <section class="post-content">
-      
-
-<p>We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.</p>
-
-<h2 id="app-signing">App Signing</h2>
-
+</div>
+  </header> 
+  <div class="post-content"><p>We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.</p>
+<h2 id="app-signing">App Signing<a hidden class="anchor" aria-hidden="true" href="#app-signing">#</a></h2>
 <p>In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.</p>
-
 <p>In this first section I will cover the process of obtaining the right certificates, and using them to sign our ipa. We will create some scripts for the signing process so that our release builds can be used. There will also be a part which covers how to encrypt your certificates in case you&rsquo;re on a public repository or want an additional level of security. In addition, I&rsquo;m introducing the solution I came up with for a corporate setting — a certificate git repo which gets pulled from Travis so that you don&rsquo;t need to store your certificates in your project&rsquo;s repo.</p>
-
-<h2 id="signing-certificates">Signing Certificates</h2>
-
+<h2 id="signing-certificates">Signing Certificates<a hidden class="anchor" aria-hidden="true" href="#signing-certificates">#</a></h2>
 <p>To sign and package our app we need two certificates and a provisioning profile: The Apple WorldWide Certificate, a iPhone Distribution Certifcate as well as the corresponding private key and the iOS Provisioning Profile.</p>
-
 <p><strong>1. The Apple WorldWide Certificate</strong></p>
-
 <p>You can either download it <a href="http://developer.apple.com/certificationauthority/AppleWWDRCA.cer">here</a> or export it from your Keychain. Save it somewhere in your repo, and remember the location as we need the path for our signing scripts.</p>
-
 <p><strong>2. iPhone Distribution Certificate (App Store or Ad Hoc)</strong></p>
-
 <p>Now we need a distribution certificate. To get a new one, go to the Apple Developer Program Website and create one. You&rsquo;ll find everything you need under &lsquo;<em>Certificates &gt; Production &gt; Add &gt; App Store or Ad Hoc</em>&rsquo;. This gives you the option to download your iPhone Distribution Certificate.</p>
-
 <p>If you&rsquo;ve downloaded and installed the certificate before or if you want to use an existing one from your machine, open your Keychain Access application (<em>Applications &gt; Utilities &gt; Keychain Access</em>) and export the certificate. The naming in your keychain will most likely be like: &ldquo;iOS Distribution: Company Name or Developer Name&rdquo;.</p>
-
-<p><img src="Export-Keychain.png" alt="Export Keychain" />
+<p><img alt="Export Keychain" loading="lazy" src="Export-Keychain.png">
 <em>Note: Make sure that you only select the iPhone Distribution Certificate and NOT the combined certificate with the private key. A combined certificate would have a little &ldquo;drop-down&rdquo; arrow on the left where unfolding would show you the corresponding private key underneath. If that&rsquo;s the case, unfold it and only select the certificate.</em></p>
-
 <p>Right-Click on the certificate and choose &lsquo;<em>Export</em>&rsquo;. The target file format for this certificate will be &lsquo;<em>.cer</em>&rsquo;. You should save it at the same place where you saved the <em>Apple WorldWide Certificate</em>.</p>
-
 <p><strong>3. iPhone Distribution Certificate Signing Identity - Private Key</strong></p>
-
 <p>Next you need your private key. The private key normally has the name of the developer which signed for the <em>iPhone Distribution Certificate</em>. In our case the certificates name is &lsquo;<em>Aaron Hillegass</em>&rsquo; marked as private key in the &lsquo;<em>kind</em>&rsquo; column.</p>
-
 <p>Go through the Export steps explained above for the iPhone Distribution Certificate. The target file format for this certificate will be &lsquo;<em>.p12</em>&rsquo;. Feel free to use any password you like, though keep in mind that this is all parsed through bash later, so spaces can give you a hard time later.</p>
-
 <p><strong>4. iOS Provisioning Profile</strong></p>
-
 <p>The last file we need is the <em>iOS Provisioning Profile</em>. You can create a Provisioning Profile at Apples Developer Program Member site. Go to &lsquo;<em>Provisioning Profile &gt; Distribution &gt; Add &gt; Ad Hoc</em>&rsquo; or &lsquo;<em>In House</em>&rsquo; and create your profile. When creating the profile you can either set a specific <em>Bundle Identifier</em> so your Provisioning Profile will only work with that Identifier, or you&rsquo;re going to specify an Identifier with an asterisk &lsquo;*&rsquo; to match more than one Identifier. Save it next to your other files in your repository. It&rsquo;s helpful to install this locally, but not necessary for our CI setup.</p>
-
-<h2 id="encryption">Encryption</h2>
-
+<h2 id="encryption">Encryption<a hidden class="anchor" aria-hidden="true" href="#encryption">#</a></h2>
 <p>The next step before we can finally modify our script again and sign our app, is to decide if you want to encrypt your certificates or if you want a custom solution for them. As mentioned before there are three ways to go from here.</p>
-
-<p><strong>First</strong>, you can simply store your certificates unencrypted in your repo. If so, you can skip this paragraph. Note: This is only recommended if your repo is private and you don&rsquo;t fear any security breach.<br />
-<strong>Second</strong>, you can store your certificates in a special repo and pull the certificates once Travis needs them. That&rsquo;s a nice setting if you have a whole bunch of apps or if you want to skip the step of acquiring the certificates every time. This works well with a provisioning profile that&rsquo;s not attached to a specific bundle identifier. Plus, you can store your certificates there either encrypted or unencrypted depending on security concerns of your repository. If so, read along and apply this paragraph to a detached repo instead of this repo.<br />
+<p><strong>First</strong>, you can simply store your certificates unencrypted in your repo. If so, you can skip this paragraph. Note: This is only recommended if your repo is private and you don&rsquo;t fear any security breach.<br>
+<strong>Second</strong>, you can store your certificates in a special repo and pull the certificates once Travis needs them. That&rsquo;s a nice setting if you have a whole bunch of apps or if you want to skip the step of acquiring the certificates every time. This works well with a provisioning profile that&rsquo;s not attached to a specific bundle identifier. Plus, you can store your certificates there either encrypted or unencrypted depending on security concerns of your repository. If so, read along and apply this paragraph to a detached repo instead of this repo.<br>
 <strong>Third</strong>, you can store your certificates encrypted in your projects repo.</p>
-
 <p>To start with the encryption process, I want to introduce the Travis gem, a command line tool which helps you encrypt variables and files. The Travis gem can be installed through &lsquo;<em>gem install Travis</em>&rsquo; on your local machine, given ruby is present.
 Given we need to add the personal key to Travis&rsquo;s environment when signing the app, we need to store the password you just set in step 3 when acquiring the signing identity. Travis uses the repos private ssh key to encrypt your secrets. Therefore, we want to create a variable which holds the encrypted representation of the password we used to export the signing identity.</p>
-
 <p>Type in the following into your terminal. Make sure your working directory is your repositories root (&lsquo;cd <em>myRepsitories/Repository</em>&rsquo; with your paths first):</p>
-
-<pre><code>florian$: travis encrypt &quot;PRIVATE_KEY_PASSWORD=YOURPASSWORD&quot;  
+<pre tabindex="0"><code>florian$: travis encrypt &#34;PRIVATE_KEY_PASSWORD=YOURPASSWORD&#34;  
 Please add the following to your .travis.yml file:  
-  secure: &quot;S0HplSFd3pYqfxtAk8s2OAcMW8K6Cdp0UesjIZJ2PupDWEOheYqReaGVBmaMOwHICEis+yV5VYjrX3d/n3jS/A3yqO1YlfynOp3zMtHAlnH5vw7ESUc152lpU/ShqbU9ENZey0DM1dTi8CzC6OyvLXcj5E94zUD4iQ/zClQYg=&quot;  
-</code></pre>
-
-<p><strong>Note</strong>: Make sure to replace YOURPASSWORD with the actually password you&rsquo;ve used in step three above.</p>
-
+  secure: &#34;S0HplSFd3pYqfxtAk8s2OAcMW8K6Cdp0UesjIZJ2PupDWEOheYqReaGVBmaMOwHICEis+yV5VYjrX3d/n3jS/A3yqO1YlfynOp3zMtHAlnH5vw7ESUc152lpU/ShqbU9ENZey0DM1dTi8CzC6OyvLXcj5E94zUD4iQ/zClQYg=&#34;  
+</code></pre><p><strong>Note</strong>: Make sure to replace YOURPASSWORD with the actually password you&rsquo;ve used in step three above.</p>
 <p>This command will give you an encrypted version of your env variable, which you should add to your .travis.yml. This environment variable will be decrypted once travis runs your scripts. If you want the travis gem to add this line automatically to your configuration file, add the &lsquo;&ndash;add&rsquo; option to the travis encrypt command. <em>NOTE:</em> I advice you to add it manually as the travis gem &ndash;add option will run your configuration file through a LINT verification which sometimes breaks your configuration file. This is why we didn&rsquo;t use that option.</p>
-
-<p>You can add this variable in your configuration file under the &lsquo;env:&rsquo; key specifying &lsquo;global:&rsquo; visibility.<br />
+<p>You can add this variable in your configuration file under the &rsquo;env:&rsquo; key specifying &lsquo;global:&rsquo; visibility.<br>
 Note: Any additional variables are added the same way.</p>
-
-<pre><code> # file: .travis.yml
+<pre tabindex="0"><code> # file: .travis.yml
 language: objective-c
 env:
   global:
   - secure: TifeGWADNrRjp6yjiMHPaiUEXppOlRKh04bLrkpzNzC8hIkNCQgNFBGOC5ewSvHDdK1VJLPNsjaP74lTifeGWADNrRjp6yjiMHPaiUEXppOlRKh04bLrkpzNzC8hIkNCQgNFBGOC5ewSvHDdK1VJLPNsjaP74l
-</code></pre>
-
-<p>The next thing we have to do is to encrypt the actual certificates. The Travis gem provides an <em>encrypt-file</em> option, that unfortunately doesn&rsquo;t work for certain filetypes, which you will recognize once your build fails. Therefore we&rsquo;re going to encrypt our files manually using openssl and a set password. We&rsquo;re going to use &lsquo;AppSigningMadness&rsquo; as our password.</p>
-
+</code></pre><p>The next thing we have to do is to encrypt the actual certificates. The Travis gem provides an <em>encrypt-file</em> option, that unfortunately doesn&rsquo;t work for certain filetypes, which you will recognize once your build fails. Therefore we&rsquo;re going to encrypt our files manually using openssl and a set password. We&rsquo;re going to use &lsquo;AppSigningMadness&rsquo; as our password.</p>
 <p>Openssl is invoked on the command line like this:</p>
-
-<pre><code>openssl [cipher_type] -k [password] -in &lt;FileToEncrypt&gt; -out &lt;FileEncrypted&gt; -a  
-</code></pre>
-
-<pre><code>florian$: openssl aes-256-cbc -k &quot;AppSigningMadness&quot; -in repo/certfolder/ContinuousDistributionExample.mobileprovision -out repo/certfolder/ContinuousDistributionExample.mobileprovision.enc -a  
-florian$: openssl aes-256-cbc -k &quot;AppSigningMadness&quot; -in repo/certfolder/iOS_Distribution_Certificate.cer -out repo/certfolder/iOS_Distribution_Certificate.cer.enc -a  
-florian$: openssl aes-256-cbc -k &quot;AppSigningMadness&quot; -in repo/certfolder/private_key.p12 -out repo/certfolder/private_key.p12.enc -a  
-</code></pre>
-
-<p><strong>Note</strong>: Make sure to change AppSigningMadness to a password of your choice and replace the example paths here with actual paths to your certificates on your machine.</p>
-
+<pre tabindex="0"><code>openssl [cipher_type] -k [password] -in &lt;FileToEncrypt&gt; -out &lt;FileEncrypted&gt; -a  
+</code></pre><pre tabindex="0"><code>florian$: openssl aes-256-cbc -k &#34;AppSigningMadness&#34; -in repo/certfolder/ContinuousDistributionExample.mobileprovision -out repo/certfolder/ContinuousDistributionExample.mobileprovision.enc -a  
+florian$: openssl aes-256-cbc -k &#34;AppSigningMadness&#34; -in repo/certfolder/iOS_Distribution_Certificate.cer -out repo/certfolder/iOS_Distribution_Certificate.cer.enc -a  
+florian$: openssl aes-256-cbc -k &#34;AppSigningMadness&#34; -in repo/certfolder/private_key.p12 -out repo/certfolder/private_key.p12.enc -a  
+</code></pre><p><strong>Note</strong>: Make sure to change AppSigningMadness to a password of your choice and replace the example paths here with actual paths to your certificates on your machine.</p>
 <p>Some of you might bring up at this point that we don&rsquo;t necessarily need to encrypt our Provisioning Profile and our Distribution Certificate as only the private key is what needs to be treated top secret. While this is basically true, there are cases where you don&rsquo;t want to expose the UUIDs in your Provisioning Profile and you might want to hide the information in your Distribution Certificate. In addition to this, we&rsquo;ve decided for the sake of this beginner tutorial to encrypt all our certificates and provisioning profiles for the sake of getting the practice and to be better safe than sorry.</p>
-
 <p>We don&rsquo;t have to encrypt the Apple WorldWide Certificate as it&rsquo;s publicly available anyway. After openssl has finished its work, you&rsquo;ll get a <em>{Certificate}.cer.enc</em> version, which is the encrypted version of these files. Be careful which version you&rsquo;re going to check in with git as you only want to check in the encrypted version. If this info comes too late for you, you might want to check out <a href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo-Cleaner</a> to remove that sensitive information again.</p>
-
 <p><em>Again we&rsquo;re going to use a bash variable to store the password we used with openssl to encrypt our files. Since we don&rsquo;t want to store our password in clear text, we&rsquo;re encrypting it again with our travis gem.</em></p>
-
-<pre><code>MBP: florian$: travis encrypt &quot;OPENSSL_PASSWORD=YOURPASSWORD&quot;
+<pre tabindex="0"><code>MBP: florian$: travis encrypt &#34;OPENSSL_PASSWORD=YOURPASSWORD&#34;
 Please add the following to your .travis.yml file:  
-  secure: &quot;S0HplSFd3pYqfxtAk8s2OAcMW8K6Cdp0UesjIZJ2PupDWEOheYqReaGVBmaMOwHICEis+yV5VYjrX3d/n3jS/A3yqO1YlfynOp3zMtHAlnH5vw7ESUc152lpU/ShqbU9ENZey0DM1dTi8CzC6OyvLXcj5E94zUD4iQ/zClQYg=&quot;  
-</code></pre>
-
-<p>Add the secure variable to your configuration file and you&rsquo;re almost done with the encryption part. The last remaining part of the encryption process is actually the decryption so travis can use our certificates. Add the decryption commands to your .travis.yml in the before_install phase:</p>
-
-<pre><code> # file: .travis.yml
+  secure: &#34;S0HplSFd3pYqfxtAk8s2OAcMW8K6Cdp0UesjIZJ2PupDWEOheYqReaGVBmaMOwHICEis+yV5VYjrX3d/n3jS/A3yqO1YlfynOp3zMtHAlnH5vw7ESUc152lpU/ShqbU9ENZey0DM1dTi8CzC6OyvLXcj5E94zUD4iQ/zClQYg=&#34;  
+</code></pre><p>Add the secure variable to your configuration file and you&rsquo;re almost done with the encryption part. The last remaining part of the encryption process is actually the decryption so travis can use our certificates. Add the decryption commands to your .travis.yml in the before_install phase:</p>
+<pre tabindex="0"><code> # file: .travis.yml
 before_install:
   - sudo gem install cocoapods
   - brew update
   - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
-  - openssl aes-256-cbc -k &quot;$OPENSSL_PASSWORD&quot; -in repo/certfolder/ContinuousDistributionExample.mobileprovision.enc -d -a -out repo/certfolder/ContinuousDistributionExample.mobileprovision
-  - openssl aes-256-cbc -k &quot;$OPENSSL_PASSWORD&quot; -in repo/certfolder/iOS_Distribution_Certificate.cer.enc -d -a -out repo/certfolder/iOS_Distribution_Certificate.cer
-  - openssl aes-256-cbc -k &quot;$OPENSSL_PASSWORD&quot; -in repo/certfolder/private_key.p12.enc -d -a -out repo/certfolder/private_key.p12
-</code></pre>
-
-<p>You&rsquo;re all set in terms of encryption now! The section underneath is not necessary if you store your certificates in your project&rsquo;s repository (which is most likely what you want to do if this is your first Travis setup).</p>
-
-<h2 id="using-a-certificate-repo">Using a Certificate Repo</h2>
-
+  - openssl aes-256-cbc -k &#34;$OPENSSL_PASSWORD&#34; -in repo/certfolder/ContinuousDistributionExample.mobileprovision.enc -d -a -out repo/certfolder/ContinuousDistributionExample.mobileprovision
+  - openssl aes-256-cbc -k &#34;$OPENSSL_PASSWORD&#34; -in repo/certfolder/iOS_Distribution_Certificate.cer.enc -d -a -out repo/certfolder/iOS_Distribution_Certificate.cer
+  - openssl aes-256-cbc -k &#34;$OPENSSL_PASSWORD&#34; -in repo/certfolder/private_key.p12.enc -d -a -out repo/certfolder/private_key.p12
+</code></pre><p>You&rsquo;re all set in terms of encryption now! The section underneath is not necessary if you store your certificates in your project&rsquo;s repository (which is most likely what you want to do if this is your first Travis setup).</p>
+<h2 id="using-a-certificate-repo">Using a Certificate Repo<a hidden class="anchor" aria-hidden="true" href="#using-a-certificate-repo">#</a></h2>
 <p><strong>Attention</strong>: This is an optional step that is only mentioned as an additional option of setup if you have many apps that share the same certificates.</p>
-
 <p>In case you are working at a large company or you just have a bunch of apps that are usually signed with the same certificates, it might be advisible to setup a reusuable solution for your certificates. I use a designated repo for our certificate that holds all our certificates, distribution profiles and all things necessary for the signing process. Providing these things in a private repository to our developers makes their life easier when setting up a new project. Using this certificate repository in the Travis CI lifecycle then, is a no-brainer as you only have to issue a <em>git clone</em> when Travis needs your certificates.</p>
-
 <p><strong>All you need to do is:</strong></p>
-
 <p>Add the git clone command <strong>before</strong> you decrypt your certificates (if you store them encrypted) in the &lsquo;before_install&rsquo; phase, and remember that by default you&rsquo;re working directory is the root of your git repository. So when issuing the git clone command, make sure to choose a relative path and adjust the path to your certificates in your openssl commands then.</p>
-
-<pre><code>git clone git@github.com:User/repo.git ./ios-distribution
-</code></pre>
-
-<p>To access your repo in case it&rsquo;s a private repo, you can either give travis a private ssh key through one of the following bash scripts, or you can add a designated ssh key in Travis&rsquo;s webinterface under Settings &gt; SSH Key (<em>This feature is only available with a Pro plan</em>).</p>
-
-<h2 id="bash-scripts">Bash Scripts</h2>
-
+<pre tabindex="0"><code>git clone git@github.com:User/repo.git ./ios-distribution
+</code></pre><p>To access your repo in case it&rsquo;s a private repo, you can either give travis a private ssh key through one of the following bash scripts, or you can add a designated ssh key in Travis&rsquo;s webinterface under Settings &gt; SSH Key (<em>This feature is only available with a Pro plan</em>).</p>
+<h2 id="bash-scripts">Bash Scripts<a hidden class="anchor" aria-hidden="true" href="#bash-scripts">#</a></h2>
 <p>To finally put all pieces of the puzzle together, we need to add a few scripts which do the hard work for us. We&rsquo;re going to add four scripts in total: add-keys.sh, update-bundle.sh, ipa-signing.sh and delete-keys.sh and invoke them in our .travis.yml.</p>
-
 <p>Before we start with add-keys.sh, I want to introduce a few variables to your .travis.yml so some of the logic in the following scripts makes sense. This is also a good chance if you want to do a quickstart or catch up with what we did before, as the code snippet underneath can be used to start from scratch.</p>
-
 <p>Put the following into your .travis.yml file:</p>
-
-<pre><code> # file: .travis.yml
+<pre tabindex="0"><code> # file: .travis.yml
 env:
   global:
       # Set this to your Apps Name
-  - APP_NAME=&quot;ContinuousDistributionExample&quot;
-      # That's your XCode Scheme's name, most likely that's the same as your App Name. *Xcode -&gt; Product -&gt; Scheme*
-  - XCODE_SCHEME=&quot;$APP_NAME&quot;
-      # That's your XCode Unit Test Scheme's name, most likely the only difference is a Test suffix to your main scheme
-  - UNIT_TEST_SCHEME=&quot;ContinuousDistributionExampleTests&quot;
+  - APP_NAME=&#34;ContinuousDistributionExample&#34;
+      # That&#39;s your XCode Scheme&#39;s name, most likely that&#39;s the same as your App Name. *Xcode -&gt; Product -&gt; Scheme*
+  - XCODE_SCHEME=&#34;$APP_NAME&#34;
+      # That&#39;s your XCode Unit Test Scheme&#39;s name, most likely the only difference is a Test suffix to your main scheme
+  - UNIT_TEST_SCHEME=&#34;ContinuousDistributionExampleTests&#34;
       # Fill in your iPhone Distribution Certificate name in here (not the filename, the name shown in your Keychain access). Check with QuickLook (tap space in finder on the file).
-  - 'DEVELOPER_NAME=&quot;iPhone Distribution: Florian Harr&quot;'
+  - &#39;DEVELOPER_NAME=&#34;iPhone Distribution: Florian Harr&#34;&#39;
       # This has to change if your project is in a subfolder. Trailing slash is required for this to work
-  - PROJECT_DIRECTORY=&quot;$PWD/&quot;
+  - PROJECT_DIRECTORY=&#34;$PWD/&#34;
       # The folder relative to your project root where your scripts are. No trailing slash here
-  - SCRIPT_FOLDER=&quot;travis-scripts&quot;
-      # The folder relative to your project root where your ios-certs are. No trailing slash here. Leave this empty and specify your repo in the add script, if you did the extra step and you're using the git certificates solution.
-  - CERT_FOLDER=&quot;ios-certs&quot;
-      # That's the standard location for your Info.plist where your Version Number and such things are located.
-  - INFO_PLIST=&quot;$PROJECT_DIRECTORY/$APP_NAME/$APP_NAME/$APP_NAME-Info.plist&quot;
-</code></pre>
-
-<p><strong>Note</strong>: Please see the comments for what you have to fill in.</p>
-
+  - SCRIPT_FOLDER=&#34;travis-scripts&#34;
+      # The folder relative to your project root where your ios-certs are. No trailing slash here. Leave this empty and specify your repo in the add script, if you did the extra step and you&#39;re using the git certificates solution.
+  - CERT_FOLDER=&#34;ios-certs&#34;
+      # That&#39;s the standard location for your Info.plist where your Version Number and such things are located.
+  - INFO_PLIST=&#34;$PROJECT_DIRECTORY/$APP_NAME/$APP_NAME/$APP_NAME-Info.plist&#34;
+</code></pre><p><strong>Note</strong>: Please see the comments for what you have to fill in.</p>
 <p>Now let&rsquo;s start with the first bash script &lsquo;<em>add-keys.sh</em>&rsquo;. Add this script either to a specific travis-script folder that you might want to create in the repo, or to the folder you specified in the variable &lsquo;<em>$SCRIPT_FOLDER</em>&rsquo;.</p>
-
-<pre><code> # file: $SCRIPT_FOLDER/add-keys.sh
+<pre tabindex="0"><code> # file: $SCRIPT_FOLDER/add-keys.sh
  #!/bin/sh
 
  # Print Software Version
-echo &quot;***************************&quot;
-echo &quot;*        Software         *&quot;
-echo &quot;***************************&quot;
-echo &quot;Cocoapods version is&quot;
+echo &#34;***************************&#34;
+echo &#34;*        Software         *&#34;
+echo &#34;***************************&#34;
+echo &#34;Cocoapods version is&#34;
 pods --version
-echo &quot;XCTool version is&quot;
+echo &#34;XCTool version is&#34;
 xctool -v
 
  # Create custom Keychains
-echo &quot;***************************&quot;
-echo &quot;*        Adding Keys       *&quot;
-echo &quot;***************************&quot;
+echo &#34;***************************&#34;
+echo &#34;*        Adding Keys       *&#34;
+echo &#34;***************************&#34;
 
-if [ &quot;$CERT_FOLDER&quot; == &quot;&quot; ]; then
+if [ &#34;$CERT_FOLDER&#34; == &#34;&#34; ]; then
  # Get the right certificate from GitHub
 git clone git@github.com:User/repo.git ./ios-distribution
-CERT_FOLDER = &quot;ios-distribution&quot;
+CERT_FOLDER = &#34;ios-distribution&#34;
 fi
 
  # Create a custom keychain
@@ -464,77 +342,57 @@ security set-keychain-settings -t 3600 -l ~/Library/Keychains/ios-build.keychain
  # Add certificates to keychain and allow codesign to access them
 security import ./$CERT_FOLDER/AppleWorldwide.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
 security import ./$CERT_FOLDER/iOS_Distribution_Certificate.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-security import ./$CERT_FOLDER/private_key.p12 -k ~/Library/Keychains/ios-build.keychain -P &quot;$PRIVATE_KEY_PASSWORD&quot; -T /usr/bin/codesign
+security import ./$CERT_FOLDER/private_key.p12 -k ~/Library/Keychains/ios-build.keychain -P &#34;$PRIVATE_KEY_PASSWORD&#34; -T /usr/bin/codesign
 
  # Put the provisioning profile in place
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 cp ./$CERT_FOLDER/Provisioning_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
-</code></pre>
-
-<p>In the script above, we&rsquo;re creating a custom keychain with a lifetime of one hour, which should be enough for Travis to use the certificates. Then, we import all our certificates including the private key, using our encrypted PRIVATE_KEY_PASSWORD env variable again. Add the <em>add-keys.sh</em> script to your &lsquo;<em>before_script:</em>&rsquo; phase in your .travis.yml by issuing &lsquo;- ./$SCRIPT_FOLDER/add-key.sh&rsquo;.</p>
-
-<p>Set the execution rights for this script by executing <em>chmod a+x travis-scripts/add-keys.sh</em>. *This applies to all further *<em>.sh</em> files as well.*</p>
-
+</code></pre><p>In the script above, we&rsquo;re creating a custom keychain with a lifetime of one hour, which should be enough for Travis to use the certificates. Then, we import all our certificates including the private key, using our encrypted PRIVATE_KEY_PASSWORD env variable again. Add the <em>add-keys.sh</em> script to your &lsquo;<em>before_script:</em>&rsquo; phase in your .travis.yml by issuing &lsquo;- ./$SCRIPT_FOLDER/add-key.sh&rsquo;.</p>
+<p>Set the execution rights for this script by executing <em>chmod a+x travis-scripts/add-keys.sh</em>. *This applies to all further <em><em>.sh</em> files as well.</em></p>
 <p>The next step is to sign the app, but before we do that, we have to invoke xctool to create a build for us which we can sign later on. We create a build with the &lsquo;Release&rsquo; configuration for the iphoneos SDK and we specify a OBJROOT and SYMROOT path so we know where the binary is located at. You can add this command to your &lsquo;<em>script</em>&rsquo; phase in your <em>.travis.yml</em>, which looks like this:</p>
-
-<pre><code>xctool -workspace $PROJECT_DIRECTORY$APP_NAME.xcworkspace -scheme $XCODE_SCHEME -sdk iphoneos -configuration Release OBJROOT=${PROJECT_DIRECTORY%/}/build SYMROOT=${PROJECT_DIRECTORY%/}/build ONLY_ACTIVE_ARCH=NO
+<pre tabindex="0"><code>xctool -workspace $PROJECT_DIRECTORY$APP_NAME.xcworkspace -scheme $XCODE_SCHEME -sdk iphoneos -configuration Release OBJROOT=${PROJECT_DIRECTORY%/}/build SYMROOT=${PROJECT_DIRECTORY%/}/build ONLY_ACTIVE_ARCH=NO
  # ONLY_ACTIVE_ARCH=NO is a build settin we set here to make sure we build the actual app for all architectures and devices we could possibly have. You can add additional build settings at the end of this command.
-</code></pre>
-
-<p>Next is the <em>ipa-signing.sh script</em> which we&rsquo;ll use to code sign our app and embed the <em>Provisioning Profile</em>.</p>
-
-<pre><code> # file: $SCRIPT_FOLDER/ipa-signing.sh
+</code></pre><p>Next is the <em>ipa-signing.sh script</em> which we&rsquo;ll use to code sign our app and embed the <em>Provisioning Profile</em>.</p>
+<pre tabindex="0"><code> # file: $SCRIPT_FOLDER/ipa-signing.sh
  #!/bin/sh
-if [[ &quot;$TRAVIS_PULL_REQUEST&quot; != &quot;false&quot; ]]; then
-  echo &quot;This is a pull request. No deployment will be done.&quot;
+if [[ &#34;$TRAVIS_PULL_REQUEST&#34; != &#34;false&#34; ]]; then
+  echo &#34;This is a pull request. No deployment will be done.&#34;
   exit 0
 fi
-if [[ &quot;$TRAVIS_BRANCH&quot; != &quot;master&quot; ]]; then
-  echo &quot;Testing on a branch other than master. No deployment will be done.&quot;
+if [[ &#34;$TRAVIS_BRANCH&#34; != &#34;master&#34; ]]; then
+  echo &#34;Testing on a branch other than master. No deployment will be done.&#34;
   exit 0
 fi
 
-PROVISIONING_PROFILE=&quot;$HOME/Library/MobileDevice/Provisioning Profiles/Provisioning_Profile.mobileprovision&quot;
-OUTPUTDIR=&quot;$PROJECT_DIRECTORY/build/Release-iphoneos&quot;
+PROVISIONING_PROFILE=&#34;$HOME/Library/MobileDevice/Provisioning Profiles/Provisioning_Profile.mobileprovision&#34;
+OUTPUTDIR=&#34;$PROJECT_DIRECTORY/build/Release-iphoneos&#34;
 
-echo &quot;***************************&quot;
-echo &quot;*        Signing          *&quot;
-echo &quot;***************************&quot;
-xcrun -log -sdk iphoneos PackageApplication &quot;$OUTPUTDIR/$APP_NAME.app&quot; -o &quot;$OUTPUTDIR/$APP_NAME.ipa&quot; -sign &quot;$DEVELOPER_NAME&quot; -embed &quot;$PROVISIONING_PROFILE&quot;
-</code></pre>
-
-<p>This script is a bit heavy for now, but worth explaining. The first two <em>if</em> conditions are checking if you&rsquo;re either on a pull request or on a branch other than master, as it is pointless to sign a build with changes which haven&rsquo;t made it into master yet. After that the signing process is happening through &lsquo;xcrun&rsquo;. Make sure to change the $PROVISIONING_PROFILE (only the name of the profile, not the path) in case you named your Provisioning Profile file different from <em>Provisioning_Profile.mobileprovision</em>.<br />
+echo &#34;***************************&#34;
+echo &#34;*        Signing          *&#34;
+echo &#34;***************************&#34;
+xcrun -log -sdk iphoneos PackageApplication &#34;$OUTPUTDIR/$APP_NAME.app&#34; -o &#34;$OUTPUTDIR/$APP_NAME.ipa&#34; -sign &#34;$DEVELOPER_NAME&#34; -embed &#34;$PROVISIONING_PROFILE&#34;
+</code></pre><p>This script is a bit heavy for now, but worth explaining. The first two <em>if</em> conditions are checking if you&rsquo;re either on a pull request or on a branch other than master, as it is pointless to sign a build with changes which haven&rsquo;t made it into master yet. After that the signing process is happening through &lsquo;xcrun&rsquo;. Make sure to change the $PROVISIONING_PROFILE (only the name of the profile, not the path) in case you named your Provisioning Profile file different from <em>Provisioning_Profile.mobileprovision</em>.<br>
 Chmod the ipa-signing.sh script again and add it to your <em>.travis.yml</em> in the &lsquo;after_success:&rsquo; phase.</p>
-
 <p>The next script is the <em>delete-keys.sh</em> script, which will remove our custom keychain once we&rsquo;re done with our certificates.</p>
-
-<pre><code> # file: $SCRIPT_FOLDER/delete-keys.sh
+<pre tabindex="0"><code> # file: $SCRIPT_FOLDER/delete-keys.sh
  #!/bin/sh
 security delete-keychain ios-build.keychain
 rm -f ~/Library/MobileDevice/Provisioning\ Profiles/Provisioning_Profile.mobileprovision
-</code></pre>
-
-<p>Add this script to the &lsquo;<em>after_script:</em>&rsquo; phase, which will be executed whether if your build succeeded or not.</p>
-
+</code></pre><p>Add this script to the &lsquo;<em>after_script:</em>&rsquo; phase, which will be executed whether if your build succeeded or not.</p>
 <p>The last script we&rsquo;re going to add is the <em>update-bundle.sh</em> script we skipped earlier.</p>
-
-<pre><code> # file: $SCRIPT_FOLDER/update-bundle.sh
+<pre tabindex="0"><code> # file: $SCRIPT_FOLDER/update-bundle.sh
  #!/bin/sh
 
  # Updating Plist Information for deployment
-echo &quot;***************************&quot;
-echo &quot;*    Updating Bundle      *&quot;
-echo &quot;***************************&quot;
+echo &#34;***************************&#34;
+echo &#34;*    Updating Bundle      *&#34;
+echo &#34;***************************&#34;
 
-/usr/libexec/PlistBuddy -c &quot;Set :CFBundleVersion $TRAVIS_BUILD_NUMBER&quot; &quot;$INFO_PLIST&quot;
-echo &quot;Set CFBundleVersion to $TRAVIS_BUILD_NUMBER&quot;
-</code></pre>
-
-<p>This script will change our CFBundleVersion to match the current Travis Build Number. This is nice as it gives you a trackable history when we later ship the app through HockeyApp. Add this script to the &lsquo;<em>before_script:</em>&rsquo; phase. Don&rsquo;t forget to chmod a+x for this script as well.</p>
-
+/usr/libexec/PlistBuddy -c &#34;Set :CFBundleVersion $TRAVIS_BUILD_NUMBER&#34; &#34;$INFO_PLIST&#34;
+echo &#34;Set CFBundleVersion to $TRAVIS_BUILD_NUMBER&#34;
+</code></pre><p>This script will change our CFBundleVersion to match the current Travis Build Number. This is nice as it gives you a trackable history when we later ship the app through HockeyApp. Add this script to the &lsquo;<em>before_script:</em>&rsquo; phase. Don&rsquo;t forget to chmod a+x for this script as well.</p>
 <p>With all these scripts in place, your &lsquo;<em>.travis.yml</em>&rsquo; should be similar to this:</p>
-
-<pre><code> # file: .travis.yml
+<pre tabindex="0"><code> # file: .travis.yml
 before_install:
 - sudo gem install cocoapods
 - brew update
@@ -550,158 +408,101 @@ after_success:
 - ./travis-scripts/ipa-signing.sh
 after_script:
 - ./travis-scripts/del-key.sh
-</code></pre>
-
-<p>To summarize and make sure you have everything, your scripts folder should contain the following:</p>
-
-<pre><code>- add-key.sh
+</code></pre><p>To summarize and make sure you have everything, your scripts folder should contain the following:</p>
+<pre tabindex="0"><code>- add-key.sh
 - update-bundle.sh
 - ipa-signing.sh
 - del-key.sh
-</code></pre>
-
-<h2 id="adjusting-your-xcode-project-settings">Adjusting your XCode Project Settings</h2>
-
+</code></pre><h2 id="adjusting-your-xcode-project-settings">Adjusting your XCode Project Settings<a hidden class="anchor" aria-hidden="true" href="#adjusting-your-xcode-project-settings">#</a></h2>
 <p>Now it might seems that you&rsquo;re done at this point, but unfortunately there are two small options and a &lsquo;glitch&rsquo; in the tooling that keeps us from completing the code signing process.</p>
-
 <p>The first part is to set the right credentials for the &lsquo;Release&rsquo; configuration set on your XCode Project. Go to your Project <em>Settings -&gt; Build Settings -&gt; Code Signing</em> and set the profile you are providing Travis to sign your app for the &lsquo;Release&rsquo; configuration. In a bug free world, we wouldn&rsquo;t have to do this, but unfortunately there&rsquo;s a little glitch we have to work around.</p>
-
-<p><img src="/images/2016/10/XCode_Sign_Options.png" alt="XCode Sign Options" /></p>
-
-<p>As of writing this, Xcode 6.3.2 is currently the latest version of XCode, and the signing process is undergoing some changes. Therefore a few options on the signing process are in a transistion, which is why we also need to change another option here to make sure the codesigning process succeeds.<br />
+<p><img alt="XCode Sign Options" loading="lazy" src="/images/2016/10/XCode_Sign_Options.png"></p>
+<p>As of writing this, Xcode 6.3.2 is currently the latest version of XCode, and the signing process is undergoing some changes. Therefore a few options on the signing process are in a transistion, which is why we also need to change another option here to make sure the codesigning process succeeds.<br>
 That said, we need to change the value for the &lsquo;<em>Code Signing Resource Rules Path</em>&rsquo; option to be &lsquo;<em>$(SDKROOT)/ResourceRules.plist</em>&rsquo;. That&rsquo;s something you normally shouldn&rsquo;t have to do, we just do it here to avoid getting problems with xcrun.</p>
-
 <p>You can now push your changes to GitHub and check if everything works.</p>
-
-<p>As before in Part 1, you can find a version of what we introduced here in our <a href="#">repo</a>. The &lsquo;local-signing&rsquo; version is a bit more advanced than what we covered here, but similar in nature.</p>
-
-<h2 id="coming-up">Coming Up</h2>
-
+<p>As before in Part 1, you can find a version of what we introduced here in our <a href="#">repo</a>. The &rsquo;local-signing&rsquo; version is a bit more advanced than what we covered here, but similar in nature.</p>
+<h2 id="coming-up">Coming Up<a hidden class="anchor" aria-hidden="true" href="#coming-up">#</a></h2>
 <p>In the next and last part of this series we&rsquo;re going to cover how to make use of your signed application bundles and upload them to HockeyApp. Stay tuned for the third part!</p>
 
-    </section>
 
+  </div>
 
   <footer class="post-footer">
-
-
-    
-
-
-
-
-
-
-
-
-<figure class="author-image">
-    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
-</figure>
-
-
-<section class="author">
-  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
-  
-  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
-  
-  <div class="author-meta">
-    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
-    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
-  </div>
-</section>
-
-
-
-
-    
-<section class="share">
-  <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Continuous%20Deployment%20with%20Travis%20CI%20and%20HockeyApp%2c%20Part%202&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-2%2f"
-      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-      <span class="hidden">Twitter</span>
-  </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-2%2f"
-      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-      <span class="hidden">Facebook</span>
-  </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-2%2f&amp;description=Continuous%20Deployment%20with%20Travis%20CI%20and%20HockeyApp%2c%20Part%202"
-      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-      <span class="hidden">Pinterest</span>
-  </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-2%2f"
-     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-      <span class="hidden">Google+</span>
-  </a>
-</section>
-
-
-
-    
-
-<div id="disqus_thread"></div>
-<script>
-
-
-
-
-var disqus_config = function () {
-this.page.url = "https:\/\/iflorian.com\/continuous-deployment-with-travis-ci-and-hockeyapp-part-2\/";  
-this.page.identifier = "https:\/\/iflorian.com\/continuous-deployment-with-travis-ci-and-hockeyapp-part-2\/"; 
-};
-
-(function() { 
-var d = document, s = d.createElement('script');
-s.src = 'https://iflorian.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-
-
-
+    <ul class="post-tags">
+    </ul>
   </footer>
 </article>
-
-</main>
-
-
-  <aside class="read-next">
-  
-      <a class="read-next-story" style="no-cover" href="/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/">
-          <section class="post">
-              <h2>Continuous Deployment with Travis CI and HockeyApp, Part 3</h2>
-              
-          </section>
-      </a>
-  
-  
-      <a class="read-next-story prev" style="no-cover" href="/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/">
-          <section class="post">
-              <h2>Continuous Deployment with Travis CI and HockeyApp, Part 1</h2>
-          </section>
-      </a>
-  
-</aside>
-
-
-
-    <footer class="site-footer clearfix">
-        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
-        
-        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
-        
-    </footer>
-    </div>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
+    </main>
     
-</body>
-</html>
+<footer class="footer">
+        <span>All rights reserved - 2024</span> · 
 
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,422 +1,310 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>360iDev2016 - Denver&#39;s Premier iOS Conference | [self writeBlog];</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+Two weeks ago I&rsquo;ve attended the 360iDev conference in Denver. This year was my second year that I attended 360iDev.
+For those of you who don&rsquo;t know what I&rsquo;m talking about, it&rsquo;s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time.  The topics can be grouped into either iOS, technical or business topics. That might sound a bit like every other conference, but I haven&rsquo;t told you the best part yet: 360iDev&rsquo;s community!">
+<meta name="author" content="Florian Harr">
+<link rel="canonical" href="https://iflorian.com/360idev2016-a-mile-high-conference/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://iflorian.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://iflorian.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://iflorian.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://iflorian.com/360idev2016-a-mile-high-conference/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    
-    
-        <meta name="twitter:card" content="summary"/>
-    
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  mermaid.contentLoaded();
+</script>
+<meta property="og:url" content="https://iflorian.com/360idev2016-a-mile-high-conference/">
+  <meta property="og:site_name" content="[self writeBlog];">
+  <meta property="og:title" content="360iDev2016 - Denver&#39;s Premier iOS Conference">
+  <meta property="og:description" content="
+Two weeks ago I’ve attended the 360iDev conference in Denver. This year was my second year that I attended 360iDev.
+For those of you who don’t know what I’m talking about, it’s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time. The topics can be grouped into either iOS, technical or business topics. That might sound a bit like every other conference, but I haven’t told you the best part yet: 360iDev’s community!">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2016-09-14T16:29:21+00:00">
+    <meta property="article:modified_time" content="2016-09-14T16:29:21+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="360iDev2016 - Denver&#39;s Premier iOS Conference">
+<meta name="twitter:description" content="
+Two weeks ago I&rsquo;ve attended the 360iDev conference in Denver. This year was my second year that I attended 360iDev.
+For those of you who don&rsquo;t know what I&rsquo;m talking about, it&rsquo;s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time.  The topics can be grouped into either iOS, technical or business topics. That might sound a bit like every other conference, but I haven&rsquo;t told you the best part yet: 360iDev&rsquo;s community!">
 
 
-
-<meta name="twitter:title" content="360iDev2016 - Denver&#39;s Premier iOS Conference"/>
-<meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@caffeineflo"/>
-
-
-
-  	<meta property="og:title" content="360iDev2016 - Denver&#39;s Premier iOS Conference &middot; [self writeBlog];" />
-  	<meta property="og:site_name" content="[self writeBlog];" />
-  	<meta property="og:url" content="https://iflorian.com/360idev2016-a-mile-high-conference/" />
-
-    
-        
-            <meta property="og:image" content="/images/cover_small.jpg"/>
-        
-    
-
-    
-    <meta property="og:description" content="" />
-  	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2016-09-14T16:29:21Z" />
-
-    
-    
-
-    <title>360iDev2016 - Denver&#39;s Premier iOS Conference &middot; [self writeBlog];</title>
-
-    
-    <meta name="description" content="Two weeks ago I&amp;rsquo;ve attended the 360iDev conference in Denver. This year was my second year that I attended 360iDev.
-For those of you who don&amp;rsquo;t know " />
-    
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
-    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
-
-    
-
-    
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-        
-        <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-      
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
-      
-      
-    
-    <meta name="generator" content="Hugo 0.54.0" />
-
-    <link rel="canonical" href="https://iflorian.com/360idev2016-a-mile-high-conference/" />
-
-    
-      
-    
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": ,
-        "logo": https://iflorian.com/images/logo_inverted.png
-    },
-    "author": {
-        "@type": "Person",
-        "name": ,
-        
-        "image": {
-            "@type": "ImageObject",
-            "url": https://iflorian.com/images/logo_inverted.png,
-            "width": 250,
-            "height": 250
-        }, 
-        
-        "url": https://iflorian.com/,
-        "sameAs": [
-            
-            
-             
-             
-             
-             
-             
-            
-        ]
-    },
-    "headline": 360iDev2016 - Denver&#39;s Premier iOS Conference,
-    "name": 360iDev2016 - Denver&#39;s Premier iOS Conference,
-    "wordCount": 487,
-    "timeRequired": "PT3M",
-    "inLanguage": {
-      "@type": "Language",
-      "alternateName": en
-    },
-    "url": https://iflorian.com/360idev2016-a-mile-high-conference/,
-    "datePublished": 2016-09-14T16:29Z,
-    "dateModified": 2016-09-14T16:29Z,
-    
-    
-    "description": ,
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": https://iflorian.com/360idev2016-a-mile-high-conference/
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://iflorian.com/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "360iDev2016 - Denver's Premier iOS Conference",
+      "item": "https://iflorian.com/360idev2016-a-mile-high-conference/"
     }
+  ]
 }
-    </script>
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "360iDev2016 - Denver's Premier iOS Conference",
+  "name": "360iDev2016 - Denver\u0027s Premier iOS Conference",
+  "description": "\nTwo weeks ago I\u0026rsquo;ve attended the 360iDev conference in Denver. This year was my second year that I attended 360iDev.\nFor those of you who don\u0026rsquo;t know what I\u0026rsquo;m talking about, it\u0026rsquo;s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time. The topics can be grouped into either iOS, technical or business topics. That might sound a bit like every other conference, but I haven\u0026rsquo;t told you the best part yet: 360iDev\u0026rsquo;s community!\n",
+  "keywords": [
     
-
-
-    
-
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-86325185-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    
-
-    
+  ],
+  "articleBody": "\nTwo weeks ago I’ve attended the 360iDev conference in Denver. This year was my second year that I attended 360iDev.\nFor those of you who don’t know what I’m talking about, it’s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time. The topics can be grouped into either iOS, technical or business topics. That might sound a bit like every other conference, but I haven’t told you the best part yet: 360iDev’s community!\nAs 360iDev originated as an indie conference and still understands itself as such, it attracts a unique set of people that are happy to connect and exchange. It’s also limited to somewhere between 300-400 people, which is still a big group but not huge like WWDC or some other big conferences. This makes it a great place for anyone that enjoy quality over quantity and gives you a better chance to connect with fellow devs.\nThis year was not different in that perspective. The community once more helped to make this 4 great days.\nThere were some great talks that I loved for so many reasons, two of them were Jost Micheals general session on Effective Strategies for Selling Out as well as Curtis Herbert’s Challenging our Assumptions to Succeed in the App Store.\nBut there was also something else this year that was special to me: It was my first year speaking at 360iDev!!\nMy talk was titled On The Shoulder Of Giants: How To Properly Mentor A Junior Developer. (If you ever come across the video of my talk, I want to mention that this isn’t my regular voice, but rather some problem they had with the audio recording) It was a business talk trying to shed light on the receiving end of a mentoring relationship - A topic that’s important to me, to which I started collecting thoughts and notes a bit over 7 years ago.\nThe journey it took to get this idea to a finished talk will soon be subject of a different post, there were so many things that seemed easy but turned out to be difficult (Dilbert Comics Licensing, Talk Sponsoring, Etc.) Yet, overcoming all these struggles was totally worth it. The audience seemed to like my talk and furthermore gave me a rating of 4.21 on a scale from 1-5 - not too bad for my first conference talk in a foreign language.\nI have to say, it was a great experience speaking at 360iDev and I’m looking forward to more speaking proposals and hopefully more speaking gigs.\nIt was great seeing everyone in the business again and I hope to see you next year!\nThanks to everyone that attended my talk and gave me feedback! It meant a lot to me. Keep rockin'\n",
+  "wordCount" : "487",
+  "inLanguage": "en",
+  "datePublished": "2016-09-14T16:29:21Z",
+  "dateModified": "2016-09-14T16:29:21Z",
+  "author":{
+    "@type": "Person",
+    "name": "Florian Harr"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://iflorian.com/360idev2016-a-mile-high-conference/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "[self writeBlog];",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iflorian.com/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="nav-closed">
 
-  <div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        
-        
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/">My Blog</a>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://iflorian.com/" accesskey="h" title="[self writeBlog]; (Alt + H)">[self writeBlog];</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://iflorian.com/contact" title="Contact">
+                    <span>Contact</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/euc">EUC</a>
+            <li>
+                <a href="https://iflorian.com/about" title="About me">
+                    <span>About me</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/about">About me</a>
+            <li>
+                <a href="https://iflorian.com/euc" title="EUC">
+                    <span>EUC</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/contact">Contact</a>
+            <li>
+                <a href="https://iflorian.com/" title="My Blog">
+                    <span>My Blog</span>
+                </a>
             </li>
-        
-        
-    </ul>
-
-    
-    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
-    
-</div>
-<span class="nav-cover"></span>
-
-
- <div class="site-wrapper">
-
-
-
-<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
-  <nav class="main-nav overlay clearfix">
-
-
-  
-      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
-  
-  
-      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-  
-  </nav>
-  <div class="vertical">
-      <div class="main-header-content inner">
-          
-    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
-        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
-    <span class="icon-github" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
-        <span class="icon-twitter" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-
-
-
-
-
-
-
-          <h1 class="page-title">[self writeBlog];</h1>
-          <h2 class="page-description"></h2>
-      </div>
-  </div>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      360iDev2016 - Denver&#39;s Premier iOS Conference
+    </h1>
+    <div class="post-meta"><span title='2016-09-14 16:29:21 +0000 UTC'>September 14, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span>
 
-
-<main class="content" role="main">
-
-
-
-
-  <article class="post post">
-
-    <header class="post-header">
-        <h1 class="post-title">360iDev2016 - Denver&#39;s Premier iOS Conference</h1>
-        <small></small>
-
-        <section class="post-meta">
-        
-          <time class="post-date" datetime="2016-09-14T16:29:21Z">
-            Sep 14, 2016
-          </time>
-        
-         
-        </section>
-    </header>
-
-    <section class="post-content">
-      <p><img src="http://360idev.com/wp-content/uploads/2014/06/Sticker-nodate.png" alt="360iDev Logo" /></p>
-
+</div>
+  </header> 
+  <div class="post-content"><p><img alt="360iDev Logo" loading="lazy" src="http://360idev.com/wp-content/uploads/2014/06/Sticker-nodate.png"></p>
 <p>Two weeks ago I&rsquo;ve attended the <a href="http://360idev.com">360iDev</a> conference in Denver. This year was my second year that I attended 360iDev.</p>
-
 <p>For those of you who don&rsquo;t know what I&rsquo;m talking about, it&rsquo;s an iOS conference focusing on everything related to iOS Development. The conference lasts four days and usually has at least 3-4 different topics going at the same time so that everyone can find a topic they like at any given time.  The topics can be grouped into either iOS, technical or business topics. That might sound a bit like every other conference, but I haven&rsquo;t told you the best part yet: 360iDev&rsquo;s community!</p>
-
 <p>As 360iDev originated as an indie conference and still understands itself as such, it attracts a unique set of people that are happy to connect and exchange.
 It&rsquo;s also limited to somewhere between 300-400 people, which is still a big group but not huge like WWDC or some other big conferences. This makes it a great place for anyone that enjoy quality over quantity and gives you a better chance to connect with fellow devs.</p>
-
 <p>This year was not different in that perspective. The community once more helped to make this 4 great days.</p>
-
 <p>There were some great talks that I loved for so many reasons, two of them were Jost Micheals general session on <a href="https://vimeo.com/182566967">Effective Strategies for Selling Out</a> as well as Curtis Herbert&rsquo;s <a href="http://360idev.com/sessions/challenging-our-assumptions-to-succeed-in-the-app-store/">Challenging our Assumptions to Succeed in the App Store</a>.</p>
-
 <p>But there was also something else this year that was special to me: It was my first year speaking at 360iDev!!</p>
-
 <p>My talk was titled <a href="https://speakerdeck.com/evils/on-the-should-of-giants-how-to-properly-mentor-a-junior-developer"><strong>On The Shoulder Of Giants: How To Properly Mentor A Junior Developer</strong></a>. <em>(If you ever come across the video of my talk, I want to mention that this isn&rsquo;t my regular voice, but rather some problem they had with the audio recording)</em>
 It was a business talk trying to shed light on the receiving end of a mentoring relationship -  A topic that&rsquo;s important to me, to which I started collecting thoughts and notes a bit over 7 years ago.</p>
-
 <p>The journey it took to get this idea to a finished talk will soon be subject of a different post, there were so many things that seemed easy but turned out to be difficult (Dilbert Comics Licensing, Talk Sponsoring, Etc.)
 Yet, overcoming all these struggles was totally worth it. The audience seemed to like my talk and furthermore gave me a rating of 4.21 on a scale from 1-5 - not too bad for my first conference talk in a foreign language.</p>
-
 <p>I have to say, it was a great experience speaking at 360iDev and I&rsquo;m looking forward to more speaking proposals and hopefully more speaking gigs.</p>
-
 <p>It was great seeing everyone in the business again and I hope to see you next year!</p>
+<p>Thanks to everyone that attended my talk and gave me feedback! It meant a lot to me. Keep rockin'</p>
 
-<p>Thanks to everyone that attended my talk and gave me feedback! It meant a lot to me. Keep rockin&rsquo;</p>
 
-    </section>
-
+  </div>
 
   <footer class="post-footer">
-
-
-    
-
-
-
-
-
-
-
-
-<figure class="author-image">
-    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
-</figure>
-
-
-<section class="author">
-  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
-  
-  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
-  
-  <div class="author-meta">
-    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
-    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
-  </div>
-</section>
-
-
-
-
-    
-<section class="share">
-  <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=360iDev2016%20-%20Denver%27s%20Premier%20iOS%20Conference&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2f360idev2016-a-mile-high-conference%2f"
-      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-      <span class="hidden">Twitter</span>
-  </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2f360idev2016-a-mile-high-conference%2f"
-      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-      <span class="hidden">Facebook</span>
-  </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2f360idev2016-a-mile-high-conference%2f&amp;description=360iDev2016%20-%20Denver%27s%20Premier%20iOS%20Conference"
-      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-      <span class="hidden">Pinterest</span>
-  </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2f360idev2016-a-mile-high-conference%2f"
-     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-      <span class="hidden">Google+</span>
-  </a>
-</section>
-
-
-
-    
-
-<div id="disqus_thread"></div>
-<script>
-
-
-
-
-var disqus_config = function () {
-this.page.url = "https:\/\/iflorian.com\/360idev2016-a-mile-high-conference\/";  
-this.page.identifier = "https:\/\/iflorian.com\/360idev2016-a-mile-high-conference\/"; 
-};
-
-(function() { 
-var d = document, s = d.createElement('script');
-s.src = 'https://iflorian.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-
-
-
+    <ul class="post-tags">
+    </ul>
   </footer>
 </article>
-
-</main>
-
-
-  <aside class="read-next">
-  
-      <a class="read-next-story" style="no-cover" href="/business-your-language-matters/">
-          <section class="post">
-              <h2>ReleaseNotes 2016</h2>
-              
-          </section>
-      </a>
-  
-  
-      <a class="read-next-story prev" style="no-cover" href="/welcome/">
-          <section class="post">
-              <h2>Welcome!</h2>
-          </section>
-      </a>
-  
-</aside>
-
-
-
-    <footer class="site-footer clearfix">
-        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
-        
-        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
-        
-    </footer>
-    </div>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
+    </main>
     
-</body>
-</html>
+<footer class="footer">
+        <span>All rights reserved - 2024</span> · 
 
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

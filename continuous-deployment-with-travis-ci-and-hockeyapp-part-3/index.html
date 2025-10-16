@@ -1,505 +1,377 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Continuous Deployment with Travis CI and HockeyApp, Part 3 | [self writeBlog];</title>
+<meta name="keywords" content="">
+<meta name="description" content="Deployment
+With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.
+HockeyApp
+HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.">
+<meta name="author" content="Florian Harr">
+<link rel="canonical" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://iflorian.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://iflorian.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://iflorian.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    
-    
-        <meta name="twitter:card" content="summary"/>
-    
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  mermaid.contentLoaded();
+</script>
+<meta property="og:url" content="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/">
+  <meta property="og:site_name" content="[self writeBlog];">
+  <meta property="og:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 3">
+  <meta property="og:description" content="Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.
+HockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2016-10-21T18:31:03+00:00">
+    <meta property="article:modified_time" content="2016-10-21T18:31:03+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 3">
+<meta name="twitter:description" content="Deployment
+With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.
+HockeyApp
+HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.">
 
 
-
-<meta name="twitter:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 3"/>
-<meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@caffeineflo"/>
-
-
-
-  	<meta property="og:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 3 &middot; [self writeBlog];" />
-  	<meta property="og:site_name" content="[self writeBlog];" />
-  	<meta property="og:url" content="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/" />
-
-    
-        
-            <meta property="og:image" content="/images/cover_small.jpg"/>
-        
-    
-
-    
-    <meta property="og:description" content="" />
-  	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2016-10-21T18:31:03Z" />
-
-    
-    
-
-    <title>Continuous Deployment with Travis CI and HockeyApp, Part 3 &middot; [self writeBlog];</title>
-
-    
-    <meta name="description" content="Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A " />
-    
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
-    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
-
-    
-
-    
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-        
-        <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-      
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
-      
-      
-    
-    <meta name="generator" content="Hugo 0.54.0" />
-
-    <link rel="canonical" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/" />
-
-    
-      
-    
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": ,
-        "logo": https://iflorian.com/images/logo_inverted.png
-    },
-    "author": {
-        "@type": "Person",
-        "name": ,
-        
-        "image": {
-            "@type": "ImageObject",
-            "url": https://iflorian.com/images/logo_inverted.png,
-            "width": 250,
-            "height": 250
-        }, 
-        
-        "url": https://iflorian.com/,
-        "sameAs": [
-            
-            
-             
-             
-             
-             
-             
-            
-        ]
-    },
-    "headline": Continuous Deployment with Travis CI and HockeyApp, Part 3,
-    "name": Continuous Deployment with Travis CI and HockeyApp, Part 3,
-    "wordCount": 1080,
-    "timeRequired": "PT6M",
-    "inLanguage": {
-      "@type": "Language",
-      "alternateName": en
-    },
-    "url": https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/,
-    "datePublished": 2016-10-21T18:31Z,
-    "dateModified": 2016-10-21T18:31Z,
-    
-    
-    "description": ,
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://iflorian.com/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Continuous Deployment with Travis CI and HockeyApp, Part 3",
+      "item": "https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/"
     }
+  ]
 }
-    </script>
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Continuous Deployment with Travis CI and HockeyApp, Part 3",
+  "name": "Continuous Deployment with Travis CI and HockeyApp, Part 3",
+  "description": "Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay \u0026ldquo;simple\u0026rdquo; and upload our App to HockeyApp via curl.\nHockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.\n",
+  "keywords": [
     
-
-
-    
-
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-86325185-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    
-
-    
+  ],
+  "articleBody": "Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.\nHockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.\nTo use HockeyApp, we have to add HOCKEY_APP_ID and HOCKEY_APP_TOKEN to Travis’s global env variables. You can find Hockey’s App ID on your overview page and you can create your Hockey App Token on your settings page. You should add both variables through the travis gem again, to have those encrypted.\nflorian$: travis encrypt \"HOCKEY_APP_ID=APP_ID\" florian$: travis encrypt \"HOCKEY_APP_TOKEN=APP_TOKEN\" Add the encrypted variables to your .travis.yml, we need them in our curl command to upload our IPAs to HockeyApp.\nThe next step and final step is to add one last bash script ipa-upload.sh. Create a bash script next to your other Travis Scripts with the following content:\n# file: $SCRIPT_FOLDER/ipa-upload.sh #!/bin/sh if [[ \"$TRAVIS_PULL_REQUEST\" != \"false\" ]]; then echo \"This is a pull request. No deployment will be done.\" exit 0 fi if [[ \"$TRAVIS_BRANCH\" != \"master\" ]]; then echo \"Testing on a branch other than master. No deployment will be done.\" exit 0 fi OUTPUTDIR=\"$PWD/build/TravisCI-Release-iphoneos\" RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'` RELEASE_NOTES=\"Build: $TRAVIS_BUILD_NUMBER Uploaded: $RELEASE_DATE\" if [ ! -z \"$HOCKEY_APP_ID\" ] \u0026\u0026 [ ! -z \"$HOCKEY_APP_TOKEN\" ]; then if [ \"$TRAVIS_TAG\" == \"\" ] \u0026\u0026 [ \"$TRAVIS_BRANCH\" == \"master\" ]; then echo \"\" echo \"***************************\" echo \"* Uploading to Hockeyapp *\" echo \"***************************\" curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \\ -F status=\"2\" \\ -F notify=\"0\" \\ -F notes=\"$RELEASE_NOTES\" \\ -F notes_type=\"0\" \\ -F tags=\"beta\" \\ -F ipa=\"@$OUTPUTDIR/$APP_NAME.ipa\" \\ -F dsym=\"@$OUTPUTDIR/$APP_NAME.app.dSYM.zip\" \\ -H \"X-HockeyAppToken: $HOCKEY_APP_TOKEN\" fi if [[ \"$TRAVIS_TAG\" == \"production\" ]]; then echo \"\" echo \"***************************\" echo \"* Uploading to Hockeyapp *\" echo \"***************************\" curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \\ -F status=\"2\" \\ -F notify=\"0\" \\ -F notes=\"$RELEASE_NOTES\" \\ -F notes_type=\"0\" \\ -F tags=\"production\" \\ -F ipa=\"@$OUTPUTDIR/$APP_NAME.ipa\" \\ -F dsym=\"@$OUTPUTDIR/$APP_NAME.app.dSYM.zip\" \\ -H \"X-HockeyAppToken: $HOCKEY_APP_TOKEN\" fi fi Put it in place in the ‘after_success:’ build phase after your ‘ipa-signing.sh’ script.\nBe sure to check out the IF conditions within the ipa-signing.sh script. They are currently setup to tag releases in HockeyApp differently according to their git tag. The idea behind this is simply to have two different groups of users in HockeyApp. One group for beta users and one group for production users, just add tags to your users on HockeyApp so they get access to the corresponding releases. ‘Beta’ and ‘Production’ for your super users which should get access to both release types and ‘Production’ only for those who should be able to get the production release. Now all you need to do is to submit your give a specific commit the ‘production’ tag to make it a production release on HockeyApp.\nTroubleshooting At this point of our tutorial it’s quite likely that you ran into at least one problem as you don’t have an interactive shell to test your commands. When writing this tutorial this happened to me quite often so my GIT History ended up being a mess especially as you can’t always use pull requests to test your changes.\nA great option to test changes would be a Virtual Machine which holds the same environment as the one Travis CI does, unfortunately that’s not an option as Travis doesn’t provide their configuration in a format such as a Vagrant script. So the only remaining possible option to test your scrips are actually local tests in your local terminal.\nIf that doesn’t help, it’s always an option to use ’echo’ and ‘set -x’ to print your variables to your Travis CI build log.\nIt’s quite unfortunate that there’s no other option, but that’s probably an action from Travis’s side to protect their property. If you ever happen to run into serious problems or something you can’t reproduce, the Travis Support is normally reacting on a pretty fast basis trying to help where they can. They’re also more than happy to provide you with a debug VM on their servers for tough problems if you’re a paying customer.\nA step further With all these options and great tweaks outlined, there’s still plenty of room for other extensions. Travis CI offers a bunch of custom which I encourage you to test them. One of my favorite extensions are actually Travis’s notification options. You can easily integrate your favorite chat clients to announce a new version on channels such as IRC, Campfire or Slack. Or another option to extend your scripts are custom webhooks which are supported by Travis to even go a step further than a simple notification.\nIn addition to those extensions on Travis’s side, there are similar projects such as coverall.io which measures your test coverage history and statistics through their integration with your CI server. These are all ways that help to manage your code and to give you a better insight.\nSummary Automated building, testing and deployment more popular every day and is a great way for many developers to ensure their software still builds against different systems. Many open source projects started to adopt that years ago and you might already have seen buttons such as the well known build: success button.\nTravis CI makes standard setups a lot easier than other products such as Jenkins where the work of maintaining a server is added on top of your configuration. Therefore I encourage you to try Travis CI as it’s free for public repositories without having to maintain your own copy of XCode on your private server.\nI have setup a special repository here which holds all the code covered in this tutorial, check the releases tab to find different versions of what we covered here. It’s setup to work with subfolder and both options on where to store your certificates. Just set the bash variables at the begging of the .travis.yml file according to your structure and check filenames to match your certificates and you should be up and running in no time!\nGo ahead and start using Continuous Integration! It’s a fun ride and a good workflow to work with.\n![Successful Build]({{ site.baseurl }}/img/blog/2014/12/Successul_build-TravisCI.png)\n",
+  "wordCount" : "1084",
+  "inLanguage": "en",
+  "datePublished": "2016-10-21T18:31:03Z",
+  "dateModified": "2016-10-21T18:31:03Z",
+  "author":{
+    "@type": "Person",
+    "name": "Florian Harr"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "[self writeBlog];",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iflorian.com/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="nav-closed">
 
-  <div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        
-        
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/">My Blog</a>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://iflorian.com/" accesskey="h" title="[self writeBlog]; (Alt + H)">[self writeBlog];</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://iflorian.com/contact" title="Contact">
+                    <span>Contact</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/euc">EUC</a>
+            <li>
+                <a href="https://iflorian.com/about" title="About me">
+                    <span>About me</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/about">About me</a>
+            <li>
+                <a href="https://iflorian.com/euc" title="EUC">
+                    <span>EUC</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/contact">Contact</a>
+            <li>
+                <a href="https://iflorian.com/" title="My Blog">
+                    <span>My Blog</span>
+                </a>
             </li>
-        
-        
-    </ul>
-
-    
-    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
-    
-</div>
-<span class="nav-cover"></span>
-
-
- <div class="site-wrapper">
-
-
-
-<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
-  <nav class="main-nav overlay clearfix">
-
-
-  
-      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
-  
-  
-      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-  
-  </nav>
-  <div class="vertical">
-      <div class="main-header-content inner">
-          
-    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
-        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
-    <span class="icon-github" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
-        <span class="icon-twitter" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-
-
-
-
-
-
-
-          <h1 class="page-title">[self writeBlog];</h1>
-          <h2 class="page-description"></h2>
-      </div>
-  </div>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Continuous Deployment with Travis CI and HockeyApp, Part 3
+    </h1>
+    <div class="post-meta"><span title='2016-10-21 18:31:03 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span>
 
-
-<main class="content" role="main">
-
-
-
-
-  <article class="post post">
-
-    <header class="post-header">
-        <h1 class="post-title">Continuous Deployment with Travis CI and HockeyApp, Part 3</h1>
-        <small></small>
-
-        <section class="post-meta">
-        
-          <time class="post-date" datetime="2016-10-21T18:31:03Z">
-            Oct 21, 2016
-          </time>
-        
-         
-        </section>
-    </header>
-
-    <section class="post-content">
-      
-
-<h2 id="deployment">Deployment</h2>
-
+</div>
+  </header> 
+  <div class="post-content"><h2 id="deployment">Deployment<a hidden class="anchor" aria-hidden="true" href="#deployment">#</a></h2>
 <p>With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.</p>
-
-<h2 id="hockeyapp">HockeyApp</h2>
-
+<h2 id="hockeyapp">HockeyApp<a hidden class="anchor" aria-hidden="true" href="#hockeyapp">#</a></h2>
 <p>HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.</p>
-
 <p>To use HockeyApp, we have to add <em>HOCKEY_APP_ID</em> and <em>HOCKEY_APP_TOKEN</em> to Travis&rsquo;s global env variables. You can find <a href="https://rink.hockeyapp.net/manage/dashboard">Hockey&rsquo;s App ID</a> on your overview page and you can create your <a href="https://rink.hockeyapp.net/manage/auth_tokens">Hockey App Token</a> on your settings page. You should add both variables through the travis gem again, to have those encrypted.</p>
-
-<pre><code>florian$: travis encrypt &quot;HOCKEY_APP_ID=APP_ID&quot;
-florian$: travis encrypt &quot;HOCKEY_APP_TOKEN=APP_TOKEN&quot;
-</code></pre>
-
-<p>Add the encrypted variables to your .travis.yml, we need them in our <em>curl</em> command to upload our IPAs to HockeyApp.</p>
-
+<pre tabindex="0"><code>florian$: travis encrypt &#34;HOCKEY_APP_ID=APP_ID&#34;
+florian$: travis encrypt &#34;HOCKEY_APP_TOKEN=APP_TOKEN&#34;
+</code></pre><p>Add the encrypted variables to your .travis.yml, we need them in our <em>curl</em> command to upload our IPAs to HockeyApp.</p>
 <p>The next step and final step is to add one last bash script <em>ipa-upload.sh</em>. Create a bash script next to your other Travis Scripts with the following content:</p>
-
-<pre><code> # file: $SCRIPT_FOLDER/ipa-upload.sh
+<pre tabindex="0"><code> # file: $SCRIPT_FOLDER/ipa-upload.sh
  #!/bin/sh
-if [[ &quot;$TRAVIS_PULL_REQUEST&quot; != &quot;false&quot; ]]; then
-  echo &quot;This is a pull request. No deployment will be done.&quot;
+if [[ &#34;$TRAVIS_PULL_REQUEST&#34; != &#34;false&#34; ]]; then
+  echo &#34;This is a pull request. No deployment will be done.&#34;
   exit 0
 fi
-if [[ &quot;$TRAVIS_BRANCH&quot; != &quot;master&quot; ]]; then
-  echo &quot;Testing on a branch other than master. No deployment will be done.&quot;
+if [[ &#34;$TRAVIS_BRANCH&#34; != &#34;master&#34; ]]; then
+  echo &#34;Testing on a branch other than master. No deployment will be done.&#34;
   exit 0
 fi
 
-OUTPUTDIR=&quot;$PWD/build/TravisCI-Release-iphoneos&quot;
-RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
-RELEASE_NOTES=&quot;Build: $TRAVIS_BUILD_NUMBER Uploaded: $RELEASE_DATE&quot;
+OUTPUTDIR=&#34;$PWD/build/TravisCI-Release-iphoneos&#34;
+RELEASE_DATE=`date &#39;+%Y-%m-%d %H:%M:%S&#39;`
+RELEASE_NOTES=&#34;Build: $TRAVIS_BUILD_NUMBER Uploaded: $RELEASE_DATE&#34;
 
-if [ ! -z &quot;$HOCKEY_APP_ID&quot; ] &amp;&amp; [ ! -z &quot;$HOCKEY_APP_TOKEN&quot; ]; then
+if [ ! -z &#34;$HOCKEY_APP_ID&#34; ] &amp;&amp; [ ! -z &#34;$HOCKEY_APP_TOKEN&#34; ]; then
 
-if [ &quot;$TRAVIS_TAG&quot; == &quot;&quot; ] &amp;&amp; [ &quot;$TRAVIS_BRANCH&quot; == &quot;master&quot; ]; then
+if [ &#34;$TRAVIS_TAG&#34; == &#34;&#34; ] &amp;&amp; [ &#34;$TRAVIS_BRANCH&#34; == &#34;master&#34; ]; then
 
-echo &quot;&quot;
-echo &quot;***************************&quot;
-echo &quot;* Uploading to Hockeyapp  *&quot;
-echo &quot;***************************&quot;
-
-curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
-  -F status=&quot;2&quot; \
-  -F notify=&quot;0&quot; \
-  -F notes=&quot;$RELEASE_NOTES&quot; \
-  -F notes_type=&quot;0&quot; \
-  -F tags=&quot;beta&quot; \
-  -F ipa=&quot;@$OUTPUTDIR/$APP_NAME.ipa&quot; \
-  -F dsym=&quot;@$OUTPUTDIR/$APP_NAME.app.dSYM.zip&quot; \
-  -H &quot;X-HockeyAppToken: $HOCKEY_APP_TOKEN&quot;
-fi
-
-if [[ &quot;$TRAVIS_TAG&quot; == &quot;production&quot; ]]; then
-
-echo &quot;&quot;
-echo &quot;***************************&quot;
-echo &quot;* Uploading to Hockeyapp  *&quot;
-echo &quot;***************************&quot;
+echo &#34;&#34;
+echo &#34;***************************&#34;
+echo &#34;* Uploading to Hockeyapp  *&#34;
+echo &#34;***************************&#34;
 
 curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
-  -F status=&quot;2&quot; \
-  -F notify=&quot;0&quot; \
-  -F notes=&quot;$RELEASE_NOTES&quot; \
-  -F notes_type=&quot;0&quot; \
-  -F tags=&quot;production&quot; \
-  -F ipa=&quot;@$OUTPUTDIR/$APP_NAME.ipa&quot; \
-  -F dsym=&quot;@$OUTPUTDIR/$APP_NAME.app.dSYM.zip&quot; \
-  -H &quot;X-HockeyAppToken: $HOCKEY_APP_TOKEN&quot;
+  -F status=&#34;2&#34; \
+  -F notify=&#34;0&#34; \
+  -F notes=&#34;$RELEASE_NOTES&#34; \
+  -F notes_type=&#34;0&#34; \
+  -F tags=&#34;beta&#34; \
+  -F ipa=&#34;@$OUTPUTDIR/$APP_NAME.ipa&#34; \
+  -F dsym=&#34;@$OUTPUTDIR/$APP_NAME.app.dSYM.zip&#34; \
+  -H &#34;X-HockeyAppToken: $HOCKEY_APP_TOKEN&#34;
+fi
+
+if [[ &#34;$TRAVIS_TAG&#34; == &#34;production&#34; ]]; then
+
+echo &#34;&#34;
+echo &#34;***************************&#34;
+echo &#34;* Uploading to Hockeyapp  *&#34;
+echo &#34;***************************&#34;
+
+curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \
+  -F status=&#34;2&#34; \
+  -F notify=&#34;0&#34; \
+  -F notes=&#34;$RELEASE_NOTES&#34; \
+  -F notes_type=&#34;0&#34; \
+  -F tags=&#34;production&#34; \
+  -F ipa=&#34;@$OUTPUTDIR/$APP_NAME.ipa&#34; \
+  -F dsym=&#34;@$OUTPUTDIR/$APP_NAME.app.dSYM.zip&#34; \
+  -H &#34;X-HockeyAppToken: $HOCKEY_APP_TOKEN&#34;
 fi
 
 fi
-</code></pre>
-
-<p>Put it in place in the &lsquo;<em>after_success:</em>&rsquo; build phase after your &lsquo;<em>ipa-signing.sh</em>&rsquo; script.</p>
-
+</code></pre><p>Put it in place in the &lsquo;<em>after_success:</em>&rsquo; build phase after your &lsquo;<em>ipa-signing.sh</em>&rsquo; script.</p>
 <p>Be sure to check out the <em>IF</em> conditions within the <em>ipa-signing.sh</em> script. They are currently setup to tag releases in HockeyApp differently according to their git tag. The idea behind this is simply to have two different groups of users in HockeyApp. One group for beta users and one group for production users, just add tags to your users on HockeyApp so they get access to the corresponding releases. &lsquo;Beta&rsquo; and &lsquo;Production&rsquo; for your super users which should get access to both release types and &lsquo;Production&rsquo; only for those who should be able to get the production release. Now all you need to do is to submit your give a specific commit the &lsquo;production&rsquo; tag to make it a production release on HockeyApp.</p>
-
-<h2 id="troubleshooting">Troubleshooting</h2>
-
+<h2 id="troubleshooting">Troubleshooting<a hidden class="anchor" aria-hidden="true" href="#troubleshooting">#</a></h2>
 <p>At this point of our tutorial it&rsquo;s quite likely that you ran into at least one problem as you don&rsquo;t have an interactive shell to test your commands. When writing this tutorial this happened to me quite often so my GIT History ended up being a mess especially as you can&rsquo;t always use pull requests to test your changes.</p>
-
 <p>A great option to test changes would be a Virtual Machine which holds the same environment as the one Travis CI does, unfortunately that&rsquo;s not an option as Travis doesn&rsquo;t provide their configuration in a format such as a Vagrant script. So the only remaining possible option to test your scrips are actually local tests in your local terminal.</p>
-
-<p>If that doesn&rsquo;t help, it&rsquo;s always an option to use &lsquo;echo&rsquo; and &lsquo;set -x&rsquo; to print your variables to your Travis CI build log.</p>
-
+<p>If that doesn&rsquo;t help, it&rsquo;s always an option to use &rsquo;echo&rsquo; and &lsquo;set -x&rsquo; to print your variables to your Travis CI build log.</p>
 <p>It&rsquo;s quite unfortunate that there&rsquo;s no other option, but that&rsquo;s probably an action from Travis&rsquo;s side to protect their property. If you ever happen to run into serious problems or something you can&rsquo;t reproduce, the Travis Support is normally reacting on a pretty fast basis trying to help where they can. They&rsquo;re also more than happy to provide you with a debug VM on their servers for tough problems if you&rsquo;re a paying customer.</p>
-
-<h2 id="a-step-further">A step further</h2>
-
+<h2 id="a-step-further">A step further<a hidden class="anchor" aria-hidden="true" href="#a-step-further">#</a></h2>
 <p>With all these options and great tweaks outlined, there&rsquo;s still plenty of room for other extensions. Travis CI offers a bunch of custom which I encourage you to test them. One of my favorite extensions are actually Travis&rsquo;s notification options. You can easily integrate your favorite chat clients to announce a new version on channels such as IRC, Campfire or Slack.
 Or another option to extend your scripts are custom webhooks which are supported by Travis to even go a step further than a simple notification.</p>
-
 <p>In addition to those extensions on Travis&rsquo;s side, there are similar projects such as coverall.io which measures your test coverage history and statistics through their integration with your CI server. These are all ways that help to manage your code and to give you a better insight.</p>
-
-<h2 id="summary">Summary</h2>
-
+<h2 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h2>
 <p>Automated building, testing and deployment more popular every day and is a great way for many developers to ensure their software still builds against different systems. Many open source projects started to adopt that years ago and you might already have seen buttons such as the well known build: success button.</p>
-
-<p><a href="https://travis-ci.org/ios-ci-example"><img src="https://travis-ci.org/ios-ci-example.svg?branch=master" alt="Build Status" /></a></p>
-
+<p><a href="https://travis-ci.org/ios-ci-example"><img alt="Build Status" loading="lazy" src="https://travis-ci.org/ios-ci-example.svg?branch=master"></a></p>
 <p>Travis CI makes standard setups a lot easier than other products such as Jenkins where the work of maintaining a server is added on top of your configuration. Therefore I encourage you to try Travis CI as it&rsquo;s free for public repositories without having to maintain your own copy of XCode on your private server.</p>
-
 <p>I have setup a special repository <a href="https://github.com/ios-ci-example">here</a> which holds all the code covered in this tutorial, check the releases tab to find different versions of what we covered here. It&rsquo;s setup to work with subfolder and both options on where to store your certificates. Just set the bash variables at the begging of the .travis.yml file according to your structure and check filenames to match your certificates and you should be up and running in no time!</p>
-
 <p>Go ahead and start using Continuous Integration! It&rsquo;s a fun ride and a good workflow to work with.</p>
+<p>![Successful Build]({{ site.baseurl }}/img/blog/2014/12/Successul_build-TravisCI.png)</p>
 
-<p><img src="{{ site.baseurl }}/img/blog/2014/12/Successul_build-TravisCI.png" alt="Successful Build" /></p>
 
-    </section>
-
+  </div>
 
   <footer class="post-footer">
-
-
-    
-
-
-
-
-
-
-
-
-<figure class="author-image">
-    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">Florian Harr's Picture</span></a>
-</figure>
-
-
-<section class="author">
-  <h4><a href="https://iflorian.com/">Florian Harr</a></h4>
-  
-  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
-  
-  <div class="author-meta">
-    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
-    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
-  </div>
-</section>
-
-
-
-
-    
-<section class="share">
-  <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Continuous%20Deployment%20with%20Travis%20CI%20and%20HockeyApp%2c%20Part%203&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-3%2f"
-      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-      <span class="hidden">Twitter</span>
-  </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-3%2f"
-      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-      <span class="hidden">Facebook</span>
-  </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-3%2f&amp;description=Continuous%20Deployment%20with%20Travis%20CI%20and%20HockeyApp%2c%20Part%203"
-      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-      <span class="hidden">Pinterest</span>
-  </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2fcontinuous-deployment-with-travis-ci-and-hockeyapp-part-3%2f"
-     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-      <span class="hidden">Google+</span>
-  </a>
-</section>
-
-
-
-    
-
-<div id="disqus_thread"></div>
-<script>
-
-
-
-
-var disqus_config = function () {
-this.page.url = "https:\/\/iflorian.com\/continuous-deployment-with-travis-ci-and-hockeyapp-part-3\/";  
-this.page.identifier = "https:\/\/iflorian.com\/continuous-deployment-with-travis-ci-and-hockeyapp-part-3\/"; 
-};
-
-(function() { 
-var d = document, s = d.createElement('script');
-s.src = 'https://iflorian.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-
-
-
+    <ul class="post-tags">
+    </ul>
   </footer>
 </article>
-
-</main>
-
-
-  <aside class="read-next">
-  
-      <a class="read-next-story" style="no-cover" href="/xcode-8-provisioning_profile_specifier/">
-          <section class="post">
-              <h2>Xcode 8: PROVISIONING_PROFILE_SPECIFIER</h2>
-              
-          </section>
-      </a>
-  
-  
-      <a class="read-next-story prev" style="no-cover" href="/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/">
-          <section class="post">
-              <h2>Continuous Deployment with Travis CI and HockeyApp, Part 2</h2>
-          </section>
-      </a>
-  
-</aside>
-
-
-
-    <footer class="site-footer clearfix">
-        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
-        
-        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
-        
-    </footer>
-    </div>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
+    </main>
     
-</body>
-</html>
+<footer class="footer">
+        <span>All rights reserved - 2024</span> · 
 
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

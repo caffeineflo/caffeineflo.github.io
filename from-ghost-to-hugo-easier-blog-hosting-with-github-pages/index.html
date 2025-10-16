@@ -1,338 +1,253 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>From Ghost to Hugo. Easier Blog Hosting with Github Pages | [self writeBlog];</title>
+<meta name="keywords" content="ghost, hugo, blog, hosting, github, pages">
+<meta name="description" content="With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
+Let me explain why I did this and how you can do this as well.
+Starting Position
+I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.
+Hugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&rsquo;t need to be able to run node js on the server.">
+<meta name="author" content="florian_harr">
+<link rel="canonical" href="https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://iflorian.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://iflorian.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://iflorian.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    
-    
-        <meta name="twitter:card" content="summary"/>
-    
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  mermaid.contentLoaded();
+</script>
+<meta property="og:url" content="https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/">
+  <meta property="og:site_name" content="[self writeBlog];">
+  <meta property="og:title" content="From Ghost to Hugo. Easier Blog Hosting with Github Pages">
+  <meta property="og:description" content="With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
+Let me explain why I did this and how you can do this as well.
+Starting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.
+Hugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn’t need to be able to run node js on the server.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2017-06-12T09:54:46-04:00">
+    <meta property="article:modified_time" content="2017-06-12T09:54:46-04:00">
+    <meta property="article:tag" content="Ghost">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="Blog">
+    <meta property="article:tag" content="Hosting">
+    <meta property="article:tag" content="Github">
+    <meta property="article:tag" content="Pages">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="From Ghost to Hugo. Easier Blog Hosting with Github Pages">
+<meta name="twitter:description" content="With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
+Let me explain why I did this and how you can do this as well.
+Starting Position
+I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.
+Hugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&rsquo;t need to be able to run node js on the server.">
 
 
-
-<meta name="twitter:title" content="From Ghost to Hugo. Easier Blog Hosting with Github Pages"/>
-<meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@caffeineflo"/>
-
-
-
-  	<meta property="og:title" content="From Ghost to Hugo. Easier Blog Hosting with Github Pages &middot; [self writeBlog];" />
-  	<meta property="og:site_name" content="[self writeBlog];" />
-  	<meta property="og:url" content="https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/" />
-
-    
-        
-            <meta property="og:image" content="/images/cover_small.jpg"/>
-        
-    
-
-    
-    <meta property="og:description" content="" />
-  	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2017-06-12T09:54:46-04:00" />
-
-    
-    <meta property="article:tag" content="ghost" />
-    
-    <meta property="article:tag" content="hugo" />
-    
-    <meta property="article:tag" content="blog" />
-    
-    <meta property="article:tag" content="hosting" />
-    
-    <meta property="article:tag" content="github" />
-    
-    <meta property="article:tag" content="pages" />
-    
-    
-
-    <title>From Ghost to Hugo. Easier Blog Hosting with Github Pages &middot; [self writeBlog];</title>
-
-    
-    <meta name="description" content="With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dyn" />
-    
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
-    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
-
-    
-
-    
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-        
-        <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-      
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
-      
-      
-    
-    <meta name="generator" content="Hugo 0.54.0" />
-
-    <link rel="canonical" href="https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/" />
-
-    
-      
-    
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": ,
-        "logo": https://iflorian.com/images/logo_inverted.png
-    },
-    "author": {
-        "@type": "Person",
-        "name": ,
-        
-        "image": {
-            "@type": "ImageObject",
-            "url": https://iflorian.com/images/logo_inverted.png,
-            "width": 250,
-            "height": 250
-        }, 
-        
-        "url": https://iflorian.com/,
-        "sameAs": [
-            
-            
-             
-             
-             
-             
-             
-            
-        ]
-    },
-    "headline": From Ghost to Hugo. Easier Blog Hosting with Github Pages,
-    "name": From Ghost to Hugo. Easier Blog Hosting with Github Pages,
-    "wordCount": 1209,
-    "timeRequired": "PT6M",
-    "inLanguage": {
-      "@type": "Language",
-      "alternateName": en
-    },
-    "url": https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/,
-    "datePublished": 2017-06-12T09:54Z,
-    "dateModified": 2017-06-12T09:54Z,
-    
-    "keywords": ghost, hugo, blog, hosting, github, pages,
-    "description": ,
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://iflorian.com/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "From Ghost to Hugo. Easier Blog Hosting with Github Pages",
+      "item": "https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/"
     }
+  ]
 }
-    </script>
-    
-
-
-    
-
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-86325185-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    
-
-    
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "From Ghost to Hugo. Easier Blog Hosting with Github Pages",
+  "name": "From Ghost to Hugo. Easier Blog Hosting with Github Pages",
+  "description": "With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.\nLet me explain why I did this and how you can do this as well.\nStarting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.\nHugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn\u0026rsquo;t need to be able to run node js on the server.\n",
+  "keywords": [
+    "ghost", "hugo", "blog", "hosting", "github", "pages"
+  ],
+  "articleBody": "With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.\nLet me explain why I did this and how you can do this as well.\nStarting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.\nHugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn’t need to be able to run node js on the server.\nAlternatives Alternatives would have been:\nGitHub Pages with the minimal theme Keep Ghost and use buster Get Ghost Pro Yet, GitHub Pages with another theme would have destroyed the design I used to have and to be fair, I really liked the minimalist Ghost Design.\nKeeping Ghost and using buster, would have been the next best solution, in fact, it would have been easier and I would still have been able to host my blog on GitHub Pages or any other webserver as buster bruteforces and creates static HTML files for you. I avoided that option as I felt this wouldn’t be a good approach that would completely satisfy my needs for a easy and stable to use blogging platform.\nAnd Ghost Pro was simply out of the picture. On average I spent about 5€/month on uberspace and another 3-4€/month on all-inkl which make it around 8-9€ total for the Ghost blog I used to run. Ghost Pro though, starts at 19€/month which was too expensive for my needs.\nOutlined Path After weighing all my alternatives I decided to go with Hugo as it comes closest to meet all the requirements I set out, most importantly I could host it on GitHub Pages and still be able to easily modify my theme and write content.\nAll I had to then would be to make the transition like this:\n1.) Setup a barebone Hugo installation\n2.) Add casper for hugo theme\n3.) Add content from my existing Ghost installation\n4.) Setup Github Pages with your Hugo setup 5.) Reroute iFlorian.com to work with my Github Pages repo\nMigrate Ghost to Hugo Let’s go through this step by step:\n1.) Setup a barebone Hugo installation This one is pretty easy. Hugo has a easy to understand Quickstart guide that helps you with your first setup.\nOpen a Terminal cd into your workspace (e.g. Repository for your project) (Install hugo if you haven’t done that yet. brew install hugo if you have homebrew) Create your site hugo new site imnotFlorian.com cd into the newly created directory imnotFlorian.com that hugo created Hugo just created a barebone site for you. If you would run hugo locally to serve the HTML files to you, you wouldn’t see a thing yet. So keep on reading.\n2.) Add caspter for hugo theme To give your web presence a nice look, we’re going to add the casper theme to hugo by issuing the following commands:\nChange into the themes directory cd themes/ Add the casper time as git submodule (so Github Pages won’t complain) git submodule init git submodule add https://github.com/vjeantet/hugo-theme-casper casper 3.) Add content from my existing Ghost installation I thought this one would be the hardest step and require quite some time, but it turns out someone already did the legwork for this one.\nOpen your existing Ghost instance admin panel. Go to Settings -\u003e Labs -\u003e Click on Export. Install ghostToHugo https://github.com/jbarone/ghostToHugo Use ghostToHugo on your exported Ghost backup from the step above. You may want to adjust the dateformat like I had to ghostToHugo --dateformat \"2006-01-02 15:04:05\" export.json 4.) Setup Github Pages with your Hugo setup Before we keep going, we want to test our Hugo setup via hugo server. If there are no significant errors when issuing that command, you should be able to see your blog when navigating to http://localhost:1313. If all is fine, we can keep finalize the current state and move it to Github pages.\nGithub Pages for your personal website serves HTML files or generates those HTML files for you if your project is a jekyll project. In any case, if you want to run Github Pages for your personal website, you would create a repository that’s name follows their scheme: .github.io. In my case, that’s caffeineflo.github.io. The repository can either be public or private, in any case it will be published under the same address. For personal projects, you need to have your HTML files in the master branch, while your hugo specific files can be anywhere else e.g. another branch or another repository.\nMy intended solution has my hugo files in the sources branch and the html files hugo will generate go into the master branch. This solution will become extra elegant when using the git worktree command to checkout master -\u003e /public and sources to the root / of my caffeineflo.github.io directory.\nHugo will by default generate all your HTML files to /public if you tell it to create your HTML files by issuing hugo. So all we need to do is setup git.\ngit branch sources to create the sources branch where we want to keep our sources git checkout sources to move to the sources branch rm -rf public/ to remove the currently existing public folder git worktree add -B master public origin/master to checkout the master branch to /public git push origin sources Push the current branch rm -rf public/* Note the asterisk. hugo to generate our HTML files in /public cd public git add -A git commit -m \"Deleted sources on master and generated HTML files\" git push origin master The last step should have generated all necessary HTML files and pushed them to our Github Pages repo. Now if you would navigate to your Github Pages instance, you should see your blog back in old glory again.\nNOTE: Please note that I left out a few basic commands in the process like pushing to master to create the Github Pages instance and/or checking the functionality of our Hugo setup. Please check that again when following this tutorial.\n5.) Reroute iFlorian.com to work with my Github Pages repo One last thing is left to do. Setting our DNS records on our custom domain (iflorian.com) to point to our Github pages site.\ndig caffeineflo.github.io to get the IP Address of the server github hosts us on. Change your A DNS record on our domain to point to the address from the step above. Now depending on how you’ve configured your baseurl in your config.toml (btw. you should configure that one …), you could also set the baseurl to your custom domain and map those domains against each other to be accessible from both domains.\n",
+  "wordCount" : "1209",
+  "inLanguage": "en",
+  "datePublished": "2017-06-12T09:54:46-04:00",
+  "dateModified": "2017-06-12T09:54:46-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "florian_harr"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "[self writeBlog];",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iflorian.com/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
-<body class="nav-closed">
 
-  <div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        
-        
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/">My Blog</a>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://iflorian.com/" accesskey="h" title="[self writeBlog]; (Alt + H)">[self writeBlog];</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://iflorian.com/contact" title="Contact">
+                    <span>Contact</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/euc">EUC</a>
+            <li>
+                <a href="https://iflorian.com/about" title="About me">
+                    <span>About me</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/about">About me</a>
+            <li>
+                <a href="https://iflorian.com/euc" title="EUC">
+                    <span>EUC</span>
+                </a>
             </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/contact">Contact</a>
+            <li>
+                <a href="https://iflorian.com/" title="My Blog">
+                    <span>My Blog</span>
+                </a>
             </li>
-        
-        
-    </ul>
-
-    
-    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
-    
-</div>
-<span class="nav-cover"></span>
-
-
- <div class="site-wrapper">
-
-
-
-<header class="main-header post-head" style="background-image: url(/images/cover_small.jpg)">
-  <nav class="main-nav overlay clearfix">
-
-
-  
-      <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
-  
-  
-      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-  
-  </nav>
-  <div class="vertical">
-      <div class="main-header-content inner">
-          
-    <a class="bloglogo" href="https://www.linkedin.com/in/caffeineflo" target="_blank">
-        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-    <a class="bloglogo" href="https://github.com/caffeineflo" target="_blank">
-    <span class="icon-github" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-    <a class="bloglogo" href="https://twitter.com/caffeineflo" target="_blank">
-        <span class="icon-twitter" style="color:white;font-size:2em"></span>
-    </a>
-&nbsp;
-
-
-
-
-
-
-
-
-
-
-
-
-          <h1 class="page-title">[self writeBlog];</h1>
-          <h2 class="page-description"></h2>
-      </div>
-  </div>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      From Ghost to Hugo. Easier Blog Hosting with Github Pages
+    </h1>
+    <div class="post-meta"><span title='2017-06-12 09:54:46 -0400 -0400'>June 12, 2017</span>&nbsp;·&nbsp;<span>florian_harr</span>
 
-
-<main class="content" role="main">
-
-
-
-
-  <article class="post post">
-
-    <header class="post-header">
-        <h1 class="post-title">From Ghost to Hugo. Easier Blog Hosting with Github Pages</h1>
-        <small></small>
-
-        <section class="post-meta">
-        
-          <time class="post-date" datetime="2017-06-12T09:54:46-04:00">
-            Jun 12, 2017
-          </time>
-        
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/ghost/">#ghost</a></span>
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/hugo/">#hugo</a></span>
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/blog/">#blog</a></span>
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/hosting/">#hosting</a></span>
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/github/">#github</a></span>
-         
-          <span class="post-tag small"><a href="https://iflorian.com//tags/pages/">#pages</a></span>
-         
-        </section>
-    </header>
-
-    <section class="post-content">
-      
-
-<p>With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.<br />
+</div>
+  </header> 
+  <div class="post-content"><p>With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.<br>
 Let me explain why I did this and how you can do this as well.</p>
-
-<h2 id="starting-position">Starting Position</h2>
-
-<p>I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.<br />
+<h2 id="starting-position">Starting Position<a hidden class="anchor" aria-hidden="true" href="#starting-position">#</a></h2>
+<p>I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.<br>
 Hugo seemed to be the perfect solution for that, as the standard Ghost theme <code>casper</code> was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&rsquo;t need to be able to run node js on the server.</p>
-
-<h3 id="alternatives">Alternatives</h3>
-
+<h3 id="alternatives">Alternatives<a hidden class="anchor" aria-hidden="true" href="#alternatives">#</a></h3>
 <p>Alternatives would have been:</p>
-
 <ul>
 <li>GitHub Pages with the <a href="https://github.com/orderedlist/minimal">minimal theme</a></li>
 <li>Keep Ghost and use <a href="https://github.com/axitkhurana/buster">buster</a></li>
 <li>Get <a href="https://ghost.org/pricing/">Ghost Pro</a></li>
 </ul>
-
-<p>Yet, GitHub Pages with another theme would have destroyed the design I used to have and to be fair, I really liked the minimalist Ghost Design.<br />
-Keeping Ghost and using buster, would have been the next best solution, in fact, it would have been easier and I would still have been able to host my blog on GitHub Pages or any other webserver as buster bruteforces and creates static HTML files for you. I avoided that option as I felt this wouldn&rsquo;t be a good approach that would completely satisfy my needs for a easy and stable to use blogging platform.<br />
+<p>Yet, GitHub Pages with another theme would have destroyed the design I used to have and to be fair, I really liked the minimalist Ghost Design.<br>
+Keeping Ghost and using buster, would have been the next best solution, in fact, it would have been easier and I would still have been able to host my blog on GitHub Pages or any other webserver as buster bruteforces and creates static HTML files for you. I avoided that option as I felt this wouldn&rsquo;t be a good approach that would completely satisfy my needs for a easy and stable to use blogging platform.<br>
 And Ghost Pro was simply out of the picture. On average I spent about 5€/month on uberspace and another 3-4€/month on all-inkl which make it around 8-9€ total for the Ghost blog I used to run. Ghost Pro though, starts at 19€/month which was too expensive for my needs.</p>
-
-<h3 id="outlined-path">Outlined Path</h3>
-
-<p>After weighing all my alternatives I decided to go with <a href="http://gohugo.io/">Hugo</a> as it comes closest to meet all the requirements I set out, most importantly I could host it on GitHub Pages and still be able to easily modify my theme and write content.<br />
+<h3 id="outlined-path">Outlined Path<a hidden class="anchor" aria-hidden="true" href="#outlined-path">#</a></h3>
+<p>After weighing all my alternatives I decided to go with <a href="http://gohugo.io/">Hugo</a> as it comes closest to meet all the requirements I set out, most importantly I could host it on GitHub Pages and still be able to easily modify my theme and write content.<br>
 All I had to then would be to make the transition like this:</p>
-
-<p>1.) Setup a barebone Hugo installation<br />
-2.) Add casper for hugo theme<br />
-3.) Add content from my existing Ghost installation<br />
+<p>1.) Setup a barebone Hugo installation<br>
+2.) Add casper for hugo theme<br>
+3.) Add content from my existing Ghost installation<br>
 4.) Setup Github Pages with your Hugo setup
 5.) Reroute iFlorian.com to work with my Github Pages repo</p>
-
-<h2 id="migrate-ghost-to-hugo">Migrate Ghost to Hugo</h2>
-
+<h2 id="migrate-ghost-to-hugo">Migrate Ghost to Hugo<a hidden class="anchor" aria-hidden="true" href="#migrate-ghost-to-hugo">#</a></h2>
 <p>Let&rsquo;s go through this step by step:</p>
-
-<h3 id="1-setup-a-barebone-hugo-installation">1.) Setup a barebone Hugo installation</h3>
-
+<h3 id="1-setup-a-barebone-hugo-installation">1.) Setup a barebone Hugo installation<a hidden class="anchor" aria-hidden="true" href="#1-setup-a-barebone-hugo-installation">#</a></h3>
 <p>This one is pretty easy. Hugo has a easy to understand <a href="https://gohugo.io/overview/quickstart/">Quickstart</a> guide that helps you with your first setup.</p>
-
 <ul>
 <li>Open a Terminal</li>
 <li><code>cd</code> into your workspace (e.g. Repository for your project)</li>
@@ -340,39 +255,26 @@ All I had to then would be to make the transition like this:</p>
 <li>Create your site <code>hugo new site imnotFlorian.com</code></li>
 <li><code>cd</code> into the newly created directory imnotFlorian.com that hugo created</li>
 </ul>
-
 <p>Hugo just created a barebone site for you. If you would run hugo locally to serve the HTML files to you, you wouldn&rsquo;t see a thing yet. So keep on reading.</p>
-
-<h3 id="2-add-caspter-for-hugo-theme">2.) Add caspter for hugo theme</h3>
-
+<h3 id="2-add-caspter-for-hugo-theme">2.) Add caspter for hugo theme<a hidden class="anchor" aria-hidden="true" href="#2-add-caspter-for-hugo-theme">#</a></h3>
 <p>To give your web presence a nice look, we&rsquo;re going to add the casper theme to hugo by issuing the following commands:</p>
-
 <ul>
 <li>Change into the themes directory <code>cd themes/</code></li>
 <li>Add the casper time as git submodule (so Github Pages won&rsquo;t complain) <code>git submodule init</code> <code>git submodule add https://github.com/vjeantet/hugo-theme-casper casper</code></li>
 </ul>
-
-<h3 id="3-add-content-from-my-existing-ghost-installation">3.) Add content from my existing Ghost installation</h3>
-
+<h3 id="3-add-content-from-my-existing-ghost-installation">3.) Add content from my existing Ghost installation<a hidden class="anchor" aria-hidden="true" href="#3-add-content-from-my-existing-ghost-installation">#</a></h3>
 <p>I thought this one would be the hardest step and require quite some time, but it turns out someone already did the legwork for this one.</p>
-
 <ul>
 <li>Open your existing Ghost instance admin panel. Go to Settings -&gt; Labs -&gt; Click on Export.</li>
 <li>Install ghostToHugo <a href="https://github.com/jbarone/ghostToHugo">https://github.com/jbarone/ghostToHugo</a></li>
 <li>Use ghostToHugo on your exported Ghost backup from the step above. You may want to adjust the dateformat like I had to <code>ghostToHugo --dateformat &quot;2006-01-02 15:04:05&quot; export.json</code></li>
 </ul>
-
-<h3 id="4-setup-github-pages-with-your-hugo-setup">4.) Setup Github Pages with your Hugo setup</h3>
-
+<h3 id="4-setup-github-pages-with-your-hugo-setup">4.) Setup Github Pages with your Hugo setup<a hidden class="anchor" aria-hidden="true" href="#4-setup-github-pages-with-your-hugo-setup">#</a></h3>
 <p>Before we keep going, we want to test our Hugo setup via <code>hugo server</code>. If there are no significant errors when issuing that command, you should be able to see your blog when navigating to <code>http://localhost:1313</code>.
 If all is fine, we can keep finalize the current state and move it to Github pages.</p>
-
-<p>Github Pages for your personal website serves HTML files or generates those HTML files for you if your project is a jekyll project. In any case, if you want to run Github Pages for your personal website, you would create a repository that&rsquo;s name follows their scheme: <github_username>.github.io. In my case, that&rsquo;s caffeineflo.github.io. The repository can either be public or private, in any case it will be published under the same address. For personal projects, you need to have your HTML files in the master branch, while your hugo specific files can be anywhere else e.g. another branch or another repository.</p>
-
+<p>Github Pages for your personal website serves HTML files or generates those HTML files for you if your project is a jekyll project. In any case, if you want to run Github Pages for your personal website, you would create a repository that&rsquo;s name follows their scheme: &lt;github_username&gt;.github.io. In my case, that&rsquo;s caffeineflo.github.io. The repository can either be public or private, in any case it will be published under the same address. For personal projects, you need to have your HTML files in the master branch, while your hugo specific files can be anywhere else e.g. another branch or another repository.</p>
 <p>My intended solution has my hugo files in the sources branch and the html files hugo will generate go into the master branch. This solution will become extra elegant when using the <code>git worktree</code> command to checkout master -&gt; /public and sources to the root <code>/</code> of my caffeineflo.github.io directory.</p>
-
 <p>Hugo will by default generate all your HTML files to /public if you tell it to create your HTML files by issuing <code>hugo</code>. So all we need to do is setup git.</p>
-
 <ul>
 <li><code>git branch sources</code> to create the sources branch where we want to keep our sources</li>
 <li><code>git checkout sources</code> to move to the sources branch</li>
@@ -384,145 +286,101 @@ If all is fine, we can keep finalize the current state and move it to Github pag
 <li><code>cd public</code> <code>git add -A</code> <code>git commit -m &quot;Deleted sources on master and generated HTML files&quot;</code> <code>git push origin master</code></li>
 <li>The last step should have generated all necessary HTML files and pushed them to our Github Pages repo.</li>
 </ul>
-
 <p>Now if you would navigate to your Github Pages instance, you should see your blog back in old glory again.</p>
-
 <p>NOTE: Please note that I left out a few basic commands in the process like pushing to master to create the Github Pages instance and/or checking the functionality of our Hugo setup. Please check that again when following this tutorial.</p>
-
-<h3 id="5-reroute-iflorian-com-to-work-with-my-github-pages-repo">5.) Reroute iFlorian.com to work with my Github Pages repo</h3>
-
+<h3 id="5-reroute-ifloriancom-to-work-with-my-github-pages-repo">5.) Reroute iFlorian.com to work with my Github Pages repo<a hidden class="anchor" aria-hidden="true" href="#5-reroute-ifloriancom-to-work-with-my-github-pages-repo">#</a></h3>
 <p>One last thing is left to do. Setting our DNS records on our custom domain (iflorian.com) to point to our Github pages site.</p>
-
 <ul>
 <li><code>dig caffeineflo.github.io</code> to get the IP Address of the server github hosts us on.</li>
 <li>Change your <code>A</code> DNS record on our domain to point to the address from the step above.</li>
 </ul>
-
 <p>Now depending on how you&rsquo;ve configured your baseurl in your <code>config.toml</code> (btw. you should configure that one &hellip;), you could also set the baseurl to your custom domain and map those domains against each other to be accessible from both domains.</p>
 
-    </section>
 
+  </div>
 
   <footer class="post-footer">
-
-
-    
-
-
-
-
-
-
-
-
-<figure class="author-image">
-    <a class="img" href="https://iflorian.com/" style="background-image: url(/images/florianharr_thumb.jpg)"><span class="hidden">florian_harr's Picture</span></a>
-</figure>
-
-
-<section class="author">
-  <h4><a href="https://iflorian.com/">florian_harr</a></h4>
-  
-  <p>Read <a href="https://iflorian.com/">more posts</a> by this author.</p>
-  
-  <div class="author-meta">
-    <span class="author-location icon-location">Atlanta, USA &#43; Stuttgart, Germany</span>
-    <span class="author-link icon-link"><a href="https://iflorian.com/">https://iflorian.com/</a></span>
-  </div>
-</section>
-
-
-
-
-    
-<section class="share">
-  <h4>Share this post</h4>
-  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=From%20Ghost%20to%20Hugo.%20Easier%20Blog%20Hosting%20with%20Github%20Pages&nbsp;-&nbsp;%5bself%20writeBlog%5d%3b&amp;url=https%3a%2f%2fiflorian.com%2ffrom-ghost-to-hugo-easier-blog-hosting-with-github-pages%2f"
-      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-      <span class="hidden">Twitter</span>
-  </a>
-  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiflorian.com%2ffrom-ghost-to-hugo-easier-blog-hosting-with-github-pages%2f"
-      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-      <span class="hidden">Facebook</span>
-  </a>
-  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fiflorian.com%2ffrom-ghost-to-hugo-easier-blog-hosting-with-github-pages%2f&amp;description=From%20Ghost%20to%20Hugo.%20Easier%20Blog%20Hosting%20with%20Github%20Pages"
-      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
-      <span class="hidden">Pinterest</span>
-  </a>
-  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fiflorian.com%2ffrom-ghost-to-hugo-easier-blog-hosting-with-github-pages%2f"
-     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-      <span class="hidden">Google+</span>
-  </a>
-</section>
-
-
-
-    
-
-<div id="disqus_thread"></div>
-<script>
-
-
-
-
-var disqus_config = function () {
-this.page.url = "https:\/\/iflorian.com\/from-ghost-to-hugo-easier-blog-hosting-with-github-pages\/";  
-this.page.identifier = "https:\/\/iflorian.com\/from-ghost-to-hugo-easier-blog-hosting-with-github-pages\/"; 
-};
-
-(function() { 
-var d = document, s = d.createElement('script');
-s.src = 'https://iflorian.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-
-
-
+    <ul class="post-tags">
+      <li><a href="https://iflorian.com/tags/ghost/">Ghost</a></li>
+      <li><a href="https://iflorian.com/tags/hugo/">Hugo</a></li>
+      <li><a href="https://iflorian.com/tags/blog/">Blog</a></li>
+      <li><a href="https://iflorian.com/tags/hosting/">Hosting</a></li>
+      <li><a href="https://iflorian.com/tags/github/">Github</a></li>
+      <li><a href="https://iflorian.com/tags/pages/">Pages</a></li>
+    </ul>
   </footer>
 </article>
-
-</main>
-
-
-  <aside class="read-next">
-  
-      <a class="read-next-story" style="no-cover" href="/setup-git-remote-publishing/">
-          <section class="post">
-              <h2>Setup Git Push To Securly Update Your Website</h2>
-              
-          </section>
-      </a>
-  
-  
-      <a class="read-next-story prev" style="no-cover" href="/esp8266-weather-station-part-3/">
-          <section class="post">
-              <h2>Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III</h2>
-          </section>
-      </a>
-  
-</aside>
-
-
-
-    <footer class="site-footer clearfix">
-        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
-        
-        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
-        
-    </footer>
-    </div>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
+    </main>
     
-</body>
-</html>
+<footer class="footer">
+        <span>All rights reserved - 2024</span> · 
 
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

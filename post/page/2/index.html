@@ -1,456 +1,398 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Posts | [self writeBlog];</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - [self writeBlog];">
+<meta name="author" content="Florian Harr">
+<link rel="canonical" href="https://iflorian.com/post/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://iflorian.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://iflorian.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://iflorian.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://iflorian.com/post/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://iflorian.com/post/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:image" content="/images/cover_small.jpg"/>
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  mermaid.contentLoaded();
+</script>
+<meta property="og:url" content="https://iflorian.com/post/">
+  <meta property="og:site_name" content="[self writeBlog];">
+  <meta property="og:title" content="Posts">
+  <meta property="og:description" content="iOS/IoT/Software Developer">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Posts">
+<meta name="twitter:description" content="iOS/IoT/Software Developer">
 
 
-
-<meta name="twitter:title" content="Post"/>
-<meta name="twitter:description" content=""/>
-<meta name="twitter:site" content="@caffeineflo"/>
-
-
-
-  	<meta property="og:title" content="Post &middot; [self writeBlog];" />
-  	<meta property="og:site_name" content="[self writeBlog];" />
-  	<meta property="og:url" content="https://iflorian.com/post/" />
-
-    
-        
-            <meta property="og:image" content="/images/cover_small.jpg"/>
-        
-    
-
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="" />
-    
-
-    <title>Post &middot; [self writeBlog];</title>
-
-    
-    <meta name="description" content="Meta" />
-    
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
-    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
-
-    
-
-    
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/xcode.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-        
-        <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-      
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="[self writeBlog];" />
-      
-      
-        <link href="https://iflorian.com/post/index.xml" rel="alternate" type="application/rss+xml" title="Post &middot; [self writeBlog];" />
-      
-    
-    <meta name="generator" content="Hugo 0.54.0" />
-
-    <link rel="canonical" href="https://iflorian.com/post/" />
-
-    
-      
-    
-    <script type="application/ld+json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-    "@context": "https://schema.org",
-    "@type": "Website",
-    "publisher": {
-        "@type": "Person",
-        "name": ,
-        
-        "image": {
-            "@type": "ImageObject",
-            "url": https://iflorian.com/images/logo_inverted.png,
-            "width": 250,
-            "height": 250
-        },
-        
-        "url": https://iflorian.com/,
-        "sameAs": [
-            
-            
-             
-             
-             
-             
-             
-            
-        ]
-    },
-    "url": https://iflorian.com/,
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": https://iflorian.com/
-    },
-    "description": 
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://iflorian.com/post/"
+    }
+  ]
 }
-  </script>
-    
-
-
-    
-
-    
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-86325185-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    
-
-    
+</script>
 </head>
-<body class="nav-closed">
 
-  <div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        
-        
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/">My Blog</a>
-            </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/euc">EUC</a>
-            </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/about">About me</a>
-            </li>
-        
-            
-            <li class="nav-opened" role="presentation">
-            	<a href="/contact">Contact</a>
-            </li>
-        
-        
-    </ul>
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-    
-    <a class="subscribe-button icon-feed" href="https://iflorian.com/post/index.xml">Subscribe</a>
-    
-</div>
-<span class="nav-cover"></span>
+</script>
 
-
- <div class="site-wrapper">
-
-
-
-
-	 
-  <header class="main-header tag-head" style="background-image: url(/images/cover_small.jpg)">
-  
-
-    <nav class="main-nav overlay clearfix">
-      
-        <a class="blog-logo" href="https://iflorian.com/"><img src="/images/logo_inverted.png" alt="Home" /></a>
-      
-      
-          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-      
-    </nav>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">Post</h1>
-            <h2 class="page-description">
-                
-            </h2>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://iflorian.com/" accesskey="h" title="[self writeBlog]; (Alt + H)">[self writeBlog];</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
-    </div>
+        <ul id="menu">
+            <li>
+                <a href="https://iflorian.com/contact" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://iflorian.com/about" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://iflorian.com/euc" title="EUC">
+                    <span>EUC</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://iflorian.com/" title="My Blog">
+                    <span>My Blog</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
 </header>
 
-<main class="content" role="main">
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">OpenVPN block-outside-dns
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Recently I had issues with my VPN setup, specifically with my VPN over at premiumize.me.
+They seem to have added the block-outside-dns option to their OpenVPN setup. As that’s a Windows only question it doesn’t work on my OS X/Arch Linux machine and causes problems.
+The error message was:
+Unrecognized option or missing or extra parameter(s) in [PUSH-OPTIONS]:6: block-outside-dns (2.4.0) You can fix that (given you run OpenVPN &gt;= 2.4.0) by adding the following line to your client config:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-01-31 06:06:51 +0000 UTC'>January 31, 2017</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to OpenVPN block-outside-dns" href="https://iflorian.com/openvpn-block-outside-ds/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Watchdog - cannot set timeout 16 (errno = 22 = &#39;Invalid argument&#39;)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Seen that error before?
+Possibly on a Raspberry Pi 2/3?
+Google seems to have problems guiding you to the right solution, so here it is:
+Add watchdog-timeout = 15 to your watchdog.conf file.
+Why is that? The Broadcom BCM2835 Watchdog timer only supports 15 seconds timeout ;)
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-01-31 05:56:07 +0000 UTC'>January 31, 2017</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to Watchdog - cannot set timeout 16 (errno = 22 = &#39;Invalid argument&#39;)" href="https://iflorian.com/watchdog-cannot-set-timeout-16-errno-22-invalid-argument/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">2016 - My year in review
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I know, I know … it’s a bit late for a review, but here it is!
+Flights:
+2016 was a year that forced me to travel a lot. I gained my H1B which forced me to go places and have me go back and forth.
+I flew 4 times to Atlanta, went to Egypt, Brussels, Rio, Florianopolis, Sao Paulo, Indianapolis, Denver, Milan, Istanbul and Santo Domingo.
+That’s my Flightmap (mostly, I forgot SDQ)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-01-23 21:21:02 +0000 UTC'>January 23, 2017</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to 2016 - My year in review" href="https://iflorian.com/2016-my-year-in-review/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Part I Today we’re going to build something exciting together and you guessed right - it has to do with the Internet of Things.
+As we do more and more IoT business for our clients, we as software developers also get more and more into the hardware part of the equation. Which is an important part when you truly want to understand and solve a problem.
+To achieve this and to share my knowledge with you in the best possible way, I made a project that will will help illuminate what’s behind IoT. You don’t need much hardware to follow along, here’s what you need:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-12-19 08:20:26 -0400 -0400'>December 19, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part I" href="https://iflorian.com/esp8266-weather-station-part-1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How to Delete and Prevent Spam iCloud Calendar Invites
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>
+With BlackFriday and CyberMonday just behind us, a lot of us have received strange iCloud calendar invites like I did.
+We didn’t ask for that and certainly it’s annoying as they have no value to anyone.
+Why did we receive those invites? Spammers are sending emails out to email addresses they scraped off of google search results or to email addresses they know from breaches or data they bought. With iClouds ability to auto convert special encoded emails into calendar invites you’ll never see the actual email they sent you, but only the annoying calendar invite.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-12-01 03:46:20 +0000 UTC'>December 1, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to How to Delete and Prevent Spam iCloud Calendar Invites" href="https://iflorian.com/how-to-delete-and-prevent-spam-icloud-calendar-invites/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Xcode 8: PROVISIONING_PROFILE_SPECIFIER
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I recently had a few problems with signing my apps due to some Xcode 8 changes, mainly the difference between using PROVISIONING_PROFILE_SPECIFIER and PROVISIONING_PROFILE to specify your provisioning profile.
+There are wonderful blog posts out there that describe the process in detail, here’s what I found important:
+PROVISIONING_PROFILE_SPECIFIER setting is used to indicate the type of signing method that should be used for a given target. Targets that want to employ the manual method of code signing will not use this setting, and will instead use the deprecated PROVISIONING_PROFILE build setting. If the setting is set then, the new automatic code signing method will take over.
+Source: pewpewthespells
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-26 18:46:15 +0000 UTC'>October 26, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to Xcode 8: PROVISIONING_PROFILE_SPECIFIER" href="https://iflorian.com/xcode-8-provisioning_profile_specifier/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Continuous Deployment with Travis CI and HockeyApp, Part 3
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.
+HockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-21 18:31:03 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to Continuous Deployment with Travis CI and HockeyApp, Part 3" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Continuous Deployment with Travis CI and HockeyApp, Part 2
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
+App Signing In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-21 18:28:26 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to Continuous Deployment with Travis CI and HockeyApp, Part 2" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Continuous Deployment with Travis CI and HockeyApp, Part 1
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Full disclosure: I wrote this about 1-1.5yrs ago for another company but haven’t updated it yet. There’s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)
+Continuous integration has become an important topic and a significant part of a developer’s workflow. Finding bugs and ensuring a stable codebase are among the most important benefits of using continuous integration. While these benefits are huge on their own, we can extend our continuous integration setup to actually deploy new builds of our application to our testers. We call this extended setup continuous deployment.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-21 17:28:00 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to Continuous Deployment with Travis CI and HockeyApp, Part 1" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ReleaseNotes 2016
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I’ve been to ReleaseNotes last week. ReleaseNotes is a indie conference mainly centered around the topic on “How to build a business”.
+The conference was superb! But more to that later.
+One talk that I’ve heard there last week already came back to me, which I like to write about now:
+@sh’s talk “How to improve at support as a developer”
+The talk centered around the language you use when facing customers and what impact it has between talking like a human being or some neutral robot. Now I won’t be able to capture in writing how awesome the talk was or what a great speaker Sarah Hatter is, but I want you to profit from the talk, so let me refer you to @bsndesign’s notes to said talk:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-10-05 17:55:04 +0000 UTC'>October 5, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
+  <a class="entry-link" aria-label="post link to ReleaseNotes 2016" href="https://iflorian.com/business-your-language-matters/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://iflorian.com/post/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://iflorian.com/post/page/3/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
     
+<footer class="footer">
+        <span>All rights reserved - 2024</span> · 
 
-	<div class="extra-pagination inner">
-    <nav class="pagination" role="navigation">
-	
-	    <a class="newer-posts" href="/post/">&larr; Newer Posts</a>
-	
-	<span class="page-number">Page 2 of 5</span>
-	
-	    <a class="older-posts" href="/post/page/3/">Older Posts &rarr;</a>
-	
-</nav>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-	</div>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
-	
-	   <article class="post post">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/esp8266-weather-station-part-3/">Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part III</a></h2>
-    </header>
-    <section class="post-excerpt">
-        
-            <p>Part III This is part III of a series of tutorials that build up on each other. If you missed the first parts, you can find it here: Part 1 Part 2
-In this part we&rsquo;re going to use the esp8266 chip with the DHT11 sensor from part I to connect to our MQTT server from part II and publish the sensors data. Finally, we are going to build a iOS app to display our data. <a class="read-more" href="/esp8266-weather-station-part-3/">&raquo;</a></p>
-        
-    </section>
-    <footer class="post-meta">
-        
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-        
-            
-            
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
-            
-            <img class="author-thumb" src="/images/logo_inverted.png" alt="Author image" nopin="nopin" />
-            
-            
-            
-            Florian Harr
-                 
-        
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-        on
-            
-                <a href="https://iflorian.com//tags/esp8266/">#esp8266</a>,
-            
-                <a href="https://iflorian.com//tags/dht11/">#dht11</a>,
-            
-                <a href="https://iflorian.com//tags/dht22/">#dht22</a>,
-            
-        
-        <time class="post-date" datetime="2017-05-08T20:20:22-04:00">
-            8 May 2017
-        </time>
-    </footer>
-</article>
-
-	
-	   <article class="post post">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/unicycling-one-app-for-all-eucs/">Unicycling: One App For All EUCs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        
-            <p>A week ago I started a new project. I&rsquo;m excited to talk about it as it&rsquo;s coming along nicely.
-A unicycling app!
-I&rsquo;ve been an electric unicycle rider for a bit over a year now and it seems as there&rsquo;s a big problem with all the different brands of EUCs (electric unicycle) that are out there: Their Apps
-When riding a electric unicycle, you need an app from time to time to change the settings of your EUC or track your path, battery or any of those metrics. <a class="read-more" href="/unicycling-one-app-for-all-eucs/">&raquo;</a></p>
-        
-    </section>
-    <footer class="post-meta">
-        
-
-        
-            
-            
-
-            
-            <img class="author-thumb" src="/images/logo_inverted.png" alt="Author image" nopin="nopin" />
-            
-            
-            
-            Florian Harr
-                 
-        
-
-        on
-            
-                <a href="https://iflorian.com//tags/ninebot/">#ninebot</a>,
-            
-                <a href="https://iflorian.com//tags/inmotion/">#inmotion</a>,
-            
-                <a href="https://iflorian.com//tags/ios/">#ios</a>,
-            
-                <a href="https://iflorian.com//tags/unicycle/">#unicycle</a>,
-            
-        
-        <time class="post-date" datetime="2017-02-17T01:42:49Z">
-            17 Feb 2017
-        </time>
-    </footer>
-</article>
-
-	
-	   <article class="post post">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/financefox-review/">FinanceFox Review</a></h2>
-    </header>
-    <section class="post-excerpt">
-        
-            <p>If You're Not Paying, You're The Product
-- The Internet
-Some of you might already know Finance Fox - &ldquo;My Insurance Hero&rdquo;. This is going to be a short review with my experience I had using them for about a year now.
-Finance Fox is a platform/app that allows you to manage your insurances and other financial contracts that you might own. They also claim that they can optimize those for you. <a class="read-more" href="/financefox-review/">&raquo;</a></p>
-        
-    </section>
-    <footer class="post-meta">
-        
-
-        
-            
-            
-
-            
-            <img class="author-thumb" src="/images/logo_inverted.png" alt="Author image" nopin="nopin" />
-            
-            
-            
-            Florian Harr
-                 
-        
-
-        on
-            
-                <a href="https://iflorian.com//tags/finance-fox/">#finance fox</a>,
-            
-                <a href="https://iflorian.com//tags/insurance/">#insurance</a>,
-            
-        
-        <time class="post-date" datetime="2017-02-14T03:21:30Z">
-            14 Feb 2017
-        </time>
-    </footer>
-</article>
-
-	
-	   <article class="post post">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/update-watchdog-on-the-raspberry-pi/">[Update] Watchdog On The Raspberry Pi</a></h2>
-    </header>
-    <section class="post-excerpt">
-        
-            <p>I was posting about the watchdog device on the raspberry pi a few days ago and how to solve a specific error with the configuration on the pi.
-In the meantime I had the watchdog device running for a few days and it worked &hellip; kind of &hellip;
-One should know, that the watchdog devices halts the pi immediately, so it&rsquo;s not a clean shutoff but more like you would pull the power plug of the pi. <a class="read-more" href="/update-watchdog-on-the-raspberry-pi/">&raquo;</a></p>
-        
-    </section>
-    <footer class="post-meta">
-        
-
-        
-            
-            
-
-            
-            <img class="author-thumb" src="/images/logo_inverted.png" alt="Author image" nopin="nopin" />
-            
-            
-            
-            Florian Harr
-                 
-        
-
-        on
-            
-                <a href="https://iflorian.com//tags/raspberry-pi/">#raspberry pi</a>,
-            
-                <a href="https://iflorian.com//tags/watchdog/">#watchdog</a>,
-            
-                <a href="https://iflorian.com//tags/arch-linux/">#arch linux</a>,
-            
-        
-        <time class="post-date" datetime="2017-02-14T00:56:10Z">
-            14 Feb 2017
-        </time>
-    </footer>
-</article>
-
-	
-	   <article class="post post">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/esp8266-weather-station-part-2/">Building a ESP8266 Weather Station with MQTT, HomeKit and WebInterface Part II</a></h2>
-    </header>
-    <section class="post-excerpt">
-        
-            <p>Part II This is part II of a series of tutorials that build up on each other. If you missed the first part, you can find it here: Part I
-Part II is going to be a little bit slower than part I, simply because we have to make a few preparations in order to keep going faster again in part III. We&rsquo;re going to take a look at MQTT by going over the idea what this protocol does before we go ahead and setup a MQTT server that we&rsquo;re going to use in part III to communicate with our little weather station. <a class="read-more" href="/esp8266-weather-station-part-2/">&raquo;</a></p>
-        
-    </section>
-    <footer class="post-meta">
-        
-
-        
-            
-            
-
-            
-            <img class="author-thumb" src="/images/logo_inverted.png" alt="Author image" nopin="nopin" />
-            
-            
-            
-            Florian Harr
-                 
-        
-
-        on
-            
-                <a href="https://iflorian.com//tags/esp8266/">#esp8266</a>,
-            
-                <a href="https://iflorian.com//tags/dht11/">#dht11</a>,
-            
-                <a href="https://iflorian.com//tags/dht22/">#dht22</a>,
-            
-        
-        <time class="post-date" datetime="2017-02-09T11:20:20-04:00">
-            9 Feb 2017
-        </time>
-    </footer>
-</article>
-
-	
-
-	<nav class="pagination" role="navigation">
-	
-	    <a class="newer-posts" href="/post/">&larr; Newer Posts</a>
-	
-	<span class="page-number">Page 2 of 5</span>
-	
-	    <a class="older-posts" href="/post/page/3/">Older Posts &rarr;</a>
-	
-</nav>
-
-</main>
-
-
-
-    <footer class="site-footer clearfix">
-        <section class="copyright"><a href="/imprint">Imprint</a> • <a href="">[self writeBlog];</a> • All rights reserved - 2017</section>
-        
-        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
-        
-    </footer>
-    </div>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
-    
+</script>
 </body>
+
 </html>

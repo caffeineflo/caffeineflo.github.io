@@ -1,27 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Spam on [self writeBlog];</title>
     <link>https://iflorian.com/categories/spam/</link>
     <description>Recent content in Spam on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
+    <copyright>All rights reserved - 2024</copyright>
     <lastBuildDate>Thu, 01 Dec 2016 03:46:20 +0000</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/categories/spam/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://iflorian.com/categories/spam/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Delete and Prevent Spam iCloud Calendar Invites</title>
       <link>https://iflorian.com/how-to-delete-and-prevent-spam-icloud-calendar-invites/</link>
       <pubDate>Thu, 01 Dec 2016 03:46:20 +0000</pubDate>
-      
       <guid>https://iflorian.com/how-to-delete-and-prevent-spam-icloud-calendar-invites/</guid>
-      <description>With BlackFriday and CyberMonday just behind us, a lot of us have received strange iCloud calendar invites like I did.
-We didn&amp;rsquo;t ask for that and certainly it&amp;rsquo;s annoying as they have no value to anyone.
-Why did we receive those invites? Spammers are sending emails out to email addresses they scraped off of google search results or to email addresses they know from breaches or data they bought. With iClouds ability to auto convert special encoded emails into calendar invites you&amp;rsquo;ll never see the actual email they sent you, but only the annoying calendar invite.</description>
+      <description>Avoid spammy iCloud invites</description>
     </item>
-    
   </channel>
 </rss>

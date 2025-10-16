@@ -1,525 +1,278 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://iflorian.com/mirai-botnet-october21-botnet-size/</loc>
-    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/360idev2017-denver/</loc>
-    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/imprint/</loc>
-    <lastmod>2017-06-21T12:59:47-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/esp8266-weather-station-homekit-special/</loc>
-    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/setup-git-remote-publishing/</loc>
-    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</loc>
-    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/euc/</loc>
-    <lastmod>2017-06-09T16:20:15-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/esp8266-weather-station-part-3/</loc>
-    <lastmod>2017-05-08T20:20:22-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/contact/</loc>
-    <lastmod>2017-02-23T19:58:28+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/about/</loc>
-    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/unicycling-one-app-for-all-eucs/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/financefox-review/</loc>
-    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/update-watchdog-on-the-raspberry-pi/</loc>
-    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/esp8266-weather-station-part-2/</loc>
-    <lastmod>2017-02-09T11:20:20-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/openvpn-block-outside-ds/</loc>
-    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/watchdog-cannot-set-timeout-16-errno-22-invalid-argument/</loc>
-    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/2016-my-year-in-review/</loc>
-    <lastmod>2017-01-23T21:21:02+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/esp8266-weather-station-part-1/</loc>
-    <lastmod>2016-12-19T08:20:26-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/how-to-delete-and-prevent-spam-icloud-calendar-invites/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/xcode-8-provisioning_profile_specifier/</loc>
-    <lastmod>2016-10-26T18:46:15+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/</loc>
-    <lastmod>2016-10-21T18:31:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/</loc>
-    <lastmod>2016-10-21T18:28:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/</loc>
-    <lastmod>2016-10-21T17:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/business-your-language-matters/</loc>
-    <lastmod>2016-10-05T17:55:04+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/360idev2016-a-mile-high-conference/</loc>
-    <lastmod>2016-09-14T16:29:21+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/welcome/</loc>
-    <lastmod>2016-08-30T01:43:17+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/.git/</loc>
-    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/about-me/</loc>
-    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/about-me/</loc>
-    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/arch-linux/</loc>
-    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/arch-linux/</loc>
-    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/block-outside-dns/</loc>
-    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/block-outside-dns/</loc>
-    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/blog/</loc>
-    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/botnet/</loc>
-    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/botnet-size/</loc>
-    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/</loc>
-    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/conference/</loc>
-    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/contact/</loc>
-    <lastmod>2017-02-23T19:58:28+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/cyber-monday/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/cyber-monday/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/dht11/</loc>
-    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/dht22/</loc>
-    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/email/</loc>
-    <lastmod>2017-02-23T19:58:28+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/esp8266/</loc>
-    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/finance-fox/</loc>
-    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/finance-fox/</loc>
-    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/ghost/</loc>
-    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/git/</loc>
-    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/github/</loc>
-    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/homekit/</loc>
-    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/homekit2mqtt/</loc>
-    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/hosting/</loc>
-    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/hugo/</loc>
-    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/icloud/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/icloud/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/inmotion/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/inmotion/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/insurance/</loc>
-    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/insurance/</loc>
-    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/invite/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/invite/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/ios/</loc>
-    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/ios/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/linux/</loc>
-    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/linux/</loc>
-    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/mirai/</loc>
-    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/mqtt/</loc>
-    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/ninebot/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/ninebot/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/numbers/</loc>
-    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/openvpn/</loc>
-    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/openvpn/</loc>
-    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/pages/</loc>
-    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/post/</loc>
-    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/push/</loc>
-    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/raspberry-pi/</loc>
-    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/raspberry-pi/</loc>
-    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/resume/</loc>
-    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/resume/</loc>
-    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/spam/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/spam/</loc>
-    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/speaking/</loc>
-    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/</loc>
-    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/timeout/</loc>
-    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/timeout/</loc>
-    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/unicycle/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/unicycle/</loc>
-    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/tags/watchdog/</loc>
-    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://iflorian.com/categories/watchdog/</loc>
-    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
   <url>
     <loc>https://iflorian.com/</loc>
     <lastmod>2017-08-06T19:33:42-04:00</lastmod>
-    <priority>0</priority>
+  </url><url>
+    <loc>https://iflorian.com/tags/botnet/</loc>
+    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/botnet-size/</loc>
+    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/mirai/</loc>
+    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/numbers/</loc>
+    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/post/</loc>
+    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/</loc>
+    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/mirai-botnet-october21-botnet-size/</loc>
+    <lastmod>2017-08-06T19:33:42-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/conference/</loc>
+    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/ios/</loc>
+    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/360idev2017-denver/</loc>
+    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/speaking/</loc>
+    <lastmod>2017-07-31T11:44:40-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/imprint/</loc>
+    <lastmod>2017-06-21T12:59:47-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/dht11/</loc>
+    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/dht22/</loc>
+    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/esp8266/</loc>
+    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/esp8266-weather-station-homekit-special/</loc>
+    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/homekit/</loc>
+    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/homekit2mqtt/</loc>
+    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/mqtt/</loc>
+    <lastmod>2017-06-21T11:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/.git/</loc>
+    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/git/</loc>
+    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/push/</loc>
+    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/setup-git-remote-publishing/</loc>
+    <lastmod>2017-06-13T20:05:33-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/blog/</loc>
+    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</loc>
+    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/ghost/</loc>
+    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/github/</loc>
+    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/hosting/</loc>
+    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/hugo/</loc>
+    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/pages/</loc>
+    <lastmod>2017-06-12T09:54:46-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/euc/</loc>
+    <lastmod>2017-06-09T16:20:15-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/esp8266-weather-station-part-3/</loc>
+    <lastmod>2017-05-08T20:20:22-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/</loc>
+    <lastmod>2017-02-23T19:58:28+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/contact/</loc>
+    <lastmod>2017-02-23T19:58:28+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/contact/</loc>
+    <lastmod>2017-02-23T19:58:28+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/email/</loc>
+    <lastmod>2017-02-23T19:58:28+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/about/</loc>
+    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/about-me/</loc>
+    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/about-me/</loc>
+    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/resume/</loc>
+    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/resume/</loc>
+    <lastmod>2017-02-23T19:57:37+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/inmotion/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/inmotion/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/ios/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/ninebot/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/ninebot/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/unicycle/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/unicycle/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/unicycling-one-app-for-all-eucs/</loc>
+    <lastmod>2017-02-17T01:42:49+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/finance-fox/</loc>
+    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/finance-fox/</loc>
+    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/financefox-review/</loc>
+    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/insurance/</loc>
+    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/insurance/</loc>
+    <lastmod>2017-02-14T03:21:30+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/update-watchdog-on-the-raspberry-pi/</loc>
+    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/arch-linux/</loc>
+    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/arch-linux/</loc>
+    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/raspberry-pi/</loc>
+    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/raspberry-pi/</loc>
+    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/watchdog/</loc>
+    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/watchdog/</loc>
+    <lastmod>2017-02-14T00:56:10+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/esp8266-weather-station-part-2/</loc>
+    <lastmod>2017-02-09T11:20:20-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/block-outside-dns/</loc>
+    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/block-outside-dns/</loc>
+    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/openvpn/</loc>
+    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/openvpn/</loc>
+    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/openvpn-block-outside-ds/</loc>
+    <lastmod>2017-01-31T06:06:51+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/linux/</loc>
+    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/linux/</loc>
+    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/timeout/</loc>
+    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/timeout/</loc>
+    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/watchdog-cannot-set-timeout-16-errno-22-invalid-argument/</loc>
+    <lastmod>2017-01-31T05:56:07+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/2016-my-year-in-review/</loc>
+    <lastmod>2017-01-23T21:21:02+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/esp8266-weather-station-part-1/</loc>
+    <lastmod>2016-12-19T08:20:26-04:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/cyber-monday/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/cyber-monday/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/how-to-delete-and-prevent-spam-icloud-calendar-invites/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/icloud/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/icloud/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/invite/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/invite/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/categories/spam/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/tags/spam/</loc>
+    <lastmod>2016-12-01T03:46:20+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/xcode-8-provisioning_profile_specifier/</loc>
+    <lastmod>2016-10-26T18:46:15+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/</loc>
+    <lastmod>2016-10-21T18:31:03+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/</loc>
+    <lastmod>2016-10-21T18:28:26+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/</loc>
+    <lastmod>2016-10-21T17:28:00+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/business-your-language-matters/</loc>
+    <lastmod>2016-10-05T17:55:04+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/360idev2016-a-mile-high-conference/</loc>
+    <lastmod>2016-09-14T16:29:21+00:00</lastmod>
+  </url><url>
+    <loc>https://iflorian.com/welcome/</loc>
+    <lastmod>2016-08-30T01:43:17+00:00</lastmod>
   </url>
-  
 </urlset>

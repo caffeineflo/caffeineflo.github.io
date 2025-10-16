@@ -1,26 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Contact on [self writeBlog];</title>
     <link>https://iflorian.com/categories/contact/</link>
     <description>Recent content in Contact on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
+    <copyright>All rights reserved - 2024</copyright>
     <lastBuildDate>Thu, 23 Feb 2017 19:58:28 +0000</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/categories/contact/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://iflorian.com/categories/contact/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Contact</title>
       <link>https://iflorian.com/contact/</link>
       <pubDate>Thu, 23 Feb 2017 19:58:28 +0000</pubDate>
-      
       <guid>https://iflorian.com/contact/</guid>
-      <description>It&amp;rsquo;s great you want to get in contact with me! Below is a form that can be used to write me a more formal email. If you just want to shot me a quick message, I respond quickest to a tweet (@caffeineflo).
-Email Address *  Subject *  Message *        </description>
+      <description>&lt;p&gt;It&amp;rsquo;s great you want to get in contact with me! Below is a form that can be used to write me a more formal email. If you just want to shot me a quick message, I respond quickest to a tweet (&lt;a href=&#34;https://twitter.com/caffeineflo&#34;&gt;@caffeineflo&lt;/a&gt;).&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
-    
   </channel>
 </rss>

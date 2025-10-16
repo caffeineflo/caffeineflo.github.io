@@ -1,27 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Github on [self writeBlog];</title>
     <link>https://iflorian.com/tags/github/</link>
     <description>Recent content in Github on [self writeBlog];</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.151.1</generator>
     <language>en-us</language>
-    <copyright>All rights reserved - 2017</copyright>
+    <copyright>All rights reserved - 2024</copyright>
     <lastBuildDate>Mon, 12 Jun 2017 09:54:46 -0400</lastBuildDate>
-    
-	<atom:link href="https://iflorian.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://iflorian.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From Ghost to Hugo. Easier Blog Hosting with Github Pages</title>
       <link>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</link>
       <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
-      
       <guid>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</guid>
-      <description>With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
-Let me explain why I did this and how you can do this as well.
-Starting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.</description>
+      <description>&lt;p&gt;With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.&lt;br&gt;
+Let me explain why I did this and how you can do this as well.&lt;/p&gt;
+&lt;h2 id=&#34;starting-position&#34;&gt;Starting Position&lt;/h2&gt;
+&lt;p&gt;I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.&lt;br&gt;
+Hugo seemed to be the perfect solution for that, as the standard Ghost theme &lt;code&gt;casper&lt;/code&gt; was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&amp;rsquo;t need to be able to run node js on the server.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
