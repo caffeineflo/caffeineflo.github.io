@@ -7,14 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>From Ghost to Hugo. Easier Blog Hosting with Github Pages | [self writeBlog];</title>
 <meta name="keywords" content="ghost, hugo, blog, hosting, github, pages">
-<meta name="description" content="With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
-Let me explain why I did this and how you can do this as well.
-Starting Position
-I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.
-Hugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&rsquo;t need to be able to run node js on the server.">
+<meta name="description" content="
+📝 Note: This post was published in 2017. While Hugo and GitHub Pages remain relevant, some specific tools and approaches mentioned have evolved. Hugo&rsquo;s syntax and GitHub Pages features have improved since publication. This is preserved as historical reference.
+
+With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
+Let me explain why I did this and how you can do this as well.">
 <meta name="author" content="florian_harr">
 <link rel="canonical" href="https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7a798bee3c08158f2ab5c87cad44e192b44f1a9f6625a4a82d811696d8a67786.css" integrity="sha256-enmL7jwIFY8qtch8rUThkrRPGp9mJaSoLYEWltimd4Y=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://iflorian.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
@@ -67,10 +67,8 @@ Hugo seemed to be the perfect solution for that, as the standard Ghost theme cas
 <meta property="og:url" content="https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/">
   <meta property="og:site_name" content="[self writeBlog];">
   <meta property="og:title" content="From Ghost to Hugo. Easier Blog Hosting with Github Pages">
-  <meta property="og:description" content="With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
-Let me explain why I did this and how you can do this as well.
-Starting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.
-Hugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn’t need to be able to run node js on the server.">
+  <meta property="og:description" content=" 📝 Note: This post was published in 2017. While Hugo and GitHub Pages remain relevant, some specific tools and approaches mentioned have evolved. Hugo’s syntax and GitHub Pages features have improved since publication. This is preserved as historical reference.
+With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before. Let me explain why I did this and how you can do this as well.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -84,11 +82,11 @@ Hugo seemed to be the perfect solution for that, as the standard Ghost theme cas
     <meta property="article:tag" content="Pages">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="From Ghost to Hugo. Easier Blog Hosting with Github Pages">
-<meta name="twitter:description" content="With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
-Let me explain why I did this and how you can do this as well.
-Starting Position
-I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.
-Hugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&rsquo;t need to be able to run node js on the server.">
+<meta name="twitter:description" content="
+📝 Note: This post was published in 2017. While Hugo and GitHub Pages remain relevant, some specific tools and approaches mentioned have evolved. Hugo&rsquo;s syntax and GitHub Pages features have improved since publication. This is preserved as historical reference.
+
+With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
+Let me explain why I did this and how you can do this as well.">
 
 
 <script type="application/ld+json">
@@ -117,12 +115,12 @@ Hugo seemed to be the perfect solution for that, as the standard Ghost theme cas
   "@type": "BlogPosting",
   "headline": "From Ghost to Hugo. Easier Blog Hosting with Github Pages",
   "name": "From Ghost to Hugo. Easier Blog Hosting with Github Pages",
-  "description": "With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.\nLet me explain why I did this and how you can do this as well.\nStarting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.\nHugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn\u0026rsquo;t need to be able to run node js on the server.\n",
+  "description": " 📝 Note: This post was published in 2017. While Hugo and GitHub Pages remain relevant, some specific tools and approaches mentioned have evolved. Hugo\u0026rsquo;s syntax and GitHub Pages features have improved since publication. This is preserved as historical reference.\nWith the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before. Let me explain why I did this and how you can do this as well.\n",
   "keywords": [
     "ghost", "hugo", "blog", "hosting", "github", "pages"
   ],
-  "articleBody": "With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.\nLet me explain why I did this and how you can do this as well.\nStarting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.\nHugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn’t need to be able to run node js on the server.\nAlternatives Alternatives would have been:\nGitHub Pages with the minimal theme Keep Ghost and use buster Get Ghost Pro Yet, GitHub Pages with another theme would have destroyed the design I used to have and to be fair, I really liked the minimalist Ghost Design.\nKeeping Ghost and using buster, would have been the next best solution, in fact, it would have been easier and I would still have been able to host my blog on GitHub Pages or any other webserver as buster bruteforces and creates static HTML files for you. I avoided that option as I felt this wouldn’t be a good approach that would completely satisfy my needs for a easy and stable to use blogging platform.\nAnd Ghost Pro was simply out of the picture. On average I spent about 5€/month on uberspace and another 3-4€/month on all-inkl which make it around 8-9€ total for the Ghost blog I used to run. Ghost Pro though, starts at 19€/month which was too expensive for my needs.\nOutlined Path After weighing all my alternatives I decided to go with Hugo as it comes closest to meet all the requirements I set out, most importantly I could host it on GitHub Pages and still be able to easily modify my theme and write content.\nAll I had to then would be to make the transition like this:\n1.) Setup a barebone Hugo installation\n2.) Add casper for hugo theme\n3.) Add content from my existing Ghost installation\n4.) Setup Github Pages with your Hugo setup 5.) Reroute iFlorian.com to work with my Github Pages repo\nMigrate Ghost to Hugo Let’s go through this step by step:\n1.) Setup a barebone Hugo installation This one is pretty easy. Hugo has a easy to understand Quickstart guide that helps you with your first setup.\nOpen a Terminal cd into your workspace (e.g. Repository for your project) (Install hugo if you haven’t done that yet. brew install hugo if you have homebrew) Create your site hugo new site imnotFlorian.com cd into the newly created directory imnotFlorian.com that hugo created Hugo just created a barebone site for you. If you would run hugo locally to serve the HTML files to you, you wouldn’t see a thing yet. So keep on reading.\n2.) Add caspter for hugo theme To give your web presence a nice look, we’re going to add the casper theme to hugo by issuing the following commands:\nChange into the themes directory cd themes/ Add the casper time as git submodule (so Github Pages won’t complain) git submodule init git submodule add https://github.com/vjeantet/hugo-theme-casper casper 3.) Add content from my existing Ghost installation I thought this one would be the hardest step and require quite some time, but it turns out someone already did the legwork for this one.\nOpen your existing Ghost instance admin panel. Go to Settings -\u003e Labs -\u003e Click on Export. Install ghostToHugo https://github.com/jbarone/ghostToHugo Use ghostToHugo on your exported Ghost backup from the step above. You may want to adjust the dateformat like I had to ghostToHugo --dateformat \"2006-01-02 15:04:05\" export.json 4.) Setup Github Pages with your Hugo setup Before we keep going, we want to test our Hugo setup via hugo server. If there are no significant errors when issuing that command, you should be able to see your blog when navigating to http://localhost:1313. If all is fine, we can keep finalize the current state and move it to Github pages.\nGithub Pages for your personal website serves HTML files or generates those HTML files for you if your project is a jekyll project. In any case, if you want to run Github Pages for your personal website, you would create a repository that’s name follows their scheme: .github.io. In my case, that’s caffeineflo.github.io. The repository can either be public or private, in any case it will be published under the same address. For personal projects, you need to have your HTML files in the master branch, while your hugo specific files can be anywhere else e.g. another branch or another repository.\nMy intended solution has my hugo files in the sources branch and the html files hugo will generate go into the master branch. This solution will become extra elegant when using the git worktree command to checkout master -\u003e /public and sources to the root / of my caffeineflo.github.io directory.\nHugo will by default generate all your HTML files to /public if you tell it to create your HTML files by issuing hugo. So all we need to do is setup git.\ngit branch sources to create the sources branch where we want to keep our sources git checkout sources to move to the sources branch rm -rf public/ to remove the currently existing public folder git worktree add -B master public origin/master to checkout the master branch to /public git push origin sources Push the current branch rm -rf public/* Note the asterisk. hugo to generate our HTML files in /public cd public git add -A git commit -m \"Deleted sources on master and generated HTML files\" git push origin master The last step should have generated all necessary HTML files and pushed them to our Github Pages repo. Now if you would navigate to your Github Pages instance, you should see your blog back in old glory again.\nNOTE: Please note that I left out a few basic commands in the process like pushing to master to create the Github Pages instance and/or checking the functionality of our Hugo setup. Please check that again when following this tutorial.\n5.) Reroute iFlorian.com to work with my Github Pages repo One last thing is left to do. Setting our DNS records on our custom domain (iflorian.com) to point to our Github pages site.\ndig caffeineflo.github.io to get the IP Address of the server github hosts us on. Change your A DNS record on our domain to point to the address from the step above. Now depending on how you’ve configured your baseurl in your config.toml (btw. you should configure that one …), you could also set the baseurl to your custom domain and map those domains against each other to be accessible from both domains.\n",
-  "wordCount" : "1209",
+  "articleBody": " 📝 Note: This post was published in 2017. While Hugo and GitHub Pages remain relevant, some specific tools and approaches mentioned have evolved. Hugo’s syntax and GitHub Pages features have improved since publication. This is preserved as historical reference.\nWith the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before. Let me explain why I did this and how you can do this as well.\nStarting Position I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.\nHugo seemed to be the perfect solution for that, as the standard Ghost theme casper was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn’t need to be able to run node js on the server.\nAlternatives Alternatives would have been:\nGitHub Pages with the minimal theme Keep Ghost and use buster Get Ghost Pro Yet, GitHub Pages with another theme would have destroyed the design I used to have and to be fair, I really liked the minimalist Ghost Design.\nKeeping Ghost and using buster, would have been the next best solution, in fact, it would have been easier and I would still have been able to host my blog on GitHub Pages or any other webserver as buster bruteforces and creates static HTML files for you. I avoided that option as I felt this wouldn’t be a good approach that would completely satisfy my needs for a easy and stable to use blogging platform.\nAnd Ghost Pro was simply out of the picture. On average I spent about 5€/month on uberspace and another 3-4€/month on all-inkl which make it around 8-9€ total for the Ghost blog I used to run. Ghost Pro though, starts at 19€/month which was too expensive for my needs.\nOutlined Path After weighing all my alternatives I decided to go with Hugo as it comes closest to meet all the requirements I set out, most importantly I could host it on GitHub Pages and still be able to easily modify my theme and write content.\nAll I had to then would be to make the transition like this:\n1.) Setup a barebone Hugo installation\n2.) Add casper for hugo theme\n3.) Add content from my existing Ghost installation\n4.) Setup Github Pages with your Hugo setup 5.) Reroute iFlorian.com to work with my Github Pages repo\nMigrate Ghost to Hugo Let’s go through this step by step:\n1.) Setup a barebone Hugo installation This one is pretty easy. Hugo has a easy to understand Quickstart guide that helps you with your first setup.\nOpen a Terminal cd into your workspace (e.g. Repository for your project) (Install hugo if you haven’t done that yet. brew install hugo if you have homebrew) Create your site hugo new site imnotFlorian.com cd into the newly created directory imnotFlorian.com that hugo created Hugo just created a barebone site for you. If you would run hugo locally to serve the HTML files to you, you wouldn’t see a thing yet. So keep on reading.\n2.) Add casper for hugo theme To give your web presence a nice look, we’re going to add the casper theme to hugo by issuing the following commands:\nChange into the themes directory cd themes/ Add the casper theme as git submodule (so Github Pages won’t complain) git submodule init git submodule add https://github.com/vjeantet/hugo-theme-casper casper 3.) Add content from my existing Ghost installation I thought this one would be the hardest step and require quite some time, but it turns out someone already did the legwork for this one.\nOpen your existing Ghost instance admin panel. Go to Settings -\u003e Labs -\u003e Click on Export. Install ghostToHugo https://github.com/jbarone/ghostToHugo Use ghostToHugo on your exported Ghost backup from the step above. You may want to adjust the dateformat like I had to ghostToHugo --dateformat \"2006-01-02 15:04:05\" export.json 4.) Setup Github Pages with your Hugo setup Before we continue, let’s test our Hugo setup via hugo server. If there are no significant errors, you should be able to see your blog at http://localhost:1313. If everything looks good, we can finalize the current state and deploy it to Github Pages.\nGithub Pages for your personal website serves HTML files or generates those HTML files for you if your project is a jekyll project. In any case, if you want to run Github Pages for your personal website, you would create a repository that’s name follows their scheme: .github.io. In my case, that’s caffeineflo.github.io. The repository can either be public or private, in any case it will be published under the same address. For personal projects, you need to have your HTML files in the master branch, while your hugo specific files can be anywhere else e.g. another branch or another repository.\nMy intended solution has my hugo files in the sources branch and the html files hugo will generate go into the master branch. This solution will become extra elegant when using the git worktree command to checkout master -\u003e /public and sources to the root / of my caffeineflo.github.io directory.\nHugo will by default generate all your HTML files to /public if you tell it to create your HTML files by issuing hugo. So all we need to do is setup git.\ngit branch sources to create the sources branch where we want to keep our sources git checkout sources to move to the sources branch rm -rf public/ to remove the currently existing public folder git worktree add -B master public origin/master to checkout the master branch to /public git push origin sources Push the current branch rm -rf public/* Note the asterisk. hugo to generate our HTML files in /public cd public git add -A git commit -m \"Deleted sources on master and generated HTML files\" git push origin master The last step should have generated all necessary HTML files and pushed them to our Github Pages repo. Now if you would navigate to your Github Pages instance, you should see your blog back in old glory again.\nNOTE: Please note that I left out a few basic commands in the process like pushing to master to create the Github Pages instance and/or checking the functionality of our Hugo setup. Please check that again when following this tutorial.\n5.) Reroute iFlorian.com to work with my Github Pages repo One last thing is left to do. Setting our DNS records on our custom domain (iflorian.com) to point to our Github pages site.\ndig caffeineflo.github.io to get the IP Address of the server github hosts us on. Change your A DNS record on our domain to point to the address from the step above. Now depending on how you’ve configured your baseurl in your config.toml (btw. you should configure that one …), you could also set the baseurl to your custom domain and map those domains against each other to be accessible from both domains.\n",
+  "wordCount" : "1238",
   "inLanguage": "en",
   "datePublished": "2017-06-12T09:54:46-04:00",
   "dateModified": "2017-06-12T09:54:46-04:00",
@@ -221,7 +219,10 @@ Hugo seemed to be the perfect solution for that, as the standard Ghost theme cas
 
 </div>
   </header> 
-  <div class="post-content"><p>With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.<br>
+  <div class="post-content"><blockquote>
+<p><strong>📝 Note</strong>: This post was published in 2017. While Hugo and GitHub Pages remain relevant, some specific tools and approaches mentioned have evolved. Hugo&rsquo;s syntax and GitHub Pages features have improved since publication. This is preserved as historical reference.</p>
+</blockquote>
+<p>With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
 Let me explain why I did this and how you can do this as well.</p>
 <h2 id="starting-position">Starting Position<a hidden class="anchor" aria-hidden="true" href="#starting-position">#</a></h2>
 <p>I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.<br>
@@ -256,11 +257,11 @@ All I had to then would be to make the transition like this:</p>
 <li><code>cd</code> into the newly created directory imnotFlorian.com that hugo created</li>
 </ul>
 <p>Hugo just created a barebone site for you. If you would run hugo locally to serve the HTML files to you, you wouldn&rsquo;t see a thing yet. So keep on reading.</p>
-<h3 id="2-add-caspter-for-hugo-theme">2.) Add caspter for hugo theme<a hidden class="anchor" aria-hidden="true" href="#2-add-caspter-for-hugo-theme">#</a></h3>
+<h3 id="2-add-casper-for-hugo-theme">2.) Add casper for hugo theme<a hidden class="anchor" aria-hidden="true" href="#2-add-casper-for-hugo-theme">#</a></h3>
 <p>To give your web presence a nice look, we&rsquo;re going to add the casper theme to hugo by issuing the following commands:</p>
 <ul>
 <li>Change into the themes directory <code>cd themes/</code></li>
-<li>Add the casper time as git submodule (so Github Pages won&rsquo;t complain) <code>git submodule init</code> <code>git submodule add https://github.com/vjeantet/hugo-theme-casper casper</code></li>
+<li>Add the casper theme as git submodule (so Github Pages won&rsquo;t complain) <code>git submodule init</code> <code>git submodule add https://github.com/vjeantet/hugo-theme-casper casper</code></li>
 </ul>
 <h3 id="3-add-content-from-my-existing-ghost-installation">3.) Add content from my existing Ghost installation<a hidden class="anchor" aria-hidden="true" href="#3-add-content-from-my-existing-ghost-installation">#</a></h3>
 <p>I thought this one would be the hardest step and require quite some time, but it turns out someone already did the legwork for this one.</p>
@@ -270,8 +271,8 @@ All I had to then would be to make the transition like this:</p>
 <li>Use ghostToHugo on your exported Ghost backup from the step above. You may want to adjust the dateformat like I had to <code>ghostToHugo --dateformat &quot;2006-01-02 15:04:05&quot; export.json</code></li>
 </ul>
 <h3 id="4-setup-github-pages-with-your-hugo-setup">4.) Setup Github Pages with your Hugo setup<a hidden class="anchor" aria-hidden="true" href="#4-setup-github-pages-with-your-hugo-setup">#</a></h3>
-<p>Before we keep going, we want to test our Hugo setup via <code>hugo server</code>. If there are no significant errors when issuing that command, you should be able to see your blog when navigating to <code>http://localhost:1313</code>.
-If all is fine, we can keep finalize the current state and move it to Github pages.</p>
+<p>Before we continue, let&rsquo;s test our Hugo setup via <code>hugo server</code>. If there are no significant errors, you should be able to see your blog at <code>http://localhost:1313</code>.
+If everything looks good, we can finalize the current state and deploy it to Github Pages.</p>
 <p>Github Pages for your personal website serves HTML files or generates those HTML files for you if your project is a jekyll project. In any case, if you want to run Github Pages for your personal website, you would create a repository that&rsquo;s name follows their scheme: &lt;github_username&gt;.github.io. In my case, that&rsquo;s caffeineflo.github.io. The repository can either be public or private, in any case it will be published under the same address. For personal projects, you need to have your HTML files in the master branch, while your hugo specific files can be anywhere else e.g. another branch or another repository.</p>
 <p>My intended solution has my hugo files in the sources branch and the html files hugo will generate go into the master branch. This solution will become extra elegant when using the <code>git worktree</code> command to checkout master -&gt; /public and sources to the root <code>/</code> of my caffeineflo.github.io directory.</p>
 <p>Hugo will by default generate all your HTML files to /public if you tell it to create your HTML files by issuing <code>hugo</code>. So all we need to do is setup git.</p>
@@ -325,7 +326,91 @@ If all is fine, we can keep finalize the current state and move it to Github pag
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><script>
+(function() {
+  'use strict';
+
+  
+  const aiContent = document.querySelectorAll('.ai-assisted');
+  if (aiContent.length === 0) return;
+
+  
+  const STORAGE_KEY = 'ai-indicators-visible';
+  const savedState = localStorage.getItem(STORAGE_KEY);
+  const isVisible = savedState === 'true';
+
+  
+  if (isVisible) {
+    document.body.classList.add('ai-indicators-visible');
+  }
+
+  
+  const button = document.createElement('button');
+  button.className = 'ai-toggle-btn';
+  button.setAttribute('aria-label', 'Toggle AI content indicators');
+  button.setAttribute('aria-pressed', isVisible);
+  button.title = isVisible ? 'Hide AI indicators' : 'Show AI indicators';
+  button.innerHTML = isVisible ? '✨ Hide AI' : '✨ Show AI';
+
+  
+  button.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    font-family: inherit;
+  `;
+
+  
+  button.addEventListener('mouseenter', function() {
+    this.style.background = 'rgba(139, 92, 246, 1)';
+    this.style.transform = 'scale(1.05)';
+  });
+
+  button.addEventListener('mouseleave', function() {
+    this.style.background = 'rgba(139, 92, 246, 0.9)';
+    this.style.transform = 'scale(1)';
+  });
+
+  
+  button.addEventListener('click', function() {
+    const newState = !document.body.classList.contains('ai-indicators-visible');
+
+    
+    document.body.classList.toggle('ai-indicators-visible');
+
+    
+    button.setAttribute('aria-pressed', newState);
+    button.title = newState ? 'Hide AI indicators' : 'Show AI indicators';
+    button.innerHTML = newState ? '✨ Hide AI' : '✨ Show AI';
+
+    
+    localStorage.setItem(STORAGE_KEY, newState);
+  });
+
+  
+  document.body.appendChild(button);
+
+  
+  button.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+})();
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')

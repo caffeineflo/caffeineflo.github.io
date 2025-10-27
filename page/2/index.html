@@ -11,7 +11,7 @@
 <meta name="description" content="iOS/IoT/Software Developer">
 <meta name="author" content="Florian Harr">
 <link rel="canonical" href="https://iflorian.com/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7a798bee3c08158f2ab5c87cad44e192b44f1a9f6625a4a82d811696d8a67786.css" integrity="sha256-enmL7jwIFY8qtch8rUThkrRPGp9mJaSoLYEWltimd4Y=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://iflorian.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
@@ -256,8 +256,8 @@ Source: pewpewthespells
     </h2>
   </header>
   <div class="entry-content">
-    <p>Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.
-HockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.
+    <p> ⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI’s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.
+Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-21 18:31:03 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
@@ -270,8 +270,8 @@ HockeyApp HockeyApp is a similar service to TestFlight which offers many options
     </h2>
   </header>
   <div class="entry-content">
-    <p>We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
-App Signing In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.
+    <p> ⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI’s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.
+We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-21 18:28:26 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
@@ -284,8 +284,8 @@ App Signing In the process of creating a valid .ipa package and to deploy our ap
     </h2>
   </header>
   <div class="entry-content">
-    <p>Full disclosure: I wrote this about 1-1.5yrs ago for another company but haven’t updated it yet. There’s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)
-Continuous integration has become an important topic and a significant part of a developer’s workflow. Finding bugs and ensuring a stable codebase are among the most important benefits of using continuous integration. While these benefits are huge on their own, we can extend our continuous integration setup to actually deploy new builds of our application to our testers. We call this extended setup continuous deployment.
+    <p> ⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI’s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.
+Full disclosure: I wrote this about 1-1.5yrs ago for another company but haven’t updated it yet. There’s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2016-10-21 17:28:00 +0000 UTC'>October 21, 2016</span>&nbsp;·&nbsp;<span>Florian Harr</span></footer>
@@ -332,7 +332,91 @@ The talk centered around the language you use when facing customers and what imp
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><script>
+(function() {
+  'use strict';
+
+  
+  const aiContent = document.querySelectorAll('.ai-assisted');
+  if (aiContent.length === 0) return;
+
+  
+  const STORAGE_KEY = 'ai-indicators-visible';
+  const savedState = localStorage.getItem(STORAGE_KEY);
+  const isVisible = savedState === 'true';
+
+  
+  if (isVisible) {
+    document.body.classList.add('ai-indicators-visible');
+  }
+
+  
+  const button = document.createElement('button');
+  button.className = 'ai-toggle-btn';
+  button.setAttribute('aria-label', 'Toggle AI content indicators');
+  button.setAttribute('aria-pressed', isVisible);
+  button.title = isVisible ? 'Hide AI indicators' : 'Show AI indicators';
+  button.innerHTML = isVisible ? '✨ Hide AI' : '✨ Show AI';
+
+  
+  button.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    font-family: inherit;
+  `;
+
+  
+  button.addEventListener('mouseenter', function() {
+    this.style.background = 'rgba(139, 92, 246, 1)';
+    this.style.transform = 'scale(1.05)';
+  });
+
+  button.addEventListener('mouseleave', function() {
+    this.style.background = 'rgba(139, 92, 246, 0.9)';
+    this.style.transform = 'scale(1)';
+  });
+
+  
+  button.addEventListener('click', function() {
+    const newState = !document.body.classList.contains('ai-indicators-visible');
+
+    
+    document.body.classList.toggle('ai-indicators-visible');
+
+    
+    button.setAttribute('aria-pressed', newState);
+    button.title = newState ? 'Hide AI indicators' : 'Show AI indicators';
+    button.innerHTML = newState ? '✨ Hide AI' : '✨ Show AI';
+
+    
+    localStorage.setItem(STORAGE_KEY, newState);
+  });
+
+  
+  document.body.appendChild(button);
+
+  
+  button.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+})();
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')

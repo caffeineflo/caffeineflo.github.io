@@ -10,7 +10,7 @@
 <meta name="description" content="iOS/IoT/Software Developer">
 <meta name="author" content="Florian Harr">
 <link rel="canonical" href="https://iflorian.com/categories/inmotion/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7a798bee3c08158f2ab5c87cad44e192b44f1a9f6625a4a82d811696d8a67786.css" integrity="sha256-enmL7jwIFY8qtch8rUThkrRPGp9mJaSoLYEWltimd4Y=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://iflorian.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
@@ -173,7 +173,91 @@ When riding a electric unicycle, you need an app from time to time to change the
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><script>
+(function() {
+  'use strict';
+
+  
+  const aiContent = document.querySelectorAll('.ai-assisted');
+  if (aiContent.length === 0) return;
+
+  
+  const STORAGE_KEY = 'ai-indicators-visible';
+  const savedState = localStorage.getItem(STORAGE_KEY);
+  const isVisible = savedState === 'true';
+
+  
+  if (isVisible) {
+    document.body.classList.add('ai-indicators-visible');
+  }
+
+  
+  const button = document.createElement('button');
+  button.className = 'ai-toggle-btn';
+  button.setAttribute('aria-label', 'Toggle AI content indicators');
+  button.setAttribute('aria-pressed', isVisible);
+  button.title = isVisible ? 'Hide AI indicators' : 'Show AI indicators';
+  button.innerHTML = isVisible ? '✨ Hide AI' : '✨ Show AI';
+
+  
+  button.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    font-family: inherit;
+  `;
+
+  
+  button.addEventListener('mouseenter', function() {
+    this.style.background = 'rgba(139, 92, 246, 1)';
+    this.style.transform = 'scale(1.05)';
+  });
+
+  button.addEventListener('mouseleave', function() {
+    this.style.background = 'rgba(139, 92, 246, 0.9)';
+    this.style.transform = 'scale(1)';
+  });
+
+  
+  button.addEventListener('click', function() {
+    const newState = !document.body.classList.contains('ai-indicators-visible');
+
+    
+    document.body.classList.toggle('ai-indicators-visible');
+
+    
+    button.setAttribute('aria-pressed', newState);
+    button.title = newState ? 'Hide AI indicators' : 'Show AI indicators';
+    button.innerHTML = newState ? '✨ Hide AI' : '✨ Show AI';
+
+    
+    localStorage.setItem(STORAGE_KEY, newState);
+  });
+
+  
+  document.body.appendChild(button);
+
+  
+  button.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+})();
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')

@@ -5,14 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>The Mirari Botnet And The Internet Outage On October 21st 2016 | [self writeBlog];</title>
+<title>The Mirai Botnet And The Internet Outage On October 21st 2016 | [self writeBlog];</title>
 <meta name="keywords" content="mirai, botnet, botnet-size, numbers">
 <meta name="description" content="In preparation for my upcoming conference talk &ldquo;The Internet of Things and iOS: Don’t let your toaster bring down the internet!&rdquo; I have been doing a lot of research on the Mirai botnet.
 The Mirai (Japanese for &ldquo;The Future&rdquo;) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.
 In this attack, some IoT devices were used to block their servers, bringing down popular sites such as">
 <meta name="author" content="Florian Harr">
 <link rel="canonical" href="https://iflorian.com/mirai-botnet-october21-botnet-size/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7a798bee3c08158f2ab5c87cad44e192b44f1a9f6625a4a82d811696d8a67786.css" integrity="sha256-enmL7jwIFY8qtch8rUThkrRPGp9mJaSoLYEWltimd4Y=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://iflorian.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
@@ -64,7 +64,7 @@ In this attack, some IoT devices were used to block their servers, bringing down
 </script>
 <meta property="og:url" content="https://iflorian.com/mirai-botnet-october21-botnet-size/">
   <meta property="og:site_name" content="[self writeBlog];">
-  <meta property="og:title" content="The Mirari Botnet And The Internet Outage On October 21st 2016">
+  <meta property="og:title" content="The Mirai Botnet And The Internet Outage On October 21st 2016">
   <meta property="og:description" content="In preparation for my upcoming conference talk “The Internet of Things and iOS: Don’t let your toaster bring down the internet!” I have been doing a lot of research on the Mirai botnet.
 The Mirai (Japanese for “The Future”) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.
 In this attack, some IoT devices were used to block their servers, bringing down popular sites such as">
@@ -78,7 +78,7 @@ In this attack, some IoT devices were used to block their servers, bringing down
     <meta property="article:tag" content="Botnet-Size">
     <meta property="article:tag" content="Numbers">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Mirari Botnet And The Internet Outage On October 21st 2016">
+<meta name="twitter:title" content="The Mirai Botnet And The Internet Outage On October 21st 2016">
 <meta name="twitter:description" content="In preparation for my upcoming conference talk &ldquo;The Internet of Things and iOS: Don’t let your toaster bring down the internet!&rdquo; I have been doing a lot of research on the Mirai botnet.
 The Mirai (Japanese for &ldquo;The Future&rdquo;) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.
 In this attack, some IoT devices were used to block their servers, bringing down popular sites such as">
@@ -98,7 +98,7 @@ In this attack, some IoT devices were used to block their servers, bringing down
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "The Mirari Botnet And The Internet Outage On October 21st 2016",
+      "name": "The Mirai Botnet And The Internet Outage On October 21st 2016",
       "item": "https://iflorian.com/mirai-botnet-october21-botnet-size/"
     }
   ]
@@ -108,14 +108,14 @@ In this attack, some IoT devices were used to block their servers, bringing down
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "The Mirari Botnet And The Internet Outage On October 21st 2016",
-  "name": "The Mirari Botnet And The Internet Outage On October 21st 2016",
+  "headline": "The Mirai Botnet And The Internet Outage On October 21st 2016",
+  "name": "The Mirai Botnet And The Internet Outage On October 21st 2016",
   "description": "In preparation for my upcoming conference talk \u0026ldquo;The Internet of Things and iOS: Don’t let your toaster bring down the internet!\u0026rdquo; I have been doing a lot of research on the Mirai botnet.\nThe Mirai (Japanese for \u0026ldquo;The Future\u0026rdquo;) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.\nIn this attack, some IoT devices were used to block their servers, bringing down popular sites such as\n",
   "keywords": [
     "mirai", "botnet", "botnet-size", "numbers"
   ],
-  "articleBody": "In preparation for my upcoming conference talk “The Internet of Things and iOS: Don’t let your toaster bring down the internet!” I have been doing a lot of research on the Mirai botnet.\nThe Mirai (Japanese for “The Future”) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.\nIn this attack, some IoT devices were used to block their servers, bringing down popular sites such as\nReddit Github Twitter Spotify Yelp and others … for most of the US east coast (affected area dependent on routing and Dyn’s distribution).\nWhen doing my research though, I was blown away by two things, one of which I want to talk about in this post:\nThe sheer simplicity of the attack-vector Mirai used to attack and gain its victims The shitty reporting some major tech (news) outlets put out on the web You can guess about which part we are talking first! That’s right; we’re talking about the sh**** reporting first. But before we go on, under normal circumstances I would avoid using words like shit, but bear with me; you want to use that word as well eventually.\nFor my research, I used Google and DuckDuckGo to find reporting and info on my topic. To start off, I was searching for:\n“Internet Outage October 21, 2016.” “Mirai Attack October 2016.” “Mirai Botnet.” The first query got me a lot of non-technical news that were covering the events of October 21st, 2016 regarding the DDoS attack we’re talking about. Some of the top results were CNN, USAToday, and Wikipedia.\nWhile I expect those sites to be at least half decent (except Wikipedia), I don’t expect them to be too much to detail … and so I skipped that query.\nThe second query though had to deliver better results. I was giving the child a name - Mirai - and I was not disappointed. Sites like Wired, Gizmodo and Techcrunch came up and so did another source KrebsOnSecurity.\nAs expected, the third query returned almost the same results as the second.\nThere I was, reading through a dozen articles reporting on the subject. I skipped the one’s I knew would tell me the apocalypse is coming and it’s coming from Russia (with love), like Huffington Post but I kept reading everything else.\nWhile Wired and Gizmodo did nothing else than awfully citing Dyn’s Tweets and putting up an updated ticker, “The Verge” concentrated on copying Wired’s stupid GIF that I won’t spare you:\nSource: Gizmodo\n(If you wonder why I think it’s senseless, that’s because there’s no movement, why would you post a low-quality GIF then? Second, on that scale, it could be whatever state)\nIn fact, all the sites mentioned (except KrebsOnSecurity) shared almost the same story using almost the sa words:\nIt was a DDoS attack DNS works like a phonebook (…) IoT Security is flawed But interestingly I also found this:\nYes, that’s 50 Million devices claimed by The Verge, Gizmodo and TechCrunch and approx. 1% of that claimed by BeyondTrust and less than that by KrebsOnSecurity.\nNow let’s go back for a second, Gizmodo and TheVerge collaborate and cite each others mentioning “Tens of Millions of IP Addresses” attacked Dyn that day. I chose 50 Million as a middle ground for that vague statement, forgive me.\nTechCrunch chose the same citing from Dyn without fact checking it, which is just as bad.\nBeyondTrust posted on October 24th that Mirai has 550 000 active nodes “according to Dale Drew, the CISO of Level 3 Communication”.\nAnd KrebsOnSecurity suggests that Mirai has between 300 000 and 380 000 active nodes. Taking numbers from a HackerForums post from the person that posted Mirai’s source code after the attack.\nErrataSecurity does its calculations with about 2.5M, but as they mention their numbers are not backed, so I would exclude them from this comparison of ridiculousness.\nHmm, so I’ve asked myself whom I would trust in this discussion?\nThe news outlets that blindly quote Dyn who has to protect itself at their weakest point or some hacker that posted the actual source code used in said attack? Or do I even believe the Level 3 person that might have had some insight into the traffic generated over time?!\nPersonally, I don’t know and it is extremely hard to say what the actual numbers are if no one took responsibility and gave a number, but blindly citing people and claiming numbers without putting any doubt at it seems to lead to more confusion than anything else.\nSo what would I expect to happen?\nWell, I would wish that when you post a story about a major incident, you post more facts than spreading rumors. “Tens of Millions” seems unlikely in the face of the facts that surfaced the same day about Mirai. So why not mention that? If you don’t understand the technology, just link to another site that’s reputable instead of wrongfully explaining something. That’s it from me on the news coverage about the Mirai Botnet used in the Dyn attacks last October.\nBefore I stop writing, I want to mention one other site reporting on the issue: Incapsula\nIt’s funny to see how they claim to have uncovered that the Mirai Botnet consisted of 49 657 devices and even gave a distribution by country chart. Although even better is their “Mirai Scanner” tool that tells you if you’re infected with Mirai.\nI have no words for how they display if you are infected: I guess, that is what happens when you force your employees to write blog posts … at lest they put the “BETA” tag there.\n",
-  "wordCount" : "941",
+  "articleBody": "In preparation for my upcoming conference talk “The Internet of Things and iOS: Don’t let your toaster bring down the internet!” I have been doing a lot of research on the Mirai botnet.\nThe Mirai (Japanese for “The Future”) botnet was used in a DDoS attack against the DNS service provider Dyn on October 21st, 2016.\nIn this attack, some IoT devices were used to block their servers, bringing down popular sites such as\nReddit Github Twitter Spotify Yelp and others … for most of the US east coast (affected area dependent on routing and Dyn’s distribution).\nWhen doing my research though, I was blown away by two things, one of which I want to talk about in this post:\nThe sheer simplicity of the attack-vector Mirai used to attack and gain its victims The poor quality reporting some major tech (news) outlets put out on the web You can guess about which part we’re talking about first! That’s right; we’re discussing the poor quality reporting first. To be frank, under normal circumstances I would avoid using strong language, but the journalistic standards in this coverage were remarkably lacking.\nFor my research, I used Google and DuckDuckGo to find reporting and info on my topic. To start off, I was searching for:\n“Internet Outage October 21, 2016.” “Mirai Attack October 2016.” “Mirai Botnet.” The first query got me a lot of non-technical news that were covering the events of October 21st, 2016 regarding the DDoS attack we’re talking about. Some of the top results were CNN, USAToday, and Wikipedia.\nWhile I expect those sites to be at least half decent (except Wikipedia), I don’t expect them to be too much to detail … and so I skipped that query.\nThe second query though had to deliver better results. I was giving the child a name - Mirai - and I was not disappointed. Sites like Wired, Gizmodo and Techcrunch came up and so did another source KrebsOnSecurity.\nAs expected, the third query returned almost the same results as the second.\nThere I was, reading through a dozen articles reporting on the subject. I skipped the one’s I knew would tell me the apocalypse is coming and it’s coming from Russia (with love), like Huffington Post but I kept reading everything else.\nWhile Wired and Gizmodo did nothing else than awfully citing Dyn’s Tweets and putting up an updated ticker, “The Verge” concentrated on copying Wired’s stupid GIF that I won’t spare you:\nSource: Gizmodo\n(If you wonder why I think it’s senseless, that’s because there’s no movement, why would you post a low-quality GIF then? Second, on that scale, it could be whatever state)\nIn fact, all the sites mentioned (except KrebsOnSecurity) shared almost the same story using nearly identical language:\nIt was a DDoS attack DNS works like a phonebook (…) IoT Security is flawed But interestingly I also found this:\nYes, that’s 50 Million devices claimed by The Verge, Gizmodo and TechCrunch and approx. 1% of that claimed by BeyondTrust and less than that by KrebsOnSecurity.\nNow let’s go back for a second, Gizmodo and TheVerge collaborate and cite each others mentioning “Tens of Millions of IP Addresses” attacked Dyn that day. I chose 50 Million as a middle ground for that vague statement, forgive me.\nTechCrunch chose the same citing from Dyn without fact checking it, which is just as bad.\nBeyondTrust posted on October 24th that Mirai has 550 000 active nodes “according to Dale Drew, the CISO of Level 3 Communication”.\nAnd KrebsOnSecurity suggests that Mirai has between 300 000 and 380 000 active nodes. Taking numbers from a HackerForums post from the person that posted Mirai’s source code after the attack.\nErrataSecurity does its calculations with about 2.5M, but as they mention their numbers are not backed, so I would exclude them from this comparison of ridiculousness.\nHmm, so I’ve asked myself whom I would trust in this discussion?\nThe news outlets that blindly quote Dyn who has to protect itself at their weakest point or some hacker that posted the actual source code used in said attack? Or do I even believe the Level 3 person that might have had some insight into the traffic generated over time?!\nPersonally, I don’t know and it is extremely hard to say what the actual numbers are if no one took responsibility and gave a number, but blindly citing people and claiming numbers without putting any doubt at it seems to lead to more confusion than anything else.\nSo what would I expect to happen?\nWell, I would wish that when you post a story about a major incident, you post more facts than spreading rumors. “Tens of Millions” seems unlikely in the face of the facts that surfaced the same day about Mirai. So why not mention that? If you don’t understand the technology, just link to another site that’s reputable instead of wrongfully explaining something. That’s it from me on the news coverage about the Mirai Botnet used in the Dyn attacks last October.\nBefore I stop writing, I want to mention one other site reporting on the issue: Incapsula\nIt’s funny to see how they claim to have uncovered that the Mirai Botnet consisted of 49 657 devices and even gave a distribution by country chart. Although even better is their “Mirai Scanner” tool that tells you if you’re infected with Mirai.\nI have no words for how they display if you are infected: I suppose that’s what happens when you force your employees to write blog posts—at least they put the “BETA” tag there.\n",
+  "wordCount" : "932",
   "inLanguage": "en",
   "datePublished": "2017-08-06T19:33:42-04:00",
   "dateModified": "2017-08-06T19:33:42-04:00",
@@ -208,7 +208,7 @@ In this attack, some IoT devices were used to block their servers, bringing down
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      The Mirari Botnet And The Internet Outage On October 21st 2016
+      The Mirai Botnet And The Internet Outage On October 21st 2016
     </h1>
     <div class="post-meta"><span title='2017-08-06 19:33:42 -0400 -0400'>August 6, 2017</span>&nbsp;·&nbsp;<span>Florian Harr</span>
 
@@ -229,9 +229,9 @@ In this attack, some IoT devices were used to block their servers, bringing down
 <p>When doing my research though, I was blown away by two things, one of which I want to talk about in this post:</p>
 <ul>
 <li>The sheer simplicity of the attack-vector Mirai used to attack and gain its victims</li>
-<li>The <strong>shitty</strong> reporting some major tech (news) outlets put out on the web</li>
+<li>The <strong>poor quality</strong> reporting some major tech (news) outlets put out on the web</li>
 </ul>
-<p>You can guess about which part we are talking first! That&rsquo;s right; we&rsquo;re talking about the sh**** reporting first. But before we go on, under normal circumstances I would avoid using words like shit, but bear with me; you want to use that word as well eventually.</p>
+<p>You can guess about which part we&rsquo;re talking about first! That&rsquo;s right; we&rsquo;re discussing the poor quality reporting first. To be frank, under normal circumstances I would avoid using strong language, but the journalistic standards in this coverage were remarkably lacking.</p>
 <p>For my research, I used Google and DuckDuckGo to find reporting and info on my topic. To start off, I was searching for:</p>
 <ul>
 <li>&ldquo;Internet Outage October 21, 2016.&rdquo;</li>
@@ -247,7 +247,7 @@ While I expect those sites to be at least half decent (except Wikipedia), I don&
 <p><img alt="Senseless Outage Map" loading="lazy" src="https://i.kinja-img.com/gawker-media/image/upload/s--WcIznVHc--/c_scale,fl_progressive,q_80,w_800/mwd1d2oydvmuyhdx4ugo.gif">
 <em>Source: Gizmodo</em></p>
 <p>(If you wonder why I think it&rsquo;s senseless, that&rsquo;s because there&rsquo;s no movement, why would you post a low-quality GIF then? Second, on that scale, it could be whatever state)</p>
-<p>In fact, all the sites mentioned (except KrebsOnSecurity) shared  almost the same story using almost the sa words:</p>
+<p>In fact, all the sites mentioned (except KrebsOnSecurity) shared almost the same story using nearly identical language:</p>
 <ul>
 <li>It was a DDoS attack</li>
 <li>DNS works like a phonebook (&hellip;)</li>
@@ -275,7 +275,7 @@ The news outlets that blindly quote Dyn who has to protect itself at their weake
 <a href="https://www.incapsula.com/blog/malware-analysis-mirai-ddos-botnet.html">Incapsula</a><br>
 It&rsquo;s funny to see how they claim to have uncovered that the Mirai Botnet consisted of 49 657 devices and even gave a distribution by country chart. Although even better is their &ldquo;Mirai Scanner&rdquo; tool that tells you if you&rsquo;re infected with Mirai.</p>
 <p>I have no words for how they display if you are infected: <img alt="Mirai Scanner Fail" loading="lazy" src="../images/2017/08/MiraiScannerFail.png"></p>
-<p>I guess, that is what happens when you force your employees to write blog posts &hellip; at lest they put the &ldquo;BETA&rdquo; tag there.</p>
+<p>I suppose that&rsquo;s what happens when you force your employees to write blog posts—at least they put the &ldquo;BETA&rdquo; tag there.</p>
 
 
   </div>
@@ -304,7 +304,91 @@ It&rsquo;s funny to see how they claim to have uncovered that the Mirai Botnet c
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><script>
+(function() {
+  'use strict';
+
+  
+  const aiContent = document.querySelectorAll('.ai-assisted');
+  if (aiContent.length === 0) return;
+
+  
+  const STORAGE_KEY = 'ai-indicators-visible';
+  const savedState = localStorage.getItem(STORAGE_KEY);
+  const isVisible = savedState === 'true';
+
+  
+  if (isVisible) {
+    document.body.classList.add('ai-indicators-visible');
+  }
+
+  
+  const button = document.createElement('button');
+  button.className = 'ai-toggle-btn';
+  button.setAttribute('aria-label', 'Toggle AI content indicators');
+  button.setAttribute('aria-pressed', isVisible);
+  button.title = isVisible ? 'Hide AI indicators' : 'Show AI indicators';
+  button.innerHTML = isVisible ? '✨ Hide AI' : '✨ Show AI';
+
+  
+  button.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    font-family: inherit;
+  `;
+
+  
+  button.addEventListener('mouseenter', function() {
+    this.style.background = 'rgba(139, 92, 246, 1)';
+    this.style.transform = 'scale(1.05)';
+  });
+
+  button.addEventListener('mouseleave', function() {
+    this.style.background = 'rgba(139, 92, 246, 0.9)';
+    this.style.transform = 'scale(1)';
+  });
+
+  
+  button.addEventListener('click', function() {
+    const newState = !document.body.classList.contains('ai-indicators-visible');
+
+    
+    document.body.classList.toggle('ai-indicators-visible');
+
+    
+    button.setAttribute('aria-pressed', newState);
+    button.title = newState ? 'Hide AI indicators' : 'Show AI indicators';
+    button.innerHTML = newState ? '✨ Hide AI' : '✨ Show AI';
+
+    
+    localStorage.setItem(STORAGE_KEY, newState);
+  });
+
+  
+  document.body.appendChild(button);
+
+  
+  button.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+})();
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')

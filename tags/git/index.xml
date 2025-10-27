@@ -14,7 +14,10 @@
       <link>https://iflorian.com/setup-git-remote-publishing/</link>
       <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
       <guid>https://iflorian.com/setup-git-remote-publishing/</guid>
-      <description>&lt;p&gt;I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;📝 Note&lt;/strong&gt;: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.&lt;/p&gt;
 &lt;p&gt;One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.&lt;/p&gt;</description>
     </item>
   </channel>

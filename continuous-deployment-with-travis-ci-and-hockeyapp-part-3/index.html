@@ -7,13 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>Continuous Deployment with Travis CI and HockeyApp, Part 3 | [self writeBlog];</title>
 <meta name="keywords" content="">
-<meta name="description" content="Deployment
-With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.
-HockeyApp
-HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.">
+<meta name="description" content="
+⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI&rsquo;s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.
+
+Deployment
+With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.">
 <meta name="author" content="Florian Harr">
 <link rel="canonical" href="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7a798bee3c08158f2ab5c87cad44e192b44f1a9f6625a4a82d811696d8a67786.css" integrity="sha256-enmL7jwIFY8qtch8rUThkrRPGp9mJaSoLYEWltimd4Y=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://iflorian.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
@@ -66,8 +67,8 @@ HockeyApp is a similar service to TestFlight which offers many options to distri
 <meta property="og:url" content="https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/">
   <meta property="og:site_name" content="[self writeBlog];">
   <meta property="og:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 3">
-  <meta property="og:description" content="Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.
-HockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.">
+  <meta property="og:description" content=" ⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI’s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.
+Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -75,10 +76,11 @@ HockeyApp HockeyApp is a similar service to TestFlight which offers many options
     <meta property="article:modified_time" content="2016-10-21T18:31:03+00:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Continuous Deployment with Travis CI and HockeyApp, Part 3">
-<meta name="twitter:description" content="Deployment
-With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.
-HockeyApp
-HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.">
+<meta name="twitter:description" content="
+⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI&rsquo;s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.
+
+Deployment
+With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.">
 
 
 <script type="application/ld+json">
@@ -107,12 +109,12 @@ HockeyApp is a similar service to TestFlight which offers many options to distri
   "@type": "BlogPosting",
   "headline": "Continuous Deployment with Travis CI and HockeyApp, Part 3",
   "name": "Continuous Deployment with Travis CI and HockeyApp, Part 3",
-  "description": "Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay \u0026ldquo;simple\u0026rdquo; and upload our App to HockeyApp via curl.\nHockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.\n",
+  "description": " ⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI\u0026rsquo;s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.\nDeployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay \u0026ldquo;simple\u0026rdquo; and upload our App to HockeyApp via curl.\n",
   "keywords": [
     
   ],
-  "articleBody": "Deployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.\nHockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.\nTo use HockeyApp, we have to add HOCKEY_APP_ID and HOCKEY_APP_TOKEN to Travis’s global env variables. You can find Hockey’s App ID on your overview page and you can create your Hockey App Token on your settings page. You should add both variables through the travis gem again, to have those encrypted.\nflorian$: travis encrypt \"HOCKEY_APP_ID=APP_ID\" florian$: travis encrypt \"HOCKEY_APP_TOKEN=APP_TOKEN\" Add the encrypted variables to your .travis.yml, we need them in our curl command to upload our IPAs to HockeyApp.\nThe next step and final step is to add one last bash script ipa-upload.sh. Create a bash script next to your other Travis Scripts with the following content:\n# file: $SCRIPT_FOLDER/ipa-upload.sh #!/bin/sh if [[ \"$TRAVIS_PULL_REQUEST\" != \"false\" ]]; then echo \"This is a pull request. No deployment will be done.\" exit 0 fi if [[ \"$TRAVIS_BRANCH\" != \"master\" ]]; then echo \"Testing on a branch other than master. No deployment will be done.\" exit 0 fi OUTPUTDIR=\"$PWD/build/TravisCI-Release-iphoneos\" RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'` RELEASE_NOTES=\"Build: $TRAVIS_BUILD_NUMBER Uploaded: $RELEASE_DATE\" if [ ! -z \"$HOCKEY_APP_ID\" ] \u0026\u0026 [ ! -z \"$HOCKEY_APP_TOKEN\" ]; then if [ \"$TRAVIS_TAG\" == \"\" ] \u0026\u0026 [ \"$TRAVIS_BRANCH\" == \"master\" ]; then echo \"\" echo \"***************************\" echo \"* Uploading to Hockeyapp *\" echo \"***************************\" curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \\ -F status=\"2\" \\ -F notify=\"0\" \\ -F notes=\"$RELEASE_NOTES\" \\ -F notes_type=\"0\" \\ -F tags=\"beta\" \\ -F ipa=\"@$OUTPUTDIR/$APP_NAME.ipa\" \\ -F dsym=\"@$OUTPUTDIR/$APP_NAME.app.dSYM.zip\" \\ -H \"X-HockeyAppToken: $HOCKEY_APP_TOKEN\" fi if [[ \"$TRAVIS_TAG\" == \"production\" ]]; then echo \"\" echo \"***************************\" echo \"* Uploading to Hockeyapp *\" echo \"***************************\" curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \\ -F status=\"2\" \\ -F notify=\"0\" \\ -F notes=\"$RELEASE_NOTES\" \\ -F notes_type=\"0\" \\ -F tags=\"production\" \\ -F ipa=\"@$OUTPUTDIR/$APP_NAME.ipa\" \\ -F dsym=\"@$OUTPUTDIR/$APP_NAME.app.dSYM.zip\" \\ -H \"X-HockeyAppToken: $HOCKEY_APP_TOKEN\" fi fi Put it in place in the ‘after_success:’ build phase after your ‘ipa-signing.sh’ script.\nBe sure to check out the IF conditions within the ipa-signing.sh script. They are currently setup to tag releases in HockeyApp differently according to their git tag. The idea behind this is simply to have two different groups of users in HockeyApp. One group for beta users and one group for production users, just add tags to your users on HockeyApp so they get access to the corresponding releases. ‘Beta’ and ‘Production’ for your super users which should get access to both release types and ‘Production’ only for those who should be able to get the production release. Now all you need to do is to submit your give a specific commit the ‘production’ tag to make it a production release on HockeyApp.\nTroubleshooting At this point of our tutorial it’s quite likely that you ran into at least one problem as you don’t have an interactive shell to test your commands. When writing this tutorial this happened to me quite often so my GIT History ended up being a mess especially as you can’t always use pull requests to test your changes.\nA great option to test changes would be a Virtual Machine which holds the same environment as the one Travis CI does, unfortunately that’s not an option as Travis doesn’t provide their configuration in a format such as a Vagrant script. So the only remaining possible option to test your scrips are actually local tests in your local terminal.\nIf that doesn’t help, it’s always an option to use ’echo’ and ‘set -x’ to print your variables to your Travis CI build log.\nIt’s quite unfortunate that there’s no other option, but that’s probably an action from Travis’s side to protect their property. If you ever happen to run into serious problems or something you can’t reproduce, the Travis Support is normally reacting on a pretty fast basis trying to help where they can. They’re also more than happy to provide you with a debug VM on their servers for tough problems if you’re a paying customer.\nA step further With all these options and great tweaks outlined, there’s still plenty of room for other extensions. Travis CI offers a bunch of custom which I encourage you to test them. One of my favorite extensions are actually Travis’s notification options. You can easily integrate your favorite chat clients to announce a new version on channels such as IRC, Campfire or Slack. Or another option to extend your scripts are custom webhooks which are supported by Travis to even go a step further than a simple notification.\nIn addition to those extensions on Travis’s side, there are similar projects such as coverall.io which measures your test coverage history and statistics through their integration with your CI server. These are all ways that help to manage your code and to give you a better insight.\nSummary Automated building, testing and deployment more popular every day and is a great way for many developers to ensure their software still builds against different systems. Many open source projects started to adopt that years ago and you might already have seen buttons such as the well known build: success button.\nTravis CI makes standard setups a lot easier than other products such as Jenkins where the work of maintaining a server is added on top of your configuration. Therefore I encourage you to try Travis CI as it’s free for public repositories without having to maintain your own copy of XCode on your private server.\nI have setup a special repository here which holds all the code covered in this tutorial, check the releases tab to find different versions of what we covered here. It’s setup to work with subfolder and both options on where to store your certificates. Just set the bash variables at the begging of the .travis.yml file according to your structure and check filenames to match your certificates and you should be up and running in no time!\nGo ahead and start using Continuous Integration! It’s a fun ride and a good workflow to work with.\n![Successful Build]({{ site.baseurl }}/img/blog/2014/12/Successul_build-TravisCI.png)\n",
-  "wordCount" : "1084",
+  "articleBody": " ⚠️ Archived Content: This post was published in 2016 and is now considered historical documentation. Many tools and services mentioned (xctool, HockeyApp, Travis CI’s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.\nDeployment With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay “simple” and upload our App to HockeyApp via curl.\nHockeyApp HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.\nTo use HockeyApp, we have to add HOCKEY_APP_ID and HOCKEY_APP_TOKEN to Travis’s global env variables. You can find Hockey’s App ID on your overview page and you can create your Hockey App Token on your settings page. You should add both variables through the travis gem again, to have those encrypted.\nflorian$: travis encrypt \"HOCKEY_APP_ID=APP_ID\" florian$: travis encrypt \"HOCKEY_APP_TOKEN=APP_TOKEN\" Add the encrypted variables to your .travis.yml, we need them in our curl command to upload our IPAs to HockeyApp.\nThe next step and final step is to add one last bash script ipa-upload.sh. Create a bash script next to your other Travis Scripts with the following content:\n# file: $SCRIPT_FOLDER/ipa-upload.sh #!/bin/sh if [[ \"$TRAVIS_PULL_REQUEST\" != \"false\" ]]; then echo \"This is a pull request. No deployment will be done.\" exit 0 fi if [[ \"$TRAVIS_BRANCH\" != \"master\" ]]; then echo \"Testing on a branch other than master. No deployment will be done.\" exit 0 fi OUTPUTDIR=\"$PWD/build/TravisCI-Release-iphoneos\" RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'` RELEASE_NOTES=\"Build: $TRAVIS_BUILD_NUMBER Uploaded: $RELEASE_DATE\" if [ ! -z \"$HOCKEY_APP_ID\" ] \u0026\u0026 [ ! -z \"$HOCKEY_APP_TOKEN\" ]; then if [ \"$TRAVIS_TAG\" == \"\" ] \u0026\u0026 [ \"$TRAVIS_BRANCH\" == \"master\" ]; then echo \"\" echo \"***************************\" echo \"* Uploading to Hockeyapp *\" echo \"***************************\" curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \\ -F status=\"2\" \\ -F notify=\"0\" \\ -F notes=\"$RELEASE_NOTES\" \\ -F notes_type=\"0\" \\ -F tags=\"beta\" \\ -F ipa=\"@$OUTPUTDIR/$APP_NAME.ipa\" \\ -F dsym=\"@$OUTPUTDIR/$APP_NAME.app.dSYM.zip\" \\ -H \"X-HockeyAppToken: $HOCKEY_APP_TOKEN\" fi if [[ \"$TRAVIS_TAG\" == \"production\" ]]; then echo \"\" echo \"***************************\" echo \"* Uploading to Hockeyapp *\" echo \"***************************\" curl https://rink.hockeyapp.net/api/2/apps/$HOCKEY_APP_ID/app_versions \\ -F status=\"2\" \\ -F notify=\"0\" \\ -F notes=\"$RELEASE_NOTES\" \\ -F notes_type=\"0\" \\ -F tags=\"production\" \\ -F ipa=\"@$OUTPUTDIR/$APP_NAME.ipa\" \\ -F dsym=\"@$OUTPUTDIR/$APP_NAME.app.dSYM.zip\" \\ -H \"X-HockeyAppToken: $HOCKEY_APP_TOKEN\" fi fi Put it in place in the ‘after_success:’ build phase after your ‘ipa-signing.sh’ script.\nBe sure to check out the IF conditions within the ipa-signing.sh script. They are currently setup to tag releases in HockeyApp differently according to their git tag. The idea behind this is simply to have two different groups of users in HockeyApp. One group for beta users and one group for production users, just add tags to your users on HockeyApp so they get access to the corresponding releases. ‘Beta’ and ‘Production’ for your super users which should get access to both release types and ‘Production’ only for those who should be able to get the production release. Now all you need to do is to submit your give a specific commit the ‘production’ tag to make it a production release on HockeyApp.\nTroubleshooting At this point of our tutorial it’s quite likely that you ran into at least one problem as you don’t have an interactive shell to test your commands. When writing this tutorial this happened to me quite often so my GIT History ended up being a mess especially as you can’t always use pull requests to test your changes.\nA great option to test changes would be a Virtual Machine which holds the same environment as the one Travis CI does, unfortunately that’s not an option as Travis doesn’t provide their configuration in a format such as a Vagrant script. So the only remaining possible option to test your scrips are actually local tests in your local terminal.\nIf that doesn’t help, it’s always an option to use ’echo’ and ‘set -x’ to print your variables to your Travis CI build log.\nIt’s quite unfortunate that there’s no other option, but that’s probably an action from Travis’s side to protect their property. If you ever happen to run into serious problems or something you can’t reproduce, the Travis Support is normally reacting on a pretty fast basis trying to help where they can. They’re also more than happy to provide you with a debug VM on their servers for tough problems if you’re a paying customer.\nA step further With all these options and great tweaks outlined, there’s still plenty of room for other extensions. Travis CI offers a bunch of custom which I encourage you to test them. One of my favorite extensions are actually Travis’s notification options. You can easily integrate your favorite chat clients to announce a new version on channels such as IRC, Campfire or Slack. Or another option to extend your scripts are custom webhooks which are supported by Travis to even go a step further than a simple notification.\nIn addition to those extensions on Travis’s side, there are similar projects such as coverall.io which measures your test coverage history and statistics through their integration with your CI server. These are all ways that help to manage your code and to give you a better insight.\nSummary Automated building, testing and deployment more popular every day and is a great way for many developers to ensure their software still builds against different systems. Many open source projects started to adopt that years ago and you might already have seen buttons such as the well known build: success button.\nTravis CI makes standard setups a lot easier than other products such as Jenkins where the work of maintaining a server is added on top of your configuration. Therefore I encourage you to try Travis CI as it’s free for public repositories without having to maintain your own copy of XCode on your private server.\nI have setup a special repository here which holds all the code covered in this tutorial, check the releases tab to find different versions of what we covered here. It’s setup to work with subfolder and both options on where to store your certificates. Just set the bash variables at the begging of the .travis.yml file according to your structure and check filenames to match your certificates and you should be up and running in no time!\nGo ahead and start using Continuous Integration! It’s a fun ride and a good workflow to work with.\n![Successful Build]({{ site.baseurl }}/img/blog/2014/12/Successul_build-TravisCI.png)\n",
+  "wordCount" : "1148",
   "inLanguage": "en",
   "datePublished": "2016-10-21T18:31:03Z",
   "dateModified": "2016-10-21T18:31:03Z",
@@ -211,7 +213,10 @@ HockeyApp is a similar service to TestFlight which offers many options to distri
 
 </div>
   </header> 
-  <div class="post-content"><h2 id="deployment">Deployment<a hidden class="anchor" aria-hidden="true" href="#deployment">#</a></h2>
+  <div class="post-content"><blockquote>
+<p><strong>⚠️ Archived Content</strong>: This post was published in 2016 and is now considered <strong>historical documentation</strong>. Many tools and services mentioned (xctool, HockeyApp, Travis CI&rsquo;s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.</p>
+</blockquote>
+<h2 id="deployment">Deployment<a hidden class="anchor" aria-hidden="true" href="#deployment">#</a></h2>
 <p>With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &ldquo;simple&rdquo; and upload our App to HockeyApp via curl.</p>
 <h2 id="hockeyapp">HockeyApp<a hidden class="anchor" aria-hidden="true" href="#hockeyapp">#</a></h2>
 <p>HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.</p>
@@ -316,7 +321,91 @@ Or another option to extend your scripts are custom webhooks which are supported
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><script>
+(function() {
+  'use strict';
+
+  
+  const aiContent = document.querySelectorAll('.ai-assisted');
+  if (aiContent.length === 0) return;
+
+  
+  const STORAGE_KEY = 'ai-indicators-visible';
+  const savedState = localStorage.getItem(STORAGE_KEY);
+  const isVisible = savedState === 'true';
+
+  
+  if (isVisible) {
+    document.body.classList.add('ai-indicators-visible');
+  }
+
+  
+  const button = document.createElement('button');
+  button.className = 'ai-toggle-btn';
+  button.setAttribute('aria-label', 'Toggle AI content indicators');
+  button.setAttribute('aria-pressed', isVisible);
+  button.title = isVisible ? 'Hide AI indicators' : 'Show AI indicators';
+  button.innerHTML = isVisible ? '✨ Hide AI' : '✨ Show AI';
+
+  
+  button.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    font-family: inherit;
+  `;
+
+  
+  button.addEventListener('mouseenter', function() {
+    this.style.background = 'rgba(139, 92, 246, 1)';
+    this.style.transform = 'scale(1.05)';
+  });
+
+  button.addEventListener('mouseleave', function() {
+    this.style.background = 'rgba(139, 92, 246, 0.9)';
+    this.style.transform = 'scale(1)';
+  });
+
+  
+  button.addEventListener('click', function() {
+    const newState = !document.body.classList.contains('ai-indicators-visible');
+
+    
+    document.body.classList.toggle('ai-indicators-visible');
+
+    
+    button.setAttribute('aria-pressed', newState);
+    button.title = newState ? 'Hide AI indicators' : 'Show AI indicators';
+    button.innerHTML = newState ? '✨ Hide AI' : '✨ Show AI';
+
+    
+    localStorage.setItem(STORAGE_KEY, newState);
+  });
+
+  
+  document.body.appendChild(button);
+
+  
+  button.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+})();
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')

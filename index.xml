@@ -10,7 +10,7 @@
     <lastBuildDate>Sun, 06 Aug 2017 19:33:42 -0400</lastBuildDate>
     <atom:link href="https://iflorian.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The Mirari Botnet And The Internet Outage On October 21st 2016</title>
+      <title>The Mirai Botnet And The Internet Outage On October 21st 2016</title>
       <link>https://iflorian.com/mirai-botnet-october21-botnet-size/</link>
       <pubDate>Sun, 06 Aug 2017 19:33:42 -0400</pubDate>
       <guid>https://iflorian.com/mirai-botnet-october21-botnet-size/</guid>
@@ -75,7 +75,10 @@ The contents of our pages have been created with the utmost care. However, we ca
       <link>https://iflorian.com/setup-git-remote-publishing/</link>
       <pubDate>Tue, 13 Jun 2017 20:05:33 -0400</pubDate>
       <guid>https://iflorian.com/setup-git-remote-publishing/</guid>
-      <description>&lt;p&gt;I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;📝 Note&lt;/strong&gt;: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.&lt;/p&gt;
 &lt;p&gt;One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.&lt;/p&gt;</description>
     </item>
     <item>
@@ -83,11 +86,11 @@ The contents of our pages have been created with the utmost care. However, we ca
       <link>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</link>
       <pubDate>Mon, 12 Jun 2017 09:54:46 -0400</pubDate>
       <guid>https://iflorian.com/from-ghost-to-hugo-easier-blog-hosting-with-github-pages/</guid>
-      <description>&lt;p&gt;With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.&lt;br&gt;
-Let me explain why I did this and how you can do this as well.&lt;/p&gt;
-&lt;h2 id=&#34;starting-position&#34;&gt;Starting Position&lt;/h2&gt;
-&lt;p&gt;I started off with a Ghost installation that was hosted on uberspace.de. While uberspace.de is a great hoster and probably the cheapest option to host a Ghost installation, I hated that updates to Ghost itself would be troublesome and that in addition to uberspace.de I had to maintain the domain somewhere and make the whole connection. All I really wanted, was an easy way to publish content and be able to modify styles and enhance theme specific elements.&lt;br&gt;
-Hugo seemed to be the perfect solution for that, as the standard Ghost theme &lt;code&gt;casper&lt;/code&gt; was available and it would create static HTML files, so I could be able to host my site virtually anywhere as I wouldn&amp;rsquo;t need to be able to run node js on the server.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;📝 Note&lt;/strong&gt;: This post was published in 2017. While Hugo and GitHub Pages remain relevant, some specific tools and approaches mentioned have evolved. Hugo&amp;rsquo;s syntax and GitHub Pages features have improved since publication. This is preserved as historical reference.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;With the publication of this post, my transition from Ghost to Hugo will be complete and this blog will be solely run with static HTML files compared to the dynamic Ghost installation I used before.
+Let me explain why I did this and how you can do this as well.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Electric Unicycle</title>
@@ -235,27 +238,31 @@ Source: &lt;a href=&#34;https://pewpewthespells.com/blog/migrating_code_signing.
       <link>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/</link>
       <pubDate>Fri, 21 Oct 2016 18:31:03 +0000</pubDate>
       <guid>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-3/</guid>
-      <description>&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
-&lt;p&gt;With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &amp;ldquo;simple&amp;rdquo; and upload our App to HockeyApp via curl.&lt;/p&gt;
-&lt;h2 id=&#34;hockeyapp&#34;&gt;HockeyApp&lt;/h2&gt;
-&lt;p&gt;HockeyApp is a similar service to TestFlight which offers many options to distribute and test your apps. They offer their own SDK which enables automatic crash reports, analytics and feedback functions in addition to have different user groups for our beta/production builds.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Archived Content&lt;/strong&gt;: This post was published in 2016 and is now considered &lt;strong&gt;historical documentation&lt;/strong&gt;. Many tools and services mentioned (xctool, HockeyApp, Travis CI&amp;rsquo;s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;/h2&gt;
+&lt;p&gt;With all those scripts behind us, we should get a signed IPA in our OUTPUTDIR. From here on, we can use this IPA and distribute it to our testers. A few options are to either upload our IPA with curl to a custom FTP Directory or our XCode Server or some other custom routine. For this example we stay &amp;ldquo;simple&amp;rdquo; and upload our App to HockeyApp via curl.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Continuous Deployment with Travis CI and HockeyApp, Part 2</title>
       <link>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/</link>
       <pubDate>Fri, 21 Oct 2016 18:28:26 +0000</pubDate>
       <guid>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-2/</guid>
-      <description>&lt;p&gt;We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.&lt;/p&gt;
-&lt;h2 id=&#34;app-signing&#34;&gt;App Signing&lt;/h2&gt;
-&lt;p&gt;In the process of creating a valid .ipa package and to deploy our app to a physical device, we need to sign our app with a bunch of certificates and package it. Packaing is the process where the compiled binary, assets and meta files are packaged into an app container (.ipa) to be installed on a device as one. Getting the right certificates and using the right actions to sign your binary and create your ipa is known to be difficult. Here we are going to explain one way that should work for everyone.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Archived Content&lt;/strong&gt;: This post was published in 2016 and is now considered &lt;strong&gt;historical documentation&lt;/strong&gt;. Many tools and services mentioned (xctool, HockeyApp, Travis CI&amp;rsquo;s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We are going to pick up where we left off in part one of this series, with our minimal setup using xctool which built our app on Travis CI.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Continuous Deployment with Travis CI and HockeyApp, Part 1</title>
       <link>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/</link>
       <pubDate>Fri, 21 Oct 2016 17:28:00 +0000</pubDate>
       <guid>https://iflorian.com/continuous-deployment-with-travis-ci-and-hockeyapp-part-1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Full disclosure:&lt;/strong&gt; I wrote this about 1-1.5yrs ago for another company but haven&amp;rsquo;t updated it yet. There&amp;rsquo;s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)&lt;/p&gt;
-&lt;p&gt;Continuous integration has become an important topic and a significant part of a developer’s workflow. Finding bugs and ensuring a stable codebase are among the most important benefits of using continuous integration. While these benefits are huge on their own, we can extend our continuous integration setup to actually deploy new builds of our application to our testers. We call this extended setup continuous deployment.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ Archived Content&lt;/strong&gt;: This post was published in 2016 and is now considered &lt;strong&gt;historical documentation&lt;/strong&gt;. Many tools and services mentioned (xctool, HockeyApp, Travis CI&amp;rsquo;s free tier) are deprecated or no longer available. The workflows described do not reflect current best practices. This is preserved for reference purposes only. For modern CI/CD approaches, consult current documentation for GitHub Actions, GitLab CI, or contemporary CI/CD platforms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Full disclosure:&lt;/strong&gt; I wrote this about 1-1.5yrs ago for another company but haven&amp;rsquo;t updated it yet. There&amp;rsquo;s a good chance some stuff is broken, I apologize for that and promise to fix it within the next days ;)&lt;/p&gt;</description>
     </item>
     <item>
       <title>ReleaseNotes 2016</title>

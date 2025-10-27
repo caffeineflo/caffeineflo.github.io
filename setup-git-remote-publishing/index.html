@@ -7,11 +7,14 @@
 <meta name="robots" content="index, follow">
 <title>Setup Git Push To Securly Update Your Website | [self writeBlog];</title>
 <meta name="keywords" content="Git, push, .git">
-<meta name="description" content="I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
+<meta name="description" content="
+📝 Note: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.
+
+I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
 One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.">
 <meta name="author" content="Florian Harr">
 <link rel="canonical" href="https://iflorian.com/setup-git-remote-publishing/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7a798bee3c08158f2ab5c87cad44e192b44f1a9f6625a4a82d811696d8a67786.css" integrity="sha256-enmL7jwIFY8qtch8rUThkrRPGp9mJaSoLYEWltimd4Y=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://iflorian.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://iflorian.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://iflorian.com/favicon-32x32.png">
@@ -64,7 +67,8 @@ One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pa
 <meta property="og:url" content="https://iflorian.com/setup-git-remote-publishing/">
   <meta property="og:site_name" content="[self writeBlog];">
   <meta property="og:title" content="Setup Git Push To Securly Update Your Website">
-  <meta property="og:description" content="I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
+  <meta property="og:description" content=" 📝 Note: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.
+I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
 One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
@@ -76,7 +80,10 @@ One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pa
     <meta property="article:tag" content=".Git">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup Git Push To Securly Update Your Website">
-<meta name="twitter:description" content="I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
+<meta name="twitter:description" content="
+📝 Note: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.
+
+I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.
 One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.">
 
 
@@ -106,12 +113,12 @@ One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pa
   "@type": "BlogPosting",
   "headline": "Setup Git Push To Securly Update Your Website",
   "name": "Setup Git Push To Securly Update Your Website",
-  "description": "I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.\nOne task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.\n",
+  "description": " 📝 Note: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.\nI have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.\nOne task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.\n",
   "keywords": [
     "Git", "push", ".git"
   ],
-  "articleBody": "I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.\nOne task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.\nAnd so I changed my setup once again. I didn’t fully drop GitHub Pages, but I redirect the GitHub Pages site to https://iflorian.com through their CNAME option under GitHub Pages -\u003e Settings and I serve the same content just from there.\nNow this brings back exactly the problem I just said GitHub Pages would solve, so I have to solve this problem myself.\nThe Easy Path The easiest path I could choose would be to directly push into the publishing folder of my webserver by adding the remote repo as a git remote and push to it. If there wouldn’t be this one problem …\nI recently read this article “Don’t publicly expose .git or how we downloaded your website’s sourcecode - An analysis of Alexa’s 1M” on Internetwache.org that nicely shows an issue that is often overlooked when having your website under version control.\nWhile my website is publicly available on my GitHub account including the git history, you normally wouldn’t want to expose that in case of a normal homepage setup - and after all, if we don’t need to, why would we expose our git data on a website?\nThis is when I found this great writing on this topic: How To Set Up Automatic Deployment with Git with a VPS It has two small minor errors, which is why I want to quickly show how to do the same thing and fix what I just mentioned.\nPushing Website Updates via Git First you want to clone your repo somewhere safe on your server:\ngit clone https://github.com/caffeineflo/repo.git Next, you want to configure git hooks to checkout your HTML files to the directory your webserver is serving:\ncd /path/repo/.git/hooks/ vi post-receive Now you’ve opened the post-receive hook, the script you put in here will be executed post receiving a push:\n#!/bin/sh git --work-tree=/path/www --git-dir=/path/repo/.git checkout -f The path you put in under the –work-tree parameter is your webserver directory and the –git-dir parameter needs to point to the .git directory where you checked out your website.\nPro Tip: You could only do a flat/bare clone when initially cloning the repo as you don’t need your repo in two places.\nMake the script executable:\nchmod +x post-receive You’re free to exit your remote machine now.\nOn the local side of things you only need to add your remote now. Depending on what type of connection you use with your remote end you need to adjust this. In your local repo directory, add the remote:\ngit remote add iflorian.com ssh://iflorian/path/repo If you now push your code from your local end to the newly added remote end:\ngit push iflorian.com master Your remote end will receive the push, run the post-receive hook and update your webserver.\nWhile I admit that this solution needs a bit of setup and is therefore more complex than the initial GitHub Pages approach, I think it’s a great and safe way to remote update your webserver!\nCongrats! You’ve made it!\n",
-  "wordCount" : "564",
+  "articleBody": " 📝 Note: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.\nI have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.\nOne task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.\nAnd so I changed my setup once again. I didn’t fully drop GitHub Pages, but I redirect the GitHub Pages site to https://iflorian.com through their CNAME option under GitHub Pages -\u003e Settings and I serve the same content just from there.\nNow this brings back exactly the problem I just said GitHub Pages would solve, so I have to solve this problem myself.\nThe Easy Path The easiest path I could choose would be to directly push into the publishing folder of my webserver by adding the remote repo as a git remote and push to it. If there wouldn’t be this one problem …\nI recently read this article “Don’t publicly expose .git or how we downloaded your website’s sourcecode - An analysis of Alexa’s 1M” on Internetwache.org that nicely shows an issue that is often overlooked when having your website under version control.\nWhile my website is publicly available on my GitHub account including the git history, you normally wouldn’t want to expose that in case of a normal homepage setup - and after all, if we don’t need to, why would we expose our git data on a website?\nThis is when I found this great writing on this topic: How To Set Up Automatic Deployment with Git with a VPS It has two small minor errors, which is why I want to quickly show how to do the same thing and fix what I just mentioned.\nPushing Website Updates via Git First you want to clone your repo somewhere safe on your server:\ngit clone https://github.com/caffeineflo/repo.git Next, you want to configure git hooks to checkout your HTML files to the directory your webserver is serving:\ncd /path/repo/.git/hooks/ vi post-receive Now you’ve opened the post-receive hook, the script you put in here will be executed post receiving a push:\n#!/bin/sh git --work-tree=/path/www --git-dir=/path/repo/.git checkout -f The path you put in under the –work-tree parameter is your webserver directory and the –git-dir parameter needs to point to the .git directory where you checked out your website.\nPro Tip: You could only do a flat/bare clone when initially cloning the repo as you don’t need your repo in two places.\nMake the script executable:\nchmod +x post-receive You’re free to exit your remote machine now.\nOn the local side of things you only need to add your remote now. Depending on what type of connection you use with your remote end you need to adjust this. In your local repo directory, add the remote:\ngit remote add iflorian.com ssh://iflorian/path/repo If you now push your code from your local end to the newly added remote end:\ngit push iflorian.com master Your remote end will receive the push, run the post-receive hook and update your webserver.\nWhile I admit that this solution needs a bit of setup and is therefore more complex than the initial GitHub Pages approach, I think it’s a great and safe way to remote update your webserver!\nCongrats! You’ve made it!\n",
+  "wordCount" : "610",
   "inLanguage": "en",
   "datePublished": "2017-06-13T20:05:33-04:00",
   "dateModified": "2017-06-13T20:05:33-04:00",
@@ -210,7 +217,10 @@ One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pa
 
 </div>
   </header> 
-  <div class="post-content"><p>I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.</p>
+  <div class="post-content"><blockquote>
+<p><strong>📝 Note</strong>: This post was published in 2017. While the core git concepts remain valid, modern deployment practices often favor SSH keys over passwords, GitHub Actions for automation, or managed deployment platforms. This approach is still functional but represents one of several deployment strategies available today.</p>
+</blockquote>
+<p>I have recently reported about my new website and the workflow I am using. More specifically about Hugo and GitHub pages.</p>
 <p>One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pages does that automatically for you, which is one reason I chose it in first place. Due to the limitations on https with custom domains though, I decided to self host my HTML pages once more.</p>
 <p>And so I changed my setup once again. I didn&rsquo;t fully drop GitHub Pages, but I redirect the GitHub Pages site to <a href="https://iflorian.com">https://iflorian.com</a> through their CNAME option under <code>GitHub Pages -&gt; Settings</code> and I serve the same content just from there.</p>
 <p>Now this brings back exactly the problem I just said GitHub Pages would solve, so I have to solve this problem myself.</p>
@@ -270,7 +280,91 @@ One task GitHub Pages solves perfectly is the need to publish changes. GitHub Pa
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><script>
+(function() {
+  'use strict';
+
+  
+  const aiContent = document.querySelectorAll('.ai-assisted');
+  if (aiContent.length === 0) return;
+
+  
+  const STORAGE_KEY = 'ai-indicators-visible';
+  const savedState = localStorage.getItem(STORAGE_KEY);
+  const isVisible = savedState === 'true';
+
+  
+  if (isVisible) {
+    document.body.classList.add('ai-indicators-visible');
+  }
+
+  
+  const button = document.createElement('button');
+  button.className = 'ai-toggle-btn';
+  button.setAttribute('aria-label', 'Toggle AI content indicators');
+  button.setAttribute('aria-pressed', isVisible);
+  button.title = isVisible ? 'Hide AI indicators' : 'Show AI indicators';
+  button.innerHTML = isVisible ? '✨ Hide AI' : '✨ Show AI';
+
+  
+  button.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    font-family: inherit;
+  `;
+
+  
+  button.addEventListener('mouseenter', function() {
+    this.style.background = 'rgba(139, 92, 246, 1)';
+    this.style.transform = 'scale(1.05)';
+  });
+
+  button.addEventListener('mouseleave', function() {
+    this.style.background = 'rgba(139, 92, 246, 0.9)';
+    this.style.transform = 'scale(1)';
+  });
+
+  
+  button.addEventListener('click', function() {
+    const newState = !document.body.classList.contains('ai-indicators-visible');
+
+    
+    document.body.classList.toggle('ai-indicators-visible');
+
+    
+    button.setAttribute('aria-pressed', newState);
+    button.title = newState ? 'Hide AI indicators' : 'Show AI indicators';
+    button.innerHTML = newState ? '✨ Hide AI' : '✨ Show AI';
+
+    
+    localStorage.setItem(STORAGE_KEY, newState);
+  });
+
+  
+  document.body.appendChild(button);
+
+  
+  button.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+})();
+</script>
+
 
 <script>
     let menu = document.getElementById('menu')
